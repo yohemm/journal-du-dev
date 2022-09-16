@@ -1,0 +1,212 @@
+:root{
+    --primary:rgb(255, 200, 72);
+    --secondary: rgb(202 129 243) ;
+    --light: rgb(244, 244, 244) ;
+    --dark: rgb(22, 22, 22) ;
+}
+@font-face {
+    font-family: "poppins";
+    src: url(./assets/Poppins.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "poppins", sans-serif;
+}
+
+body{
+    overflow: hidden;
+    overflow-y: scroll;
+    background: rgb(227, 227, 227);
+    font-size: 1.2rem;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-around;
+}
+li{
+    list-style-type: none;
+}
+a{
+    color: var(--primary);
+}
+h4 a{
+    font-size: 1.4rem;
+    text-shadow: 0 0 2px black;
+}
+nav ul li{
+    height: 60px;
+    width: 100%;
+    background: rgb(33, 33, 33);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--dark);
+    transition: all 0.2s;
+    color: var(--primary);
+}
+nav{
+    z-index: 2;
+    box-shadow: 0 0 20px ;
+}
+main header  span{
+    color: var(--primary);
+    text-shadow: 0 0 3px black;
+}
+
+nav ul li:hover{
+    background: var(--primary);
+    color: var(--dark);
+}
+nav ul li a{
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    padding-top: 20px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: inherit;
+}
+
+main{
+    margin: 0 20vh;
+    padding: 15px 40px;
+    min-height: 100vh;
+    box-shadow: 0 0 15px 4px;
+    background: whitesmoke;
+}
+
+header{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 10px dashed var(--primary);
+}
+header h2{
+    padding-left: 13vw;
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+    line-height: 140px;
+}
+header h3{
+    padding-left: 5vw;
+    font-size:  1.5rem;
+    letter-spacing: 3px;
+}
+
+h4{
+    font-size: 1.6rem;
+    margin-left: 5vw;
+    letter-spacing: 2px;
+    line-height: 60px;
+}
+h5{
+    font-size: 1.4rem ;
+    line-height: 40px;
+    letter-spacing: 1px;
+}
+
+.presentation-box{
+    margin: 10px;
+    border-top: solid 1px lightgray;
+}
+
+#other-presentation, #content-cards{
+    border-bottom: 4px double rgba(255, 233, 122, 0.6);
+    box-shadow: 0px 6px 8px -5px var(--primary);
+}
+
+footer{
+    background: gray;
+    padding: 30px 4vw;
+    box-shadow: 0px -3px 17px 0px;
+    text-align: center;
+}
+
+.lesson-card{
+    min-width: 300px;
+    width: 300px;
+    height: 200px;
+    margin: 0;
+    transition: 0.3s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+#content-cards{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+.face-card{
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 16px;
+    box-shadow: 8px 5px 15px 0 var(--secondary);
+}
+.lesson-card:hover{
+    transform: rotateY(180deg);
+}
+.front-card h3{
+
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    text-align: center;
+}
+.back-card{
+    transform: rotateY(180deg);
+    background: var(--secondary);
+}
+.back-card h4{
+    margin: 0;
+    padding-left: 2vw;
+    background-image: linear-gradient(to bottom left, var(--secondary) 10%, var(--primary) 115%);
+    /* background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary) 115%); */
+    border-radius: 0 0 75% 0;
+}
+.back-card h4::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary) 115%);
+    border-radius: 0 0 50% 0;
+}
+.back-card p{
+    color: var(--light);
+}
+.front-card{
+    position: relative;
+}
+#structure-front{
+    background: url(./assets/structure_html.webp) center/cover;
+}
+
+#html-front{
+    background: url(./assets/html.PNG);
+    color: var(--light);
+}
+.lesson-content li{
+    list-style-type: space-counter;
+}
+.img-right{
+    display: flex;
+    align-items: flex-start;
+}
+.img-right img{
+    margin: auto 0;
+}
