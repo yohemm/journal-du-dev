@@ -1,177 +1,516 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Le Journale du Dév</title>
-  </head>
-  <body>
-    <nav id="menu-nav"></nav>
-    <main>
-      <header>
-        <h2>Le <span>J</span>ournale du <span>D</span>év</h2>
-        <h3>
-          Fait pour les jeunes programmeur en quetes de nouveaux apprentissage
-        </h3>
-      </header>
-      <div id="content-cards">
-        <div class="lesson-card" id="structure-card">
-          <div class="face-card front-card" id="structure-front">
-            <h3>La sctructure de base d'un site</h3>
-          </div>
-          <div class="face-card back-card">
-            <h4>Les normes du web</h4>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aprendre le html de A à Z. En effet vous pourrez aprendre les formulaires, les tableaux, les menus de navigation, ... . Comme vous pourez suivre un cours sur le structure d'un site et le positionnement des éléments principal ">
+  <link rel="stylesheet" href="./style.css" />
+  <title>Le Journale du Dév</title>
+</head>
+
+<body>
+  <nav id="menu-nav"></nav>
+  <main>
+    <header>
+      <h2>Le <span>J</span>ournale du <span>D</span>év</h2>
+      <h3>
+        Fait pour les jeunes programmeur en quetes de nouveaux apprentissage
+      </h3>
+    </header>
+    <div id="content-cards">
+      <div class="lesson-card" id="structure-card">
+        <div class="face-card front-card" id="structure-front">
+          <h3>La sctructure de base d'un site</h3>
+        </div>
+        <div class="face-card back-card">
+          <h4>Les normes du web</h4>
+          <p>
+            Les conteneur html5 et bonne maniere indispensable à tous site
+            internet
+          </p>
+        </div>
+      </div>
+
+      <div class="lesson-card" id="html-card">
+        <div class="face-card front-card" id="html-front">
+          <h3>Les Base de la création Web</h3>
+        </div>
+        <div class="face-card back-card">
+          <h4>Comprendre l'HTML5</h4>
+          <p>langage balistique et compréhension du web!</p>
+        </div>
+      </div>
+    </div>
+    <div id="lessons">
+      <div id="html-content" class="lesson-content">
+        <div id="index-lesson">
+          <h2>Sommaire:</h2>
+          <ul>
+            <li><a href="#prerequis">Prérequis</a></li>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#files-creation">Création du la première page</a></li>
+            <li><a href="#definiton">Quelque définition</a></li>
+            <li><a href="#text">première balise html et les texts</a></li>
+            <li><a href="#style">Mis en forme des textes</a></li>
+            <li><a href="#container">Les balises de mis en contenue</a></li>
+            <li><a href="#liste">Les listes</a></li>
+            <li><a href="#image">Les images</a></li>
+            <li><a href="#form">Les formulaires</a></li>
+            <li><a href="#use-nav">Menu de navigation</a></li>
+            <li><a href="#table">Les tables</a></li>
+          </ul>
+        </div>
+        <h2 id="prerequis">Prérequis :</h2>
+        <p>un éditeur de texte tel que Visual Studio Code ou autre(mais tout les raccourcis sité seront valable
+          uniquement pour VS Code), et un navigateur(chrome, ...)</p>
+        <h2 id="intro">Introduction :</h2>
+        <p>html5 est un langage de balistique, les balises sont des conteneurs, des boites qui peuvent contenir d’autres
+          boites ou juste des objets. La structure de touts les site internets utilise se langage, il est donc
+          essentiels de la maîtriser pour apprendre le développement web.</p>
+        <H2 id="files-creation">Création de votre premier page :</H2>
+        <p>
+          Pour la création de votre premier site internet vous allez créer un nouveau dossier, qui sera la dossier
+          racine de votre site web. Dans se dossier vous allez créer la page d’accueil, qui est enfaite un fichier au
+          nom de ‘index.html’, html étant l’extension du ficher qui est utilser pour les pages internet.
+          Ensuite ouvrez le ficher avec VS Code(visual studio code)
+
+          VS Code est très simple a prendre en main, les paramètres logiciel se trouve en haut, les dossiers projets et
+          extension sont sur le coté gauche et votre ficher se situe au centre.
+          Pour commencer a coder nous allons créer les balises principal d’un site. Marquez donc ‘ !’ ou ‘html’ puis
+          utilisez le raccourcis ctrl+space(control et bar d ‘espace, se raccourcis permet de faire de
+          l’auto-complétion(le logiciel écrit a votre place)
+
+          Voici se que vous devez observer :
+          <!-- TO DO: Image -->
+        </p>
+        <h2 id="definiton">Définitions :</h2>
+        <h3>Les Balises</h3>
+        <p>
+          Avec le visuelle c’est tout de suites plus simple de comprendre un balise, en effet les balises commence
+          toutes par ‘&lt’ et se termine par ‘> ‘.
+          On peut voir qu’il existe 2 grande famille de balise, celle qui s’ouvre et se ferme( en 3 parti, ouverture,
+          contenue, fermeture) que l’on vas appeler balise conteneur comme : <code>&ltbody>...&lt/body></code>
+          et les balises simple tel que &lt!DOCTYPE html>.
+          Les balise conteneur s’écrivent de cette facon. Balise ouverte <code>&ltname></code>(pouvant contenir des
+          attribues, Contenue(sous forme de texte ou de balise), Balise fermer <code>&lt/name></code>, il ne faut donc
+          pas oublier d’écrire / avant le nom sur la balise fermer.
+          Alors que les balises simple elle s’utilise simplement avec <code>&ltname></code> ou <code>&ltname/></code>
+          (le / a la fin est uniquement visuelle et sert juste a savoir que c’est une balise simple)
+        </p>
+        <h3>Les Attributs</h3>
+        <p>
+          Tout a l’heure je vous est parlez d’attribut, c’est se que l’on vas voir en détaille maintenant. Au niveau de
+          la balise d’ouverture <code>&lthtml lang=’fr’></code>, on peut observer votre premier attribue html. Celui-ci
+          se nome lang, qui signifie langage et il a pour attribue ‘fr’. Cette instruction signifie a votre navigateur
+          que le site que vous consulter est écrit en français. Pour utiliser un attribue on écrit d’abord sont nom puis
+          un lui affect un text(car la reponse est entre de côte(« ‘ »)), voici quel que autre exemple que nous allons
+          voir plus tard : <code>&ltimg src="./assets/img.png" alt="une image" width="200"></code>
+          l’attribut src est la reference(ici a une image) dans votre dossiers, alt est une alternative(pour connexion
+          lent ou non-voyant/mal-voyant ) et width est la largeur de l’image en pixel
+        </p>
+
+        <h2 id="text">première balise html et les texts</h2>
+        <h3>Head et Body</h3>
+        <p>
+          la balise <code>&lthead></code> est « l’esprit » de votre site, il contient tout se qui est pas directement
+          afficher sur la page, tel que le nom de l’onglet, l’icône de la page, les références a des feuilles de style,
+          ou meme ‘l’alphabet’ utilser par le site.
+          Alors que le body lui est toute les boutons, les textes, les formulaires, les images, les listes de votre
+          site. Le body contient en la forme de votre site.
+        </p>
+        <p>
+          Revenez dans votre dossiers et ouvrer index.html avec votre navigateur et avec Vs Code. Sur Vs Code vous allez
+          vous rendre compte de 2 choses, la page est vide et le titre de la page est document. Si vous avez un minimum
+          d’esprit critique vous avez compris pourquoi ? Car le body est vide et que dans le head il y a une balise
+          <code>&lttitle>Document&lt/title></code>. Bien joué vous venez de découvrir en autonomie un nouvelle balise,
+          vous pouvez maintenant changer le titre de l’onglet a votre guise, il vous suffit de changer le contenue entre
+          les balises ! Personnellement je vais vous montrez un site de musique. Je vais donc le écrire ‘Musique
+          Préferer ‘.
+        </p>
+        <p>
+          Maintenant nous allons nous concentrez uniquement sur le body pour apprendre a faire un page fonctionnelle.
+        </p>
+        <p>
+          Commençons par rajouter un texte, un titre plus précisément. Pour cela il nous faut un balise conteneur car on
+          vas mettre du texte dedans. Les balises titre se nome h1, h2, …, h6. La lettre ‘h’ signifie titre et le nombre
+          qui suit correspond a la force du titre, en effet plus le nombre sera petit plus le titre auras de
+          l’importance, que se soit de par ça taille mais pas que ! Le référencement de votre page dépend en grand
+          partie de votre structure html. Il est important de lié le bon texte a la bonne balise. Une balise h1 se doit
+          d’être utiliser qu’une seule fois pour par exemple énoncer le nom du site ou bien le slogan, se n’est pas
+          obligatoire mais se sont des bonnes pratiques a prendre en compte dés le debut. Bref, h2 correspond à un
+          titre, h3 un sous-titre, … .
+        </p>
+        <p>
+          Pour écrire notre tire il suffit donc de mettre : <code>&lth1>Liste Des musiques&lt/h1></code>, simple non ?
+        </p>
+        <p>
+          Maintenant ajoutons un paragraphe, les paragraphes se noment ‘p’(d’ailleur il ont peut d’influence au niveau
+          du référencement), <code>&ltp>&lt/p></code>. A l’intérieur du paragraphe marquer "Lorem20" puis utiliser le
+          raccourcis d’auto-complétion(ctrl+space), cela vas vous marquer un text de 20 mots a l’intérieur du paragraphe
+          en latin, pratique pour marquer du texte a remplir plus tard non ? Bien sur vous pouvez marquer le nombre que
+          vous désirez après le ‘lorem’. Mettons maintenant un commentaire, un texte invisible dans la page qui est
+          présent uniquement sur le fichiers html. Pour ceci nous allons nous situé au dessus du paragraphe et l’ont vas
+          faire le raccourcis ctrl+/ pour obtenir le resultats : </p><!-- TO DO: img -->
+        <p></p> dans se qui ressemble a une balise vous allez pouvoir marque se que vous voulez(par exemple : Intro)</p>
+        <h2 id="style">Mis en forme des textes</h2>
+        <p>
+          Bon je vous l’accorde le style de la page n’est pas très bon, essayons de regler un peu le probleme. Si vous
+          souhaitez mettre du texte en emphase (italique) il faudras mettre le texte entre des balises conteneurs
+          <code>&ltem>&lt/em></code>. Pour le gras il y a 2 solutions qui s’offre a vous : <code>&ltb>&lt/b></code> et
+          <code>&ltstrong>&ltstrong></code>, bien qu’ils ont exactement le même visuelle, il n’ont pas du tout la même
+          sémantique. « sémantique » c’est quoi ? C’est le terme pour le rôle/sens de votre balise, cela influe sur le
+          référencement. D’ailleurs les balise h1 à h6 n’ont pas le même niveau de sémantique, c’est se que je vous
+          expliquer juste avant. Concernant les balises de ‘style gras’, <code>&ltb></code> est juste un style il n’as
+          pas d’influence sur la sémantique. Alors que <code>&ltstrong></code>, signifie un bout d’un texte qui est mis
+          en avant. En html il est compliquer de modifier le style des pages(enfaites le langage est tout simplement pas
+          fait pour ça).
+        </p>
+        <h2 id="container">Les balises de mis en contenue</h2>
+        <p>Si vous voulez faire un balise conteneur mais que vous ne saviez pas la quelle choisir, il faut mettre une
+          balise <code>&ltdiv>&lt/div></code> si les contenus dedans est grand(surtout si il contient plusieurs balises)
+          et <code>&ltspan>&lt/span></code> si il ne contient seulement du texte.</p>
+        <p>
+          Vous pouvez aussi ajouter à vous balise des ‘marques’ pour les reconnaîtres, se sont les attribues class=’’ ou
+          id=’’, id ne peut avoir qu’une seule fois le même valeur dans la page alors que la class elle peut contenir
+          plusieurs fois la même valeur.</p>
+        <h2 id="liste">Les listes</h2>
+        <p>
+          Nous on vas créer une <code>&ltdiv></code> pour contenir notre liste de musique cette div auras un id qui a
+          pour valeur ‘music-list’,
+          <code>&ltdiv id=’music-list’>&lt/div></code>
+          On vas rajouter un titre de niveau 3(h3) qui contient ‘Liste des musiques inscrites :’.
+        </p>
+        <p>
+          Si l’on souhaite faire un liste ordonnée il faudra créé un balise conteneur <code>&ltol>&lt/ol></code>, si la
+          liste n’as pas d’ordre(classement) il nous faut une balise conteneur ul(liste a puces), ici la liste ne serais
+          pas ordonnée car on vas faire un classement dans un tableau par la suite. Dans cette balise ul nous allons
+          mettre autant de balise conteneur li(<code>&ltli>&lt/li></code>) qu’il y auras de musique, vous mettrez
+          d’ailleurs les titres des musiques dedans.</p>
+        <p>
+          Bon vous commencez a être alaise avec les balises ?? attardon nous un peu au attribue !</p>
+        <h2 id="image">Les images</h2>
+        <p>
+          Les attribues id et class sont valables sur toutes les balises mais se n’est pas le cas de tous les attribues.
+          Affichons un image comme exemple. Au dessus de la div music-list on vas créer une balise unique img
+          (<code>&ltimg/></code>) si vous l’avez créer avec le raccourcis d’auto-complétion de VS Code, vous aurez déjà
+          des attribues sinon il vous faudra écrit « src=’’ alt=’’ » en attribue. Src est le lien de l ‘image, il peut
+          être pris depuis de source du fichiers (ex : ‘assets/monImg.png’) ou bien juste une adresse d’image sur
+          internet(ex :’https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg’) récupérable en faisant click
+          droit sur l’image, « copier l’adresse de l’image ». Dans la attribue alt=’’ il faut mettre la signification de
+          l’image(pour les non-voyant/mal-voyant ou les liseuse, …). Ensuite il se peut que l’image que vous ayez
+          choisit n’est pas la taille que vous voulez, pas de problème, mettons lui un attribue width pour régler sa
+          largeur ou height pour régler sa hauteur, leur paramètre sont des nombres qui corresponde au nombre de pixel,
+          attention si vous sélectionner les 2 paramètres width et heigth l’image risque d’être déformer. Il est aussi
+          conseiller de redimensionner directement les images via un logiciel de photos(en tout cas pour les rétrécir)
+          car cela évite d’envoyer des images trop lourd sur internet.
+        </p>
+
+
+        <h2 id="form">Les formulaires</h2>
+        <h3>Création d'une nouvelle page</h3>
+        <p>
+          Bon maintenant créons une nouvelle page dans la quel on vas mettre en place un formulaire.
+          Allons dans le dossier(la racine du site) ou se situe ‘index.html’, puis on vas créer un fichiers
+          ‘formulaire.html’ et l’ouvrir avec VS Code. On écrit ‘!’ et on utilise l’auto-complétion(ctrl+space), cela vas
+          nous créer les balise html5 nécessaire a la page. La balise <code>&lthtml></code> sert tout simplement a créer
+          le document, la page internet, il contient tout le temps l’attribut lang(avec comme valeur extension des
+          adresses url de la langage de la page). Alors que <code>&lt !DOCTYPE html></code> lui a pour signification que
+          le site est fais par une personne maîtrisant le html5.
+        </p>
+        <h3>formulaires</h3>
+        <p>
+          Pour créer un formulaire on vas utiliser la balise conteneur formulaire(<code>&ltform></code>) et on vas lui
+          mettre l’attribut ‘action=’’’ qui seras égale a ‘index.html.
+          Le formulaire va contenir 2 parties, les informations utilisateur et ses avis par rapport a la liste.</p>
+        <p>
+          Pour ceci a l’intérieur du formulaire on vas créer une balise conteneur fieldset(balise de regroupement dans
+          un formulaire). Le regroupement est en générale associer a une légende (un titre) sous forme de balise
+          présente au sein de de la fieldset, cette balise s’écrit <code>&ltlegend>Votre légende&lt/legend></code>.</p>
+        <p>
+          Puis dans de regroupement de formulaire nous allons créer nos premières balise d’interaction, les balises
+          simple <code>&ltinput /></code>, cette balise contient généralement au moins 3 attribut :</p>
+        <p>
+        <ul>
+          <li>- type, la forme que prendras l’input.</li>
+          <li>- name, utile pour récupérer ses donnée(via le backend en php, NodeJs).</li>
+          <li>- id, permet d’identifier le conteneur(pour lui mettre du style ou interagir avec JavaScript).</li>
+
+        </ul>
+        <p>
+          Créons par exemple un balise pour mettre son nom. <code>&ltinput type=’’ name=’name’ id=’input-name’/></code>.
+        </p>
+        <p>
+          Pour mettre son nom il suffit simplement que l’utilisateur écrive sont nom avec un texte. Le type de l’input
+          seras donc ‘texte’.</p>
+        <!-- TO DO: IMmg -->
+        <p>
+          bon notre champ de texte est présent mais il n’est pas compressible pour l’utilisateur, configurons le un peu
+          plus. Mettez lui l’attribut « placeholder=’votre nom...’ » cela permet de mettre un texte en fond quand le
+          champ est vide, a l’inverse si vous voulez mettre une valeur définie au chargement lors champ de texte il
+          faudra l’attribue value.</p>
+        <p>
+          Ensuite nous pouvons mettre une taille minimum et maximum avec les attribues minlenght et maxlenght. </p>
+        <p>
+          Les balises inputs nécessite un label(un nom) qui s’écrit avec un balise conteneur
+          <code>&ltlabel for=’’> votre nom: &lt/label></code>, pour connecter le label a l’input il faudra mettre un
+          attribue for identique a l’id de l’input(avec ceci lorsque l’on click sur le label cela nous permet de écrire
+          directement dans l’input). Bon on commence un peu a comprendre les inputs, maintenant on vas créer 2 inputs,
+          le premier auras comme type email et le deuxième qui sera de type date pour la date de naissance du
+          visiteur. Bien sur les 2 nouvelles balises seront configurer avec leur placeholder et leur label.
+        </p>
+        <p>
+          On recréer un label avec son input mais le type se coup si seras tel, au lieu d’un placeholder on vas mettre
+          un value=’+33 6’. Et pour signaler au utilisateur sans clavier physique(tablette, téléphone) quelle clavier il
+          doit choisir(tel, e-mail, numéric) on utilise l’attribut input mode, ici je pense que vous avez compris qu’il
+          fallait le type tel.</p>
+        Maintenant on vas voir 2 type d’input qui se ressemble dans les styles mais n’ont pas du tout la même utilité
+        radio et checkbox, checkbox est une case a cocher alors que radio est un selection unique dans un liste. Laisser
+        moi vous montrer. Créons un label avec l’attribue for vide, que l’ont vas remplir avec ‘Sexe :’, puis on vas
+        créer 2 input de type radio avec comme name sex (en tout cas les 2 radio doivent être relier avec le même name)
+        et un id correspondant soit a masculin ou a feminin. Suivit de leur label(masculin et féminin). Voilà a quoi
+        c’est sembler ressembler. </p>
+        <!-- TO DO: img -->
+        <p> Si vous voulez sélectionner un radio de base il faudra mettre l’attribue checked(sans égale ni côte). Le
+          radio permet de faire un choix unique(ici masculin, féminin). Alors que si on aurais remplacer le type par
+          checkbox on aurais pu sélectionner les 2(ou aucun) sans soucis, il est donc plus pratique de l’utiliser dans
+          des conditions générale d’utilisation. Sortons donc du fieldset pour créer notre checkbox qui aura un label au
+          nom de ‘Accepter les conditions générales d’utilisation’. Je vais vous montrer une autre disposition avec les
+          labels et inputs :
+          <code>&ltlabel>&ltinput type=’checkbox’ name=’cgv’ /> Acccepter les conditions générale de vente&lt/label></code>,
+          avec cette disposition vous êtes pas obliger d’utiliser l’attribue for sur le label.
+        </p>
+        <p>
+          Créons maintenant un label ‘Votre musique preferer’ suite à se label créons un balise au nom de select(avec
+          son name et son id). A l’interieur de la balise select je crée autant de balise
+          <code>&ltoption value=’1’>freestyle hors-series &lt/option></code> qu’il y a de musique, la valeur correspond
+          a se qui seras envoyer en réponse un fois le formulaire rempli. Si l’on souhaite créer des goupes d’option on
+          vas regrouper plusieurs balise option dans une balise <code>&ltoptgroup label=’’> &lt/optgroup></code>
+          l’attribue label correspond au nom du groupe, ici l’on pourrais mettre ‘rap’, ‘classique’.
+        </p>
+        Allez c’est repartie, créons un label Commentaire suivit d’une balise textarea, cette balise marche un peux
+        comme un input texte au lieu de l’attribue value pour mettre du contenue, on peut directement le mettre sous
+        forme de contenue entre la balise ouvert et fermer. On peut aussi deffinir le nombre de colonne avec l’attribue
+        cols et le nombre de ligne avec rows(en pensant que le client peut modifier ceci en étirant le coin en bas a
+        droit. <p>
+          On vas ensuite pouvoir place les condition général d’utilisation a la fin(plus conventionnelle). Et maintenant
+          on s’appercoit qu’il manque juste un bouton pour envoyer les données un fois le formulaire rempli. Pour ceci
+          il y a 2 technique, la première la plus traditionnelle avec la balise input de type ‘submit’(n’oublier de lui
+          mettre une value pour le rendre plus visible).</p>
+        <p>
+          Essayons donc se bouton. Lorsque que l’on utilise le bouton on se fait rediriger sur index.html se qui est
+          normal(c’est l’action du formlaire(form)) mais nous on voudrais que l’on puisse valider seulement si
+          l’utilisateur valide les conditions. Pour cela il faut mettre l’attribue required=’’(vide comme ceci) sur
+          l’input checkbox. La deuxieme facon de créer un boutton et la balise <code>&ltbutton>Valider&ltbutton></code>,
+          a l’inverse si l’on souhaite réinisitialiser le formulaire on vas créer un button ou un input qui seront de
+          type ‘reset’.</p>
+
+        <h2 id="use-nav">Menu de navigation</h2>
+        <p>
+          Bien maintenant nous allons créer un nouvelle page sous le nom de classement.html avec ses balises html
+          ensuite dans le body nous allons créer un menu de navigateur avec un balise nav dans cette balise nous allons
+          créer un liste non-ordonnée (<code>&ltul>&lt/ul></code>). Dans celle si nous allons créer les composants de
+          liste(balise li) avec en attributs class ‘nav-content’. Maintenant qu l’on a la structure de base du menu de
+          navigation, il faut lui rajouter des liens au autre page du site(ou meme d’un site exterieur) pour cela on
+          utilise la balise <code>&lta href=’mon lien’>Ici le lien&lt/a></code>. l’attribue href représente le lien ;
+          soit en depuis le dossier de la page (sous-forme : ‘dossier/sous-dossier/page.html) ou depuis un lien
+          internet(‘http://www.monsite.com/page.html’). On créer donc autant de lien qu’il y a de page sur notre site
+          dans chaque li et on lui attribut son href. Bien maintenant que l’ont a un menu de navigation cela vas être
+          plus pratique pour un utilisateur l’ambda de se balader sur vos page. Si vous souhaiter l’avoir sur toutes les
+          pages vous avez juste a le copier, coller sur chaque page.</p>
+
+
+        <h2 id="table">Les tables</h2>
+        <p>
+          Ensuite on vas créer notre classement sous la forme d’un tableau avec comme lignes les chansons sitée dans la
+          liste de la page d’aceuil et comme colone le classement, le titre, l’auteur, le style et un lien vers la
+          chasons. En effet il est très inintéressant pour le refermement de votre site d’avoir des lien externe a votre
+          site. Malheureusement le styles des tableaux de base en html est très peu visible. Je vous conseillerais donc
+          d’ajouter un peu style plus tard.Commencons déjà par créer notre tableaux avec la balise table. Ensuite pour
+          créer un ligne il faut utilisé la balise tr(table row) et pour les cellules au sein de la ligne on utilise td
+          pour les cellules classique et th pour les cellules importante(par ex : nom).</p>
+        <p>
+          Nous il nous faut une premières lignes en tant que entête, pour ceci avant de créer la ligne on créer un
+          balise thead(il existe aussi le tbody et tfoot) dans se thead on créer un tr et dans la tr on créer autant de
+          th que vous voulez de colonne(ici il y auras le classement, le titre, l’auteur, le style et un lien). Pour
+          plus de visibilité on vas créer un balise style dans le head de html. Dans cette balise style on vas recopier
+          ceci(cela permet de faire des bordures).</p>
+        <pre>
+      &ltstyle>
+          table,th,td {
+              border: 1px solid black;
+          }
+      &lt/style></pre>
+        <p>Bien jouer vous venez des créer votre premières feuilles de style, si vous souhaitez en apprendre plus
+          renseigner vous sur le css.
+        </p>
+        <p>
+          Ensuite on vas créer le tbody en dessous de thead, avec autant de ligne qu’il y a de chasons(si vous le
+          souhaitez vous pouvez mettre la cellules du classement de chaque chasons en th pour un meilleur cémentique.
+          Lorsque que l’on créer un tableaux, les thead, tbody, tfoot sont seulement optionelle. Rien ne vous oblige a
+          les utiliser mais dans chaque lignes doit avoir exactement le même nombre de cellules si se n’est pas le cas
+          votre tableaux et erroné. Vous devez donc régler l’attribue colspan(ou rowspan) pour élargir une cellules et
+          confirmer un total correct. Un exemple sera plus simple pour comprendre. Créons le tfoot avec un ligne a
+          seulement seulement un cellules, qui contient la phrase conventionnelle comme quoi se tableaux est juste a
+          titre indicatif(avec un lien vers le formulaire pour que les visiteurs puisse donner leur avis) dans une
+          balise em pour montrer le pied de tableaux. Le tableaux que l’ont vient de créer est donc devenue incomplet.
+          En effet il manque 4 cellules a la dernier ligne. Pour cela on donne l’attribue colspan et on l’affect a 4 sur
+          l’unique cellules du tfoot. Avec ceci la cellules du tfoot prend maintenant tout la largeur du tableaux. Si
+          vous voulez rajouter un titre au tableaux, on vas dans la balise table et on créer un nouvelle balise caption
+          avec commme contenue le titre du tableaux.</p>
+        <p>
+          il sont utilisable dans un fichier .HTML, le ficher de la
+          page principal du site se nome "index.hml" et se situe a la racine des dossiers du site. Il existe 2 principal
+          type de balise:</p>
+        <ul>
+          <li>- <code>&ltinput/></code>, balise unique ne peut pas contenir d'autre balise, il prend seulement des
+            attribues
+            en parametre.
+            n</li>
+          <li>- <code>&ltdiv>...&lt/div></code>, balise ouvert/fermer la balise d'ouverture comport seulement son nom
+            (et ses
+            attribues) alors que la
+            balise de fermeture contient un "/" devant son nom, peut contenir des balises entre ses 2 balise(et des
+            attribues)</li>
+        </ul>
+
+
+        <p>
+          fini de parler allons voir un exemple:
+        </p>
+        <p>
+          Si on regarde la balise <code>&lthtml></code> on peut voir que la balise contient 1 attribue qui a pour nom
+          lang(langage) au quelle
+          on a affecter la valeur "fr"(francais), pour mettre un attribut sur un varible il faut donc utiliser la
+          syntaxe
+          nom="contenue" a l'interieur de la balise d'ouverture.
+          Le html étant un language balistique il est trés simple de le comprendre, mais son utilisation néccesssites de
+          conaitre un certain nombre de balise et d'attribue(du moins les plus utiliser).</p>
+        <p>
+          Aller c'est partie créons notre premier site web en html5:</p>
+        <p>
+          La premiere chose a faire est donc de créer un ficher "index.html", puis vous allez l'ouvrir avec votre
+          éditeur
+          de text/code, Chaque éditeur a des aides propre a lui. il est donc important de trouver un éditeur avec le
+          quelle vous serais alaise et qui vous fait gagner du temps.</p>
+        <p>
+          Nous allons donc créer les premiers balises, en marquant "html" suivit d'un ctrl+space(racourcis controlle
+          avec
+          la barre d'espace), cela vas vous proposer plusieur choix. En faite ctrl+space nous permet d'ecrire plus vite
+          car l'editeur trouve le code a notre place. La il y a 2 solution soit plein de balises sont créé soit juste la
+          balise <code>&lthtml></code> est créé. La balise html est la base du site, elle ne compprtera que 2 balise
+          l'interieur d'elle meme, <code>&lthead></code> et <code>&ltbody></code> que je vous invite a créer dans cette
+          ordre.</p>
+        <p>
+          pour l'instant seule la balise <code>&ltbody></code> vas nous interreser, en effect se qui se passe dans cette
+          balise est beaucoup plus visuelle que dans le header.</p>
+        <p>
+          Pour mieux comprendre nous allons créer une balise h1 comme celle la "<code>&lth1>Hello Dév!&lt/h1></code>"
+          les
+          balises avec un 'h' est un chiffre derrier sont des titres, plus le nombre est petit, plus le titre est
+          important et gros.</p>
+        <p>
+          Vous comprenez mieux maintenant ? Aller ajoutons un paragraphe qui se nome <code>&ltp></code> dans le body. A
+          l'interieur du paragraphe marquer "Lorem50" puis utiliser le raccourcis d’auto-complétion(ctrl+space), cela
+          vas
+          vous marquer un text de 50 mots a l'interieur du paragraphe en latin, pratique quand l’on ne sais pas quoi
+          mettre en texte.</p>
+        </p>
+      </div>
+
+      <!-- Struture web -->
+      <div id="structure-content" class="lesson-content">
+        <h4>Structurer correctement sont HTML</h4>
+        <ul>
+          <h5>Menu des racourcis :</h5>
+          <li><a href="#doc">Les Normes des gros conteneur</a></li>
+          <li><a href="#balise">Les Normes des balises indicatif</a></li>
+          <li><a href="#micro">Les Normes des micro balise</a></li>
+        </ul>
+        <div id="doc">
+          <h5>Les Normes des gros conteneur :</h5>
+          <p>
+            un site web se doit d'être conforme a des conventions que nous
+            allons voir tout au long de se cours. Deja une page web est
+            constitué d'une head est d'un body, comme ses balise html le
+            signal, le head est l'esprit du site, c'est la ou te se qui est
+            pas directictement visble doit etre mis. <br />
+            comme les noms des pages, les relations entre les fichers de
+            style(.css), la langue de la page ou meme son logo. Alors que le
+            body, le corps de la page lui sert a mettre tout le contenue brut
+            de la page(sans style) c'est dans le body que vous mettre le plus
+            de balise html et c'est a l'interieur de lui qu'on vas pouvoir
+            parler de structure front d'un site.
+          </p>
+        </div>
+        <div id="balise">
+          <h5>Les Normes des balises indicatif :</h5>
+          <div class="img-right">
             <p>
-              Les conteneur html5 et bonne maniere indispensable à tous site
-              internet
+              La structure a l'interieur de body est trés resemblant d'un site
+              a un autre, il y auras généralement une partie principal, qui
+              s'appelle main ou l'on vas mettre directement le contenue que
+              l'utilisateur est venu chercher(la page est censer etre créer
+              juste pour le contenue du main), cette parti peut aussi bien
+              contenir du text, des formulaire, des bouttons, des liens,...
+              c'est vraiment cette partie qui vas deffinir si l'utilisateur
+              vas rester sur le site ou pas. <br />
+              mais pour créer des page intetactive et pas juste une vitrine il
+              est important de bien relier les pages a l'interieur de son
+              site. Pour cela on utilse se qui s'appelle un menu de
+              navigation, enfaite c'est juste un liste de lien(biensur plus ou
+              moins styliser) qui permet la navigation, la balise HMLT de
+              navigation s'appelle d'ailleur nav.
+              <br />
+              Pour mettre un proprieter sur votre site(sur tout pour etre dans
+              la légaliter) il est néccessaire de mettre en place un
+              copyRight, celui-ci est en générale placer tout en bas du chaque
+              page du site, ou meme sur la page A propos/contact. pour faire
+              apparaitre le logo de copyRight il faut marque &copy dans des
+              balise html, vous pouvez aussi rajoute All Right Reserved By ...
+              suivit de l'année de creation du site. Il existe aussi la tête
+              de page, qui a pour balise head(ne pas confondre avec le header)
+              on l'on a tendance a mettre le nom du site avec sont slogant
+              (surtout sur la page d'acceuil).
+              <br />
+              Vous venez donc de voir les 4 conventions les plus utilsé. Mais
+              il en exite encore une infinté qui sont plus ou moins populaire.
+              Comme le bouttons de retour a l'acceuil(souvent l'image du logo
+              cliquable situer en haut a gauche), La page contact qui permet
+              de vous envoyer un message si jamais un utilisateur est perdu
+              dans le site, qu'il a trouver un bug, ou meme si l'utilisateur
+              est simplement curieux. La barre de recherche est aussi une
+              norme pour les site qui on de grosse base donnée avec des
+              resultats pour chaque recherche.
             </p>
+            <img src="./assets/structure_html.webp" alt="structure HTML" />
           </div>
         </div>
-
-        <div class="lesson-card" id="html-card">
-          <div class="face-card front-card" id="html-front">
-            <h3>Les Base de la création Web</h3>
-          </div>
-          <div class="face-card back-card">
-            <h4>Comprendre l'HTML5</h4>
-            <p>langage balistique et compréhension du web!</p>
+        <div id="micro">
+          <h5>Les Normes des micro balise :</h5>
+          <div class="img-right">
+            <p>
+              Il existe aussi des norme a des echelles plus precise comme le
+              fait de mettre les liens dans une couleur différente, les
+              attribues "alt"(description) a remplir pour chaque img afficher,
+              mettre des effect(au survolement par exemple) sur les elements
+              interactifs
+            </p>
+            <img src="./assets/structure_html.webp" alt="structure HTML" />
           </div>
         </div>
       </div>
-      <div id="lessons">
-        <div id="html-content" class="lesson-content">
-          <h4>Les Base de la création Web</h4>
-          <p class="pre-requis">
-            présrequi : éditeur de text(par ex:VS Code, SublimText3,...), et un
-            navigateur(chrome, edge,...)
-          </p>
-          <p class="into">
-            Html5 est un language de balistique, les balises sont des
-            conteneurs. il sont utilisable dans un fichier .html, le ficher de
-            la page principal du site se nome "index.hml" et se situe a la
-            racine des dossiers du site. Il existe 2 principal type de balise:
-            <ul><li><span class="input"></span>,<br> balise unique ne peut pas contenir
-              d'autre balise, il prend seulement des attribues en parametre.</li>
-            <li><span class="div"></span>,<br> balise ouvert/fermer la balise
-              d'ouverture comport seulement son nom (et ses attribues) alors que
-              la balise de fermeture contient un "/" devant son nom, peut contenir
-              des balises entre ses 2 balise(et des attribues)</li></ul>
-            
-          </p>
-          <ul>
-            <h5>Menu des racourcis :</h5>
-            <li><a href="#premiere-page-web">Les Normes des gros conteneur</a></li>
-            <li><a href="#balise">Les Normes des balises indicatif</a></li>
-            <li><a href="#micro">Les Normes des micro balise</a></li>
-          </ul>
-          <p id="#premiere-page-web">fini de parler allons voir un exemple:</p>
-          <img src="./assets/html.PNG" alt="Structure de base d'un site">
-          <p>Si on regarde la balise <span class="html"></span> on peut voir que la balise contient 1 attribue qui a pour nom lang(langage) au quelle 
-            on a affecter la valeur "fr"(francais), pour mettre un attribut sur une varible il faut donc utiliser la syntaxe 
-            nom="contenue" a l'interieur de la balise d'ouverture.
-            Le html étant un language balistique il est trés simple de le comprendre, mais son utilisation néccesssites de 
-            conaitre un certain nombre de balise et d'attribue(du moins les plus utiliser).</p>
-            <p>Aller c'est partie créons notre premier site web en html5:
-              La premiere chose a faire est donc de créer un ficher "index.html", puis vous allez l'ouvrir avec votre éditeur de text/code, Chaque éditeur a des aides propre a lui. il est donc important de trouver un éditeur avec le quelle vous serais alaise et qui vous fait gagner du temps.
-              Nous allons donc créer les premiers balises, en marquant "html" suivit d'un ctrl+space(racourcis controlle avec la barre d'espace), cela vas vous proposer plusieur choix. En faite ctrl+space nous permet d'ecrire plus vite car l'editeur trouve le code a notre place. La il y a 2 solution soit plein de balises sont créé soit juste la balise <html> est créé. La balise html est la base du site, elle ne compprtera que 2 balise l'interieur d'elle meme, <head> et <body> que je vous invite a créer dans cette ordre.
-              pour l'instant seule la balise <span class="body"></span> vas nous interreser, en effect se qui se passe dans cette balise est beaucoup plus visuelle que dans le header.
-              Pour mieux comprendre nous allons créer une balise h1 comme celle la "<span class="h1"> Hello Dév! </span>" les balises avec un 'h' est  un chiffre derrier sont des titres, plus le nombre est petit, plus le titre est important et gros.
-              Vous comprenez mieux maintenant ? Aller ajoutons un paragraphe qui se nome <span class="p"></span> dans le body. A l'interieur du paragraphe marquer "Lorem50" puis ctrl+space cela vas vous marquer un text de 50 charactere a l'interieur du paragraphe. </p>
-        </div>
+    </div>
+  </main>
+  <footer>
+    <p>
+      All right reserved &copy; by Yohem VAXELAIRE 2022 |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+  <script src="./cardSys.js"></script>
+  <script src="./index.js"></script>
+</body>
 
-        <!-- Struture web -->
-        <div id="structure-content" class="lesson-content">
-          <h4>Structurer correctement sont HTML</h4>
-          <ul>
-            <h5>Menu des racourcis :</h5>
-            <li><a href="#doc">Les Normes des gros conteneur</a></li>
-            <li><a href="#balise">Les Normes des balises indicatif</a></li>
-            <li><a href="#micro">Les Normes des micro balise</a></li>
-          </ul>
-          <div id="doc">
-            <h5>Les Normes des gros conteneur :</h5>
-            <p>
-              un site web se doit d'être conforme a des conventions que nous
-              allons voir tout au long de se cours. Deja une page web est
-              constitué d'une head est d'un body, comme ses balise html le
-              signal, le head est l'esprit du site, c'est la ou te se qui est
-              pas directictement visble doit etre mis. <br />
-              comme les noms des pages, les relations entre les fichers de
-              style(.css), la langue de la page ou meme son logo. Alors que le
-              body, le corps de la page lui sert a mettre tout le contenue brut
-              de la page(sans style) c'est dans le body que vous mettre le plus
-              de balise html et c'est a l'interieur de lui qu'on vas pouvoir
-              parler de structure front d'un site.
-            </p>
-          </div>
-          <div id="balise">
-            <h5>Les Normes des balises indicatif :</h5>
-            <div class="img-right">
-              <p>
-                La structure a l'interieur de body est trés resemblant d'un site
-                a un autre, il y auras généralement une partie principal, qui
-                s'appelle main ou l'on vas mettre directement le contenue que
-                l'utilisateur est venu chercher(la page est censer etre créer
-                juste pour le contenue du main), cette parti peut aussi bien
-                contenir du text, des formulaire, des bouttons, des liens,...
-                c'est vraiment cette partie qui vas deffinir si l'utilisateur
-                vas rester sur le site ou pas. <br />
-                mais pour créer des page intetactive et pas juste une vitrine il
-                est important de bien relier les pages a l'interieur de son
-                site. Pour cela on utilse se qui s'appelle un menu de
-                navigation, enfaite c'est juste un liste de lien(biensur plus ou
-                moins styliser) qui permet la navigation, la balise HMLT de
-                navigation s'appelle d'ailleur nav.
-                <br />
-                Pour mettre un proprieter sur votre site(sur tout pour etre dans
-                la légaliter) il est néccessaire de mettre en place un
-                copyRight, celui-ci est en générale placer tout en bas du chaque
-                page du site, ou meme sur la page A propos/contact. pour faire
-                apparaitre le logo de copyRight il faut marque &copy dans des
-                balise html, vous pouvez aussi rajoute All Right Reserved By ...
-                suivit de l'année de creation du site. Il existe aussi la tête
-                de page, qui a pour balise head(ne pas confondre avec le header)
-                on l'on a tendance a mettre le nom du site avec sont slogant
-                (surtout sur la page d'acceuil).
-                <br />
-                Vous venez donc de voir les 4 conventions les plus utilsé. Mais
-                il en exite encore une infinté qui sont plus ou moins populaire.
-                Comme le bouttons de retour a l'acceuil(souvent l'image du logo
-                cliquable situer en haut a gauche), La page contact qui permet
-                de vous envoyer un message si jamais un utilisateur est perdu
-                dans le site, qu'il a trouver un bug, ou meme si l'utilisateur
-                est simplement curieux. La barre de recherche est aussi une
-                norme pour les site qui on de grosse base donnée avec des
-                resultats pour chaque recherche.
-              </p>
-              <img src="./assets/structure_html.webp" alt="structure HTML" />
-            </div>
-          </div>
-          <div id="micro">
-            <h5>Les Normes des micro balise :</h5>
-            <div class="img-right">
-              <p>
-                Il existe aussi des norme a des echelles plus precise comme le
-                fait de mettre les liens dans une couleur différente, les
-                attribues "alt"(description) a remplir pour chaque img afficher,
-                mettre des effect(au survolement par exemple) sur les elements
-                interactifs
-              </p>
-              <img src="./assets/structure_html.webp" alt="structure HTML" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <p>
-        All right reserved &copy; by Yohem VAXELAIRE 2022 |
-        <a href="contact.html">Contact</a>
-      </p>
-    </footer>
-    <script src="./cardSys.js"></script>
-    <script src="./index.js"></script>
-  </body>
 </html>

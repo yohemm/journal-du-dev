@@ -2,7 +2,8 @@
     --primary:rgb(255, 200, 72);
     --secondary: rgb(202 129 243) ;
     --light: rgb(244, 244, 244) ;
-    --dark: rgb(22, 22, 22) ;
+    --gray: rgb(155, 153, 141) ;
+    --dark: rgb(24, 24, 22) ;
 }
 @font-face {
     font-family: "poppins";
@@ -151,7 +152,7 @@ footer{
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     border-radius: 16px;
-    box-shadow: 8px 5px 15px 0 var(--secondary);
+    box-shadow: 8px 5px 15px 0 var(--dark);
 }
 .lesson-card:hover{
     transform: rotateY(180deg);
@@ -165,12 +166,12 @@ footer{
 }
 .back-card{
     transform: rotateY(180deg);
-    background: var(--secondary);
+    background: var(--dark);
 }
 .back-card h4{
     margin: 0;
     padding-left: 2vw;
-    background-image: linear-gradient(to bottom left, var(--secondary) 10%, var(--primary) 115%);
+    background-image: linear-gradient(to bottom left, var(--dark) 10%, var(--gray) 115%);
     /* background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary) 115%); */
     border-radius: 0 0 75% 0;
 }
@@ -183,7 +184,7 @@ footer{
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary) 115%);
+    background-image: linear-gradient(to bottom left, var(--gray) 10%, var(--dark) 115%);
     border-radius: 0 0 50% 0;
 }
 .back-card p{
@@ -209,4 +210,25 @@ footer{
 }
 .img-right img{
     margin: auto 0;
+}
+div.lesson-content li{
+    list-style-position: inside;
+}
+
+div.lesson-content h2,div.lesson-content h3,div.lesson-content h4,div.lesson-content h5{
+    line-height: 5rem;
+}
+code{
+    background-color: var(--gray);
+    border: 2px solid var(--dark);
+    border-radius: 4px;
+    white-space: nowrap;
+    letter-spacing: 0.2rem;
+}
+pre{
+    background-color: var(--gray);
+    border: 2px solid var(--dark);
+    border-radius: 4px;
+    letter-spacing: 0.2rem;
+
 }
