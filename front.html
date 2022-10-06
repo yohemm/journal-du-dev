@@ -63,71 +63,71 @@
           </ul>
         </div>
         <h2 id="prerequis">Prérequis :</h2>
-        <p>un éditeur de texte tel que Visual Studio Code ou autre(mais tout les raccourcis sité seront valable
+        <p>un éditeur de texte tel que Visual Studio Code ou autres(tous les raccourcis seront valable
           uniquement pour VS Code), et un navigateur(chrome, ...)</p>
         <h2 id="intro">Introduction :</h2>
         <p>html5 est un langage de balistique, les balises sont des conteneurs, des boites qui peuvent contenir d’autres
-          boites ou juste des objets. La structure de touts les site internets utilise se langage, il est donc
+          boites ou juste des objets, tel que du texts ou des images. La structure de touts les site internets utilise HTML5, il est donc
           essentiels de la maîtriser pour apprendre le développement web.</p>
         <H2 id="files-creation">Création de votre premier page :</H2>
         <p>
           Pour la création de votre premier site internet vous allez créer un nouveau dossier, qui sera la dossier
           racine de votre site web. Dans se dossier vous allez créer la page d’accueil, qui est enfaite un fichier au
-          nom de ‘index.html’, html étant l’extension du ficher qui est utilser pour les pages internet.
-          Ensuite ouvrez le ficher avec VS Code(visual studio code)
-
-          VS Code est très simple a prendre en main, les paramètres logiciel se trouve en haut, les dossiers projets et
-          extension sont sur le coté gauche et votre ficher se situe au centre.
-          Pour commencer a coder nous allons créer les balises principal d’un site. Marquez donc ‘ !’ ou ‘html’ puis
-          utilisez le raccourcis ctrl+space(control et bar d ‘espace, se raccourcis permet de faire de
-          l’auto-complétion(le logiciel écrit a votre place)
-
+          nom de ‘index.html’, html étant l’extension du ficher qui est utilsée pour créer vos pages.
+          Ensuite ouvrez le ficher avec VS Code(visual studio code).
+          </p><p>
+          VS Code est très simple a prendre en main, les paramètres logiciel se trouvent en haut, les dossiers projets et
+          extensiond sont sur le coté gauche et votre ficher se situe au centre.
+          Pour commencer a coder nous allons créer les balises principal d’un site. Marquez donc ‘!’ ou ‘html’ puis
+          utilisez le raccourcis ctrl+space(control et bar d‘espace puis entrée, se raccourcis permet de faire de
+          l’auto-complétion(le logiciel écrit a votre place). </p><p>
           Voici se que vous devez observer :
           <!-- TO DO: Image -->
         </p>
+          <img src="assets/html5/contentProjet.PNG" alt="dossier racine du projet" height="300vh">
+          <img src="assets/html5/fristBalise.PNG" alt="fondation de l'html du ficher" height="300vh">
         <h2 id="definiton">Définitions :</h2>
         <h3>Les Balises</h3>
         <p>
-          Avec le visuelle c’est tout de suites plus simple de comprendre un balise, en effet les balises commence
+          Avec le visuelle c’est tout de suites plus simple de comprendre, en effet les balises commencent
           toutes par ‘&lt’ et se termine par ‘> ‘.
           On peut voir qu’il existe 2 grande famille de balise, celle qui s’ouvre et se ferme( en 3 parti, ouverture,
           contenue, fermeture) que l’on vas appeler balise conteneur comme : <code>&ltbody>...&lt/body></code>
           et les balises simple tel que &lt!DOCTYPE html>.
-          Les balise conteneur s’écrivent de cette facon. Balise ouverte <code>&ltname></code>(pouvant contenir des
-          attribues, Contenue(sous forme de texte ou de balise), Balise fermer <code>&lt/name></code>, il ne faut donc
+          Les balise conteneur s’écrivent de cette facon. </p><p>
+          Balise ouverte <code>&ltname></code>, Contenue(sous forme de texte ou de balise), Balise fermer <code>&lt/name></code>, il ne faut donc
           pas oublier d’écrire / avant le nom sur la balise fermer.
           Alors que les balises simple elle s’utilise simplement avec <code>&ltname></code> ou <code>&ltname/></code>
-          (le / a la fin est uniquement visuelle et sert juste a savoir que c’est une balise simple)
+          (le / a la fin est uniquement visuelle et sert juste a savoir que c’est une balise simple).
         </p>
         <h3>Les Attributs</h3>
         <p>
-          Tout a l’heure je vous est parlez d’attribut, c’est se que l’on vas voir en détaille maintenant. Au niveau de
-          la balise d’ouverture <code>&lthtml lang=’fr’></code>, on peut observer votre premier attribue html. Celui-ci
-          se nome lang, qui signifie langage et il a pour attribue ‘fr’. Cette instruction signifie a votre navigateur
+          Les Attributs son des caractéristiques que l'on donne a une balise. Au niveau de
+          la balise d’ouverture <code>&lthtml lang=’fr’></code>, on peut observer votre premier attribue. Celui-ci
+          se nome lang, qui signifie langage et il a pour valeur ‘fr’. Cette instruction signifie a votre navigateur
           que le site que vous consulter est écrit en français. Pour utiliser un attribue on écrit d’abord sont nom puis
-          un lui affect un text(car la reponse est entre de côte(« ‘ »)), voici quel que autre exemple que nous allons
-          voir plus tard : <code>&ltimg src="./assets/img.png" alt="une image" width="200"></code>
+          un lui affect un texte, une chaine de characteres, car la reponse est entre de côte(« ‘ »), voici un autre exemple que nous allons
+          voir plus tard, la balise d'image: <code>&ltimg src="./assets/img.png" alt="une image" width="200"></code>
           l’attribut src est la reference(ici a une image) dans votre dossiers, alt est une alternative(pour connexion
-          lent ou non-voyant/mal-voyant ) et width est la largeur de l’image en pixel
+          lent ou non-voyant/mal-voyant ) et width est la largeur de l’image en pixel.
         </p>
 
         <h2 id="text">première balise html et les texts</h2>
         <h3>Head et Body</h3>
         <p>
-          la balise <code>&lthead></code> est « l’esprit » de votre site, il contient tout se qui est pas directement
-          afficher sur la page, tel que le nom de l’onglet, l’icône de la page, les références a des feuilles de style,
+          la balise <code>&lthead></code> est « l’esprit » de votre site, il contient tout se qui n'est pas directement
+          affiché sur la page, tel que le nom de l’onglet, l’icône de la page, les références a des feuilles de style,
           ou meme ‘l’alphabet’ utilser par le site.
-          Alors que le body lui est toute les boutons, les textes, les formulaires, les images, les listes de votre
-          site. Le body contient en la forme de votre site.
+          Alors que le body lui est toutes la forme de la page, comme par exemple : les boutons, les textes, les formulaires, les images, les listes de votre site.
         </p>
         <p>
           Revenez dans votre dossiers et ouvrer index.html avec votre navigateur et avec Vs Code. Sur Vs Code vous allez
-          vous rendre compte de 2 choses, la page est vide et le titre de la page est document. Si vous avez un minimum
+          vous rendre compte de 2 choses, la page est vide et le titre de la page est 'document'. Si vous avez un minimum
           d’esprit critique vous avez compris pourquoi ? Car le body est vide et que dans le head il y a une balise
-          <code>&lttitle>Document&lt/title></code>. Bien joué vous venez de découvrir en autonomie un nouvelle balise,
-          vous pouvez maintenant changer le titre de l’onglet a votre guise, il vous suffit de changer le contenue entre
-          les balises ! Personnellement je vais vous montrez un site de musique. Je vais donc le écrire ‘Musique
-          Préferer ‘.
+          <code>&lttitle>Document&lt/title></code>. Vous venez de découvrir en autonomie une nouvelle balise!
+          Vous pouvez maintenant changer le titre de l’onglet a votre guise, il vous suffit de changer le contenue entre
+          les 2 balises. Personnellement je vais vous montrez un site de musique. Je vais donc le écrire ‘Musique
+          Préferé‘.
         </p>
         <p>
           Maintenant nous allons nous concentrez uniquement sur le body pour apprendre a faire un page fonctionnelle.
@@ -136,7 +136,7 @@
           Commençons par rajouter un texte, un titre plus précisément. Pour cela il nous faut un balise conteneur car on
           vas mettre du texte dedans. Les balises titre se nome h1, h2, …, h6. La lettre ‘h’ signifie titre et le nombre
           qui suit correspond a la force du titre, en effet plus le nombre sera petit plus le titre auras de
-          l’importance, que se soit de par ça taille mais pas que ! Le référencement de votre page dépend en grand
+          l’importance, que se soit de par ça taille, mais pas que! Le référencement de votre page dépend en grand
           partie de votre structure html. Il est important de lié le bon texte a la bonne balise. Une balise h1 se doit
           d’être utiliser qu’une seule fois pour par exemple énoncer le nom du site ou bien le slogan, se n’est pas
           obligatoire mais se sont des bonnes pratiques a prendre en compte dés le debut. Bref, h2 correspond à un
@@ -149,10 +149,11 @@
           Maintenant ajoutons un paragraphe, les paragraphes se noment ‘p’(d’ailleur il ont peut d’influence au niveau
           du référencement), <code>&ltp>&lt/p></code>. A l’intérieur du paragraphe marquer "Lorem20" puis utiliser le
           raccourcis d’auto-complétion(ctrl+space), cela vas vous marquer un text de 20 mots a l’intérieur du paragraphe
-          en latin, pratique pour marquer du texte a remplir plus tard non ? Bien sur vous pouvez marquer le nombre que
+          en latin, pratique pour marquer du texte a remplir plus tard non? Bien sur vous pouvez marquer le nombre que
           vous désirez après le ‘lorem’. Mettons maintenant un commentaire, un texte invisible dans la page qui est
           présent uniquement sur le fichiers html. Pour ceci nous allons nous situé au dessus du paragraphe et l’ont vas
-          faire le raccourcis ctrl+/ pour obtenir le resultats : </p><!-- TO DO: img -->
+          faire le raccourcis ctrl+/ pour obtenir le resultats : </p>
+          <img src="assets/html5/paragrapheCommentaire.PNG" alt="commentaire, paragraphe et titre" height="400vh">
         <p></p> dans se qui ressemble a une balise vous allez pouvoir marque se que vous voulez(par exemple : Intro)</p>
         <h2 id="style">Mis en forme des textes</h2>
         <p>
@@ -172,7 +173,7 @@
           balise <code>&ltdiv>&lt/div></code> si les contenus dedans est grand(surtout si il contient plusieurs balises)
           et <code>&ltspan>&lt/span></code> si il ne contient seulement du texte.</p>
         <p>
-          Vous pouvez aussi ajouter à vous balise des ‘marques’ pour les reconnaîtres, se sont les attribues class=’’ ou
+          Vous pouvez aussi ajouter à voss balises des ‘marques’ pour les reconnaîtres, se sont les attribues class=’’ ou
           id=’’, id ne peut avoir qu’une seule fois le même valeur dans la page alors que la class elle peut contenir
           plusieurs fois la même valeur.</p>
         <h2 id="liste">Les listes</h2>
