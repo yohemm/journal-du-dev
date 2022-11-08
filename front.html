@@ -126,8 +126,7 @@
           d’esprit critique vous avez compris pourquoi ? Car le body est vide et que dans le head il y a une balise
           <code>&lttitle>Document&lt/title></code>. Vous venez de découvrir en autonomie une nouvelle balise!
           Vous pouvez maintenant changer le titre de l’onglet a votre guise, il vous suffit de changer le contenue entre
-          les 2 balises. Personnellement je vais vous montrez un site de musique. Je vais donc le écrire ‘Musique
-          Préferé‘.
+          les 2 balises. Personnellement je vais faire un site sur les langages de progammation. Je vais donc le écrire ‘Les langages de programation‘.
         </p>
         <p>
           Maintenant nous allons nous concentrez uniquement sur le body pour apprendre a faire un page fonctionnelle.
@@ -143,7 +142,7 @@
           titre, h3 un sous-titre, … .
         </p>
         <p>
-          Pour écrire notre tire il suffit donc de mettre : <code>&lth1>Liste Des musiques&lt/h1></code>, simple non ?
+          Pour écrire notre tire il suffit donc de mettre : <code>&lth1>Liste des langages&lt/h1></code>, simple non ?
         </p>
         <p>
           Maintenant ajoutons un paragraphe, les paragraphes se noment ‘p’(d’ailleur il ont peut d’influence au niveau
@@ -154,7 +153,7 @@
           présent uniquement sur le fichiers html. Pour ceci nous allons nous situé au dessus du paragraphe et l’ont vas
           faire le raccourcis ctrl+/ pour obtenir le resultats : </p>
           <img src="assets/html5/paragrapheCommentaire.PNG" alt="commentaire, paragraphe et titre" height="400vh">
-        <p></p> dans se qui ressemble a une balise vous allez pouvoir marque se que vous voulez(par exemple : Intro)</p>
+        <p>dans se qui ressemble a une balise vous allez pouvoir marque se que vous voulez(par exemple : Intro)</p>
         <h2 id="style">Mis en forme des textes</h2>
         <p>
           Bon je vous l’accorde le style de la page n’est pas très bon, essayons de regler un peu le probleme. Si vous
@@ -165,7 +164,7 @@
           référencement. D’ailleurs les balise h1 à h6 n’ont pas le même niveau de sémantique, c’est se que je vous
           expliquer juste avant. Concernant les balises de ‘style gras’, <code>&ltb></code> est juste un style il n’as
           pas d’influence sur la sémantique. Alors que <code>&ltstrong></code>, signifie un bout d’un texte qui est mis
-          en avant. En html il est compliquer de modifier le style des pages(enfaites le langage est tout simplement pas
+          en avant. En html il est compliquer de modifier le style des pages(enfaites le langage n'est tout simplement pas
           fait pour ça).
         </p>
         <h2 id="container">Les balises de mis en contenue</h2>
@@ -173,28 +172,28 @@
           balise <code>&ltdiv>&lt/div></code> si les contenus dedans est grand(surtout si il contient plusieurs balises)
           et <code>&ltspan>&lt/span></code> si il ne contient seulement du texte.</p>
         <p>
-          Vous pouvez aussi ajouter à voss balises des ‘marques’ pour les reconnaîtres, se sont les attribues class=’’ ou
+          Vous pouvez aussi ajouter à vos balises des ‘marques’ pour les reconnaîtres, se sont les attribues class=’’ ou
           id=’’, id ne peut avoir qu’une seule fois le même valeur dans la page alors que la class elle peut contenir
           plusieurs fois la même valeur.</p>
         <h2 id="liste">Les listes</h2>
         <p>
           Nous on vas créer une <code>&ltdiv></code> pour contenir notre liste de musique cette div auras un id qui a
-          pour valeur ‘music-list’,
-          <code>&ltdiv id=’music-list’>&lt/div></code>
-          On vas rajouter un titre de niveau 3(h3) qui contient ‘Liste des musiques inscrites :’.
+          pour valeur ‘prog-list’,
+          <code>&ltdiv id=’prog-list’>&lt/div></code>
+          On vas rajouter un titre de niveau 3(h3) qui contient ‘Liste des langages évalués :’.
         </p>
         <p>
           Si l’on souhaite faire un liste ordonnée il faudra créé un balise conteneur <code>&ltol>&lt/ol></code>, si la
           liste n’as pas d’ordre(classement) il nous faut une balise conteneur ul(liste a puces), ici la liste ne serais
           pas ordonnée car on vas faire un classement dans un tableau par la suite. Dans cette balise ul nous allons
-          mettre autant de balise conteneur li(<code>&ltli>&lt/li></code>) qu’il y auras de musique, vous mettrez
-          d’ailleurs les titres des musiques dedans.</p>
+          mettre autant de balise conteneur li(<code>&ltli>&lt/li></code>) qu’il y auras de langages, vous mettrez
+          d’ailleurs leur nom a l'intérieur.</p>
         <p>
           Bon vous commencez a être alaise avec les balises ?? attardon nous un peu au attribue !</p>
         <h2 id="image">Les images</h2>
         <p>
           Les attribues id et class sont valables sur toutes les balises mais se n’est pas le cas de tous les attribues.
-          Affichons un image comme exemple. Au dessus de la div music-list on vas créer une balise unique img
+          Affichons un image comme exemple. Au dessus de la div prog-list on vas créer une balise unique img
           (<code>&ltimg/></code>) si vous l’avez créer avec le raccourcis d’auto-complétion de VS Code, vous aurez déjà
           des attribues sinon il vous faudra écrit « src=’’ alt=’’ » en attribue. Src est le lien de l ‘image, il peut
           être pris depuis de source du fichiers (ex : ‘assets/monImg.png’) ou bien juste une adresse d’image sur
@@ -273,7 +272,7 @@
         et un id correspondant soit a masculin ou a feminin. Suivit de leur label(masculin et féminin). Voilà a quoi
         c’est sembler ressembler. </p>
         <!-- TO DO: img -->
-        <p> Si vous voulez sélectionner un radio de base il faudra mettre l’attribue checked(sans égale ni côte). Le
+        <p> Si vous voulez sélectionner un radio ou une checkbox de base il faudra mettre l’attribue checked(sans égale ni côte). Le
           radio permet de faire un choix unique(ici masculin, féminin). Alors que si on aurais remplacer le type par
           checkbox on aurais pu sélectionner les 2(ou aucun) sans soucis, il est donc plus pratique de l’utiliser dans
           des conditions générale d’utilisation. Sortons donc du fieldset pour créer notre checkbox qui aura un label au
@@ -283,12 +282,12 @@
           avec cette disposition vous êtes pas obliger d’utiliser l’attribue for sur le label.
         </p>
         <p>
-          Créons maintenant un label ‘Votre musique preferer’ suite à se label créons un balise au nom de select(avec
+          Créons maintenant un label ‘Votre langage de programmation preferer’ suite à se label créons un balise au nom de select(avec
           son name et son id). A l’interieur de la balise select je crée autant de balise
-          <code>&ltoption value=’1’>freestyle hors-series &lt/option></code> qu’il y a de musique, la valeur correspond
+          <code>&ltoption value=’1’>C++ &lt/option></code> qu’il y a de langages dans la lites, la valeur correspond
           a se qui seras envoyer en réponse un fois le formulaire rempli. Si l’on souhaite créer des goupes d’option on
           vas regrouper plusieurs balise option dans une balise <code>&ltoptgroup label=’’> &lt/optgroup></code>
-          l’attribue label correspond au nom du groupe, ici l’on pourrais mettre ‘rap’, ‘classique’.
+          l’attribue label correspond au nom du groupe, ici l’on pourrais mettre ‘Langages de haut niveau’, Langages de bas niveau.
         </p>
         Allez c’est repartie, créons un label Commentaire suivit d’une balise textarea, cette balise marche un peux
         comme un input texte au lieu de l’attribue value pour mettre du contenue, on peut directement le mettre sous
@@ -324,17 +323,14 @@
 
         <h2 id="table">Les tables</h2>
         <p>
-          Ensuite on vas créer notre classement sous la forme d’un tableau avec comme lignes les chansons sitée dans la
-          liste de la page d’aceuil et comme colone le classement, le titre, l’auteur, le style et un lien vers la
-          chasons. En effet il est très inintéressant pour le refermement de votre site d’avoir des lien externe a votre
-          site. Malheureusement le styles des tableaux de base en html est très peu visible. Je vous conseillerais donc
-          d’ajouter un peu style plus tard.Commencons déjà par créer notre tableaux avec la balise table. Ensuite pour
+          Ensuite on vas créer notre classement sous la forme d’un tableau avec les langages en lignes et des caractéristiques qui aurons une note différentes en fonction du langage. Malheureusement le styles des tableaux de base en html est très peu visible. Je vous conseillerais donc
+          d’ajouter un peu style plus tard. Commencons déjà par créer notre tableaux avec la balise table. Ensuite pour
           créer un ligne il faut utilisé la balise tr(table row) et pour les cellules au sein de la ligne on utilise td
-          pour les cellules classique et th pour les cellules importante(par ex : nom).</p>
+          pour les cellules classique et th pour les cellules importante(par ex : nom de langage).</p>
         <p>
           Nous il nous faut une premières lignes en tant que entête, pour ceci avant de créer la ligne on créer un
           balise thead(il existe aussi le tbody et tfoot) dans se thead on créer un tr et dans la tr on créer autant de
-          th que vous voulez de colonne(ici il y auras le classement, le titre, l’auteur, le style et un lien). Pour
+          th que vous voulez de colonne(ici il y auras la facilité d'apprentissage, la vitesse de calcule et sa célébrité). Pour
           plus de visibilité on vas créer un balise style dans le head de html. Dans cette balise style on vas recopier
           ceci(cela permet de faire des bordures).</p>
         <pre>
@@ -344,80 +340,22 @@
           }
       &lt/style></pre>
         <p>Bien jouer vous venez des créer votre premières feuilles de style, si vous souhaitez en apprendre plus
-          renseigner vous sur le css.
+          renseigner vous sur le <b>css</b>.
         </p>
         <p>
-          Ensuite on vas créer le tbody en dessous de thead, avec autant de ligne qu’il y a de chasons(si vous le
-          souhaitez vous pouvez mettre la cellules du classement de chaque chasons en th pour un meilleur cémentique.
+          Ensuite on vas créer le tbody en dessous de thead, avec autant de ligne qu’il y a de langages(si vous le
+          souhaitez vous pouvez mettre la cellules du classement de chaque langage en th pour un meilleur cémentique.
           Lorsque que l’on créer un tableaux, les thead, tbody, tfoot sont seulement optionelle. Rien ne vous oblige a
           les utiliser mais dans chaque lignes doit avoir exactement le même nombre de cellules si se n’est pas le cas
           votre tableaux et erroné. Vous devez donc régler l’attribue colspan(ou rowspan) pour élargir une cellules et
           confirmer un total correct. Un exemple sera plus simple pour comprendre. Créons le tfoot avec un ligne a
           seulement seulement un cellules, qui contient la phrase conventionnelle comme quoi se tableaux est juste a
           titre indicatif(avec un lien vers le formulaire pour que les visiteurs puisse donner leur avis) dans une
-          balise em pour montrer le pied de tableaux. Le tableaux que l’ont vient de créer est donc devenue incomplet.
+          balise <b>em</b> pour montrer le pied de tableaux. Le tableaux que l’ont vient de créer est donc devenue incomplet.
           En effet il manque 4 cellules a la dernier ligne. Pour cela on donne l’attribue colspan et on l’affect a 4 sur
           l’unique cellules du tfoot. Avec ceci la cellules du tfoot prend maintenant tout la largeur du tableaux. Si
           vous voulez rajouter un titre au tableaux, on vas dans la balise table et on créer un nouvelle balise caption
           avec commme contenue le titre du tableaux.</p>
-        <p>
-          il sont utilisable dans un fichier .HTML, le ficher de la
-          page principal du site se nome "index.hml" et se situe a la racine des dossiers du site. Il existe 2 principal
-          type de balise:</p>
-        <ul>
-          <li>- <code>&ltinput/></code>, balise unique ne peut pas contenir d'autre balise, il prend seulement des
-            attribues
-            en parametre.
-            n</li>
-          <li>- <code>&ltdiv>...&lt/div></code>, balise ouvert/fermer la balise d'ouverture comport seulement son nom
-            (et ses
-            attribues) alors que la
-            balise de fermeture contient un "/" devant son nom, peut contenir des balises entre ses 2 balise(et des
-            attribues)</li>
-        </ul>
-
-
-        <p>
-          fini de parler allons voir un exemple:
-        </p>
-        <p>
-          Si on regarde la balise <code>&lthtml></code> on peut voir que la balise contient 1 attribue qui a pour nom
-          lang(langage) au quelle
-          on a affecter la valeur "fr"(francais), pour mettre un attribut sur un varible il faut donc utiliser la
-          syntaxe
-          nom="contenue" a l'interieur de la balise d'ouverture.
-          Le html étant un language balistique il est trés simple de le comprendre, mais son utilisation néccesssites de
-          conaitre un certain nombre de balise et d'attribue(du moins les plus utiliser).</p>
-        <p>
-          Aller c'est partie créons notre premier site web en html5:</p>
-        <p>
-          La premiere chose a faire est donc de créer un ficher "index.html", puis vous allez l'ouvrir avec votre
-          éditeur
-          de text/code, Chaque éditeur a des aides propre a lui. il est donc important de trouver un éditeur avec le
-          quelle vous serais alaise et qui vous fait gagner du temps.</p>
-        <p>
-          Nous allons donc créer les premiers balises, en marquant "html" suivit d'un ctrl+space(racourcis controlle
-          avec
-          la barre d'espace), cela vas vous proposer plusieur choix. En faite ctrl+space nous permet d'ecrire plus vite
-          car l'editeur trouve le code a notre place. La il y a 2 solution soit plein de balises sont créé soit juste la
-          balise <code>&lthtml></code> est créé. La balise html est la base du site, elle ne compprtera que 2 balise
-          l'interieur d'elle meme, <code>&lthead></code> et <code>&ltbody></code> que je vous invite a créer dans cette
-          ordre.</p>
-        <p>
-          pour l'instant seule la balise <code>&ltbody></code> vas nous interreser, en effect se qui se passe dans cette
-          balise est beaucoup plus visuelle que dans le header.</p>
-        <p>
-          Pour mieux comprendre nous allons créer une balise h1 comme celle la "<code>&lth1>Hello Dév!&lt/h1></code>"
-          les
-          balises avec un 'h' est un chiffre derrier sont des titres, plus le nombre est petit, plus le titre est
-          important et gros.</p>
-        <p>
-          Vous comprenez mieux maintenant ? Aller ajoutons un paragraphe qui se nome <code>&ltp></code> dans le body. A
-          l'interieur du paragraphe marquer "Lorem50" puis utiliser le raccourcis d’auto-complétion(ctrl+space), cela
-          vas
-          vous marquer un text de 50 mots a l'interieur du paragraphe en latin, pratique quand l’on ne sais pas quoi
-          mettre en texte.</p>
-        </p>
       </div>
 
       <!-- Struture web -->
