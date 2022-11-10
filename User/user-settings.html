@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <title>Le Journale du Dév</title>
+</head>
+
+<body>
+  <nav id="menu-nav"></nav>
+  <main>
+    <header>
+      <h2>Le <span>J</span>ournale du <span>D</span>év</h2>
+      <h3>
+        Fait pour les jeunes programmeur en quetes de nouveaux apprentissage
+      </h3>
+    </header>
+    <div id="content">
+      <form action="" method="get" id="connection">
+        <fieldset>
+            <Legend>informations de compte</Legend>
+            <div>
+              <label for="user">Nouvelle adressse email : </label><input type="text" name="userid" id="user"
+                placeholder="Votre nouvelle email" required>
+            </div>
+            <div><label for="pass">mot de passe Actuelle :* </label> <input type="password" name="new-password" id="new-pass"
+                placeholder="Nouveau mots de passe" required>
+            </div>
+            <div><label for="pass">Nouveau mot de passe : </label> <input type="password" name="new-password" id="new-pass"
+                placeholder="Nouveau mots de passe" required>
+            </div>
+            <div><label for="pass">Repetez votre nouveau mots de passe :</label> <input type="password" name="rep-new-password" id="rep-new-pass"
+                placeholder="Nouveau mots de passe" required>
+            </div>
+        </fieldset>
+        <fieldset>
+            <Legend>informations Profile</Legend>
+            <div>
+                <label for="profile-picture">Image de profile : </label><input type="file" name="picture" id="profile-picture">
+            </div>
+            <div><label for="bio">Biographie :</label><textarea name="biographie" id="bio" cols="150" rows="10"></textarea></div>
+        </fieldset>
+        <input type="submit" value="connexion">
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>
+      All right reserved &copy; by Yohem VAXELAIRE 2022 |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+  <script src="../index.js"></script>
+</body>
+
+</html>

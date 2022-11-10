@@ -37,10 +37,10 @@ balisesBody.forEach((body) => {
     }
 })
 const paths = [
-    {path:"./front.html", name :"Front-end Web"},
-    {path:"./game.html", name :"Jeux vidéo"},
-    {path:"./back.html", name :"Back-end Web"},
-    {path:"./other.html", name :"Autre"},
+    {path:"../front.html", name :"Front-end Web"},
+    {path:"../game.html", name :"Jeux vidéo"},
+    {path:"../back.html", name :"Back-end Web"},
+    {path:"../dictionary.html", name :"Dictionnaire"},
 ]
 let toAddOnNav = `<ul id="nav-bar">`;
 paths.forEach((obj)=>{

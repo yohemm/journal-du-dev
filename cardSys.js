@@ -15,6 +15,6 @@ cards.forEach((card) =>{
         const contentLesson = document.getElementById(idContentToTp);
         contentLesson.style.display = "block";
 
-        location.replace('.' +location.pathname + "#" + idContentToTp);
+        location.replace('.' +location.pathname + "?lesson=" + lesson+"");
     })
 })
