@@ -1,0 +1,48 @@
+<%- include('../partials/header') %> 
+<div id="content">
+  <% if (typeof lesson !== 'undefined'){ %> 
+    <h3>
+      <%= lesson.title %> 
+    </h3>
+    <section id="lesson-content">
+    <h4>Sommmaire</h4>
+    <ol>
+      <%= lesson.summary %> 
+    </ol>
+    <!-- titre sous forme 
+    <h4 id="nom_de_raccourcis" class="on-submary">Le nom de la section</h4>
+    -->
+    <%= lesson.content %> 
+</section>
+<% } %> 
+<section id="lessons-commentary">
+  <section id="all-comments">
+    <% for (commentary of commentaries){ %> 
+    <div class="comment-container">
+      <p class="author"><%= commentary.author %> </p>
+      <p class="created-at"><%= commentary.createdAt.fromNow(true) %> </p>
+      <p class="comment"><%= commentary.content %> </p>
+      <% } %> 
+    </div> 
+  </section>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Vos informations</legend><div>
+            <label for="name">Votre pseudo : </label> <input type="text" name="pseudo" id="name" placeholder="monNom..." required></div>
+            <div>
+            <label for="email">Votre email : </label><input type="email" name="email" id="email" placeholder="xxxxxxxxxx@xxxx.xx" required></div>
+        </fieldset>
+        <div>
+        <label for="com">Votre commentaire : </label>
+        <textarea name="comment" id="com" cols="150" rows="10" required></textarea>
+    </div>
+    <div>
+        <input type="checkbox" name="com-condition" id="conditions" required>
+        <label for="conditions">Acccepter d'envoi de commentaire</label>
+    </div>
+        <input type="submit" value="Commenter">
+    </form>
+
+</section>
+</div>
+<%- include('../partials/footer') %> 

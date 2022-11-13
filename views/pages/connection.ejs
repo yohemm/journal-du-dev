@@ -1,0 +1,21 @@
+<%- include('../partials/header') %> 
+<div id="content">
+  <form action="" method="post" id="connection" class="form-anim">
+    <fieldset>
+      <legend><h2><strong>Connectez</strong>-Vous</h2></legend>
+    <div class="form-groupe">
+      <label for="user">Votre Nom d'utilisateur/adressse email</label><input type="text" name="userid" id="user" required>
+    </div>
+    <div class="form-groupe"><label for="pass">Votre mot de passe</label> <input type="password" name="password" id="pass"
+      required>
+    </div>
+    <div class="form-groupe">
+    <input type="submit" value="connexion">
+  </div>
+    <div class="mdp-perdu">
+      <a href="#">Mot de passe perdu ?</a>
+    </div>
+  </fieldset>
+  </form>
+</div>
+<%- include('../partials/footer') %> 
