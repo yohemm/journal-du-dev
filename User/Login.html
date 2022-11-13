@@ -19,15 +19,22 @@
       </h3>
     </header>
     <div id="content">
-      <form action="" method="get" id="connection">
-        <div>
-          <label for="user">Votre Nom d'utilisateur/adressse email</label><input type="text" name="userid" id="user"
-            placeholder="xxxxxxxxxx | xxxxx@xx.xx" required>
+      <form action="" method="get" id="connection" class="form-anim">
+        <fieldset>
+          <legend><h2><strong>Connectez</strong>-Vous</h2></legend>
+        <div class="form-groupe">
+          <label for="user">Votre Nom d'utilisateur/adressse email</label><input type="text" name="userid" id="user" required>
         </div>
-        <div><label for="pass">Votre mot de passe</label> <input type="password" name="password" id="pass"
-            placeholder="mon mots de passe" required>
+        <div class="form-groupe"><label for="pass">Votre mot de passe</label> <input type="password" name="password" id="pass"
+          required>
         </div>
+        <div class="form-groupe">
         <input type="submit" value="connexion">
+      </div>
+        <div class="mdp-perdu">
+          <a href="#">Mot de passe perdu ?</a>
+        </div>
+      </fieldset>
       </form>
     </div>
   </main>
@@ -38,6 +45,7 @@
     </p>
   </footer>
   <script src="../index.js"></script>
+  <script src="../formSys.js"></script>
 </body>
 
 </html>
