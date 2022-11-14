@@ -14,6 +14,10 @@
     src: url(./assets/Poppins.ttf);
 }
 
+/* *{
+    outline: 1px red solid;
+} */
+
 *, ::after, ::before{
     margin: 0;
     padding: 0;
@@ -72,10 +76,9 @@ main header  span{
 
 nav ul li:hover{
     background: var(--primary);
-    color: var(--dark);
 }
 
-nav ul li:hover>a{
+nav ul li:hover > a{
     color: var(--dark);
 }
 nav ul li a{
@@ -85,6 +88,7 @@ nav ul li a{
     height: auto;
     text-align: center;
     color: inherit;
+    line-height: 60px;
 }
 
 main{
@@ -335,7 +339,7 @@ pre{
     display: flex;
     margin-bottom: 40px;
 }
-.form-anim .form-groupe input[type="submit"] {
+.form-anim .form-groupe input[type="submit"], section#lessons-commentary section#form-comment div input[type="submit"] {
     display: block;
     width: auto;
     padding: 15px 60px;
@@ -347,7 +351,7 @@ pre{
     cursor: pointer;
 }
 
-.form-anim .form-groupe input[type="submit"]:hover {
+.form-anim .form-groupe input[type="submit"]:hover, section#lessons-commentary section#form-comment div input[type="submit"]:hover {
     color: var(--primary-dark);
     background-position: 100%;
     border: 3px solid var(--light);
@@ -385,6 +389,7 @@ section#lessons-commentary section#all-comments .comment-container{
     border: var(--dark) 1px solid;
     margin: 1vh 0;
     padding: 2vh 1vw;
+    border-radius: 10px;
 }
 section#lessons-commentary section#all-comments .comment-container{
     width: 100%;
@@ -402,4 +407,17 @@ section#lessons-commentary section#all-comments .comment-container .created-at{
 section#lessons-commentary section#all-comments .comment-container .comment{
     width: 100%;
 }
+section#lessons-commentary section#form-comment div{
+    display:flex;
+    margin: 3vh 2vw;    
+}
+section#lessons-commentary section#form-comment{
+}
 
+section#lessons-commentary section#form-comment div input[type="submit"] {
+    transition: 0.4s ease-out;
+}
+section#lessons-commentary section#form-comment div.form-btn {
+    display: flex;
+    justify-content: center;
+}
