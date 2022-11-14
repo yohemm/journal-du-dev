@@ -29,11 +29,9 @@ app.use(express.urlencoded({extended : true}));
 // app.use(require('./middlewares/flash'));
 
 app.post('/cours', (req, res) => {
-  console.log(req)
-  if (req.body.pseudo == undefined || req.body.pseudo == ''){
+  console.log(req.body)
+  if (req.body.condition == undefined || req.body.pseudo == ''){
     console.log('error: Name');
-  }else if(req.body.email == undefined || req.body.email == ''){
-    console.log('error: Email');
   }else if (req.body.comment == undefined || req.body.comment == ''){
     console.log('error: comment');
   }else{
@@ -45,11 +43,8 @@ app.post('/cours', (req, res) => {
   }
 })
 app.post('/cours/:id', (req, res) => {
-  console.log(req)
-  if (req.body.pseudo == undefined || req.body.pseudo == ''){
+  if (req.body.condition == undefined || req.body.pseudo == ''){
     console.log('error: Name');
-  }else if(req.body.email == undefined || req.body.email == ''){
-    console.log('error: Email');
   }else if (req.body.comment == undefined || req.body.comment == ''){
     console.log('error: comment');
   }else{
@@ -97,7 +92,7 @@ app.post('/connection', (req, res) => {
           }else {
             if(user.password == hash.sha256(req.body.password).digest('hex')){
               req.session.idUser = user.id;
-              res.redirect('/cours')
+              res.redirect('/')
             } else{
               console.log('mots de pass erroner')
               res.redirect('/connection')
@@ -110,7 +105,7 @@ app.post('/connection', (req, res) => {
         if(user.password == hash.sha256(req.body.password).digest('hex')){
           req.session.user = user.id;
           console.log('connection effectuer2')
-          res.redirect('/connection')
+          res.redirect('/')
         }else{
           console.log('mots de pass erroner2')
           res.redirect('/connection')
@@ -154,6 +149,25 @@ app.get('/inscription', (req, res) => {
 
 app.get('/connection', (req, res) => {
   res.render('pages/connection');
+})
+
+app.get('/logout', (req, res) => {
+  req.session.destroy(function(err) {
+    if (err) throw err;
+    // cannot access session here
+    req.session = undefined;
+    res.redirect('/');
+  });
+})
+
+app.get('/forum', (req, res) => {
+  res.render('pages/en-traveaux');
+})
+app.get('/market', (req, res) => {
+  res.render('pages/en-traveaux');
+})
+app.get('/projet', (req, res) => {
+  res.render('pages/en-traveaux');
 })
 
 app.listen(port, ()=>{

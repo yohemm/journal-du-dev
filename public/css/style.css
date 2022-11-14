@@ -135,7 +135,7 @@ h5{
 }
 
 section{
-    padding: 6vh 0;
+    padding: 3vh 0;
 }
 
 .presentation-box{
@@ -373,3 +373,33 @@ pre{
 .form-anim .form-groupe.animation input{
     border-color: var(--primary);
 }
+
+/* section des commentaire de cours */
+
+section#lessons-commentary {
+}
+section#lessons-commentary section#all-comments{
+    
+}
+section#lessons-commentary section#all-comments .comment-container{
+    border: var(--dark) 1px solid;
+    margin: 1vh 0;
+    padding: 2vh 1vw;
+}
+section#lessons-commentary section#all-comments .comment-container{
+    width: 100%;
+}
+section#lessons-commentary section#all-comments .comment-container .author{
+    width: 80%;
+    font-size: 1.4rem;
+    margin-left: 1vw;
+    font-weight: 600;
+}
+section#lessons-commentary section#all-comments .comment-container .created-at{
+    font-size: 0.8rem;
+    text-align: right;
+}
+section#lessons-commentary section#all-comments .comment-container .comment{
+    width: 100%;
+}
+
