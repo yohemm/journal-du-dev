@@ -1,0 +1,85 @@
+							PAGES
+pages:
+	Index
+		bref presentation du site
+		cours
+		futur projet
+		definition
+	Info/contact
+		creation du projet
+		presentation
+		info pour contact/recruter
+	Cours
+		all
+			filtre
+				-language
+				-objectif
+					front
+					back
+					game
+					other
+				-level
+				-time to earn
+			card vertical
+				titles
+				desc
+				level
+				time to earn
+		single
+			title
+			summary
+			lessons
+			allcomment
+			create comment
+	
+	User
+		connection
+			pseudo/email
+			mdp
+		inscription
+			pseudo/email
+			mdp
+			acepte condition
+		usersetting
+			change pseudo
+			change logo
+			bio
+			cosmetique
+				Payant
+					contour de logo
+					pseudo color
+				Gratuit
+					cursor
+					badge
+	Def
+		all
+		single
+	Forum
+		all
+		Single
+		Create
+		Signal
+	Market
+		buy token
+		buy comsetic		
+	Projet
+		boite a idée
+		all
+		single
+		rejoin
+	?Blog de dev
+		Avancer du projet jdd
+	
+	
+							PARTIALS
+Header:
+	nom
+	slogant/valeur	
+Footer
+	legal
+	adresse	
+Nav
+	user
+	index
+	forum
+	market
