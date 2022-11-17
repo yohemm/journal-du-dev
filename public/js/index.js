@@ -1,54 +1,12 @@
-const nav = document.getElementById('menu-nav');
+userSettingsBtns = document.querySelectorAll('nav ul li img');
 
-const balisesDiv = document.querySelectorAll('span.div');
-balisesDiv.forEach((div) => {
-    if (div.textContent.length > 0){
-        div.textContent = "<div> "+ div.textContent +" </div>";
-    }else{
-        div.textContent = "<div> ... </div>";
-    }
+userSettingsBtns.forEach(userSettingsBtn => {  
+    userSettingsBtn.addEventListener('click', () => {
+        console.log(userSettingsBtns[0].classList.toggle('grow-anim'));
+    })
 });
-const balisesInput = document.querySelectorAll('span.input');
-balisesInput.forEach((input) => {
-    input.textContent += "<input/>";
+
+userSettingsBtns[0].addEventListener('animationend', () => {
+    console.log('harra')
+    document.location.href = '/user';
 })
-const balisesHtml = document.querySelectorAll('span.html');
-balisesHtml.forEach((html) => {
-    if (html.textContent.length > 0){
-        html.textContent = "<html> "+ html.textContent +" </html>";
-    }else{
-        html.textContent = "<html> ... </html>";
-    }
-})
-const balisesH1 = document.querySelectorAll('span.h1');
-balisesH1.forEach((h1) => {
-    if (h1.textContent.length > 0){
-        h1.textContent = "<html> "+ h1.textContent +" </html>";
-    }else{
-        h1.textContent = "<html> ... </html>";
-    }
-})
-const balisesBody = document.querySelectorAll('span.body');
-balisesBody.forEach((body) => {
-    if (body.textContent.length > 0){
-        body.textContent = "<body> "+ body.textContent +" </body>";
-    }else{
-        body.textContent = "<body> ... </body>";
-    }
-})
-const paths = [
-    {path:"../cours", name :"Cours"},
-    {path:"../forum", name :"Forum"},
-    {path:"../market", name :"Market"},
-    {path:"../projet", name :"Projet"},
-]
-let toAddOnNav = `<ul id="nav-bar">`;
-paths.forEach((obj)=>{
-    if(!obj.path.includes(location.pathname) || location.pathname ==='/'){
-        toAddOnNav += `<li><a href="${obj.path}">${obj.name}</a></li>`;
-    }else{
-        toAddOnNav += `<li><a href="./">Acceuil</a></li>`;
-    }
-});
-toAddOnNav +="</ul>";
-nav.innerHTML = toAddOnNav;

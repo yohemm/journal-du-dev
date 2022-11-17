@@ -79,7 +79,12 @@ Footer
 	legal
 	adresse	
 Nav
-	user
+	forum
+	market
+	projet
+	blog
 	index
+	cour
+cours
 	forum
 	market
