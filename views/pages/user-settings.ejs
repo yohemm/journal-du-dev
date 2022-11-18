@@ -1,0 +1,32 @@
+<%- include('../partials/header') %> 
+      <div id="content">
+        <h2>Les parametres utilisateurs</h2>
+        <form action="" method="post" class="form-anim">
+            <fieldset>
+                <Legend>Mettre a jours vis informations</Legend>
+                <div class="form-groupe">
+                    <label for="pseudo">Votre pseudo</label>
+                    <input type="text" name="pseudo" id="pseudo" value="<%= user.name %>">
+                </div>
+                <div class="form-groupe">
+                    <label for="pseudo">Votre pseudo</label>
+                <input type="email" name="email" id="pseudo" value="<%= user.email %> ">
+                </div>
+                <div class="form-groupe">
+                <Label>Votre Bio</Label>
+                <textarea name="bio" id="bio" cols="30" rows="10"><%= user.bio %></textarea>
+            </div>
+            <div>
+                <Label>Votre photo de profile</Label>
+                <input type="file" name="profileImg" id="profile-img" accept="image/png, image/gif, image/jpeg" />
+            </div>
+            <div class="form-groupe">
+                <input type="submit" value="Modifier">
+            </div>
+            <div class="link-form">
+              <a href="/logout">Déconnetion</a>
+            </div>
+            </fieldset>
+        </form>
+      </div>
+<%- include('../partials/footer') %>

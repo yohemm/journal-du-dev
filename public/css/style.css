@@ -61,9 +61,13 @@ nav ul li img:nth-last-child(1){
     right: 30%;
     transform: translate(-50%, -50%) scale(2);
 }
+nav ul li:hover img:nth-child(1){
+    transform:scale(1.5) translate(45px, -26%) ;
+}
 nav ul li img:nth-child(1){
     transform-origin: 80% 20%;
-    transform:scale(1.5) translate(45px, -26%) ;
+    transition: all 0.2s ease-out;
+    transform: translate(25px, -10%);
 }
 nav ul li:nth-last-child(1){
     position: relative;
@@ -378,12 +382,12 @@ pre{
     border: 3px solid var(--light);
 }
 
-.form-anim .mdp-perdu a {
+.form-anim .link-form a {
     margin-left: 2vw;
     font-size: 1.5rem;
     border-bottom: 2px solid  transparent;
 }
-.form-anim .mdp-perdu a:hover{
+.form-anim .link-form a:hover{
     border-bottom-color: var(--primary) ;
 }
 

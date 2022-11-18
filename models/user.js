@@ -13,6 +13,9 @@ class User{
   get name (){
     return this.row.name;
   }
+  get bio (){
+    return this.row.bio;
+  }
   
   get create_time (){
     return this.row.create_time;
@@ -24,6 +27,14 @@ class User{
   
   get email(){
     return this.row.email;
+  }
+
+  static update(name, email, bio, id, callback){
+    console.log(name, email, bio)
+    connection.query('UPDATE user SET name=?, email=?, bio=? Where id=?', [name, email, bio, id], (err, res) => {
+      if (err) throw err;
+      callback(res);
+    })
   }
 
   static create(name, password, email, callback){
@@ -42,6 +53,13 @@ class User{
 
   static findName(name, callback){
     connection.query('SELECT * FROM user WHERE name=? LIMIT 1', [name], (err, res) => {
+      if (err) throw err;
+      callback(new User(res[0]));
+    })
+  }
+
+  static findId(id, callback){
+    connection.query('SELECT * FROM user WHERE id=? LIMIT 1', [id], (err, res) => {
       if (err) throw err;
       callback(new User(res[0]));
     })

@@ -28,6 +28,25 @@ app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 // app.use(require('./middlewares/flash'));
 
+app.post('/user', (req, res) => {
+  console.log(req.body)
+  if(req.body.pseudo == undefined || req.body.pseudo == ''){
+    console.log("error :Name")
+    
+  }else{
+    if(req.body.email == undefined || req.body.email == ''){
+      console.log("error :email")
+      
+    }else{
+      User.update(req.body.pseudo, req.body.email, req.body.bio, req.session.idUser, () =>{
+        console.log("Modification reussit")
+        res.redirect("/user")
+      })
+    }
+  
+  }
+
+})
 app.post('/cours', (req, res) => {
   console.log(req.body)
   if (req.body.condition == undefined || req.body.pseudo == ''){
@@ -56,7 +75,7 @@ app.post('/cours/:id', (req, res) => {
   }
 })
 
-app.post('/inscription', (req, res) => {
+app.post('/user/inscription', (req, res) => {
   if(req.body.name == undefined || req.body.name == ''){
     console.log('error: Name')
   } else if(req.body.email == undefined || req.body.email == ''){
@@ -66,7 +85,7 @@ app.post('/inscription', (req, res) => {
   } else if(req.body.password == req.body.confirmpassword){
     console.log('Formulaire bon')
     User.create(req.body.name, req.body.password, req.body.email, () => {
-      res.redirect('/connection');
+      res.redirect('/user/connection');
     })
     
   } else {
@@ -74,7 +93,7 @@ app.post('/inscription', (req, res) => {
   }
 })
 
-app.post('/connection', (req, res) => {
+app.post('/user/connection', (req, res) => {
   if(req.body.userid == undefined || req.body.userid == ''){
     console.log('error: user')
   } else if(req.body.password == undefined || req.body.password == ''){
@@ -88,14 +107,14 @@ app.post('/connection', (req, res) => {
         User.findName(req.body.userid, (user) => {
           if (user.row == undefined){
             console.log('aucune donnée ne correspond');
-            res.redirect('/connection')
+            res.redirect('/user/connection')
           }else {
             if(user.password == hash.sha256(req.body.password).digest('hex')){
               req.session.idUser = user.id;
               res.redirect('/')
             } else{
               console.log('mots de pass erroner')
-              res.redirect('/connection')
+              res.redirect('/user/connection')
             }
           }
         })
@@ -103,12 +122,12 @@ app.post('/connection', (req, res) => {
 
       }else {
         if(user.password == hash.sha256(req.body.password).digest('hex')){
-          req.session.user = user.id;
+          req.session.idUser = user.id;
           console.log('connection effectuer2')
           res.redirect('/')
         }else{
           console.log('mots de pass erroner2')
-          res.redirect('/connection')
+          res.redirect('/user/connection')
         }
       }
     })
@@ -125,9 +144,10 @@ app.get('/cours', (req, res) => {
       res.render('pages/single-lesson', {commentaries : commentaries});
     })
   }else{
-    res.redirect('/connection');
+    res.redirect('/user/connection');
   }
 })
+
 
 app.get('/cours/:id', (req, res) => {
   Lesson.find(req.params.id, (lesson) =>{
@@ -136,18 +156,18 @@ app.get('/cours/:id', (req, res) => {
         res.render('pages/single-lesson', {commentaries : commentaries, lesson : lesson});
       })
     }else{
-      res.redirect('/connection');
+      res.redirect('/user/connection');
     }
   })
 
   
 })
 
-app.get('/inscription', (req, res) => {
+app.get('/user/inscription', (req, res) => {
   res.render('pages/inscription');
 })
 
-app.get('/connection', (req, res) => {
+app.get('/user/connection', (req, res) => {
   res.render('pages/connection');
 })
 
@@ -163,11 +183,20 @@ app.get('/logout', (req, res) => {
 app.get('/forum', (req, res) => {
   res.render('pages/en-traveaux');
 })
+app.get('/projet', (req, res) => {
+  res.render('pages/en-traveaux');
+})
 app.get('/market', (req, res) => {
   res.render('pages/en-traveaux');
 })
-app.get('/projet', (req, res) => {
-  res.render('pages/en-traveaux');
+app.get('/user', (req, res) => {
+  if(req.session.idUser){
+    User.findId(req.session.idUser, (user) => {
+      res.render('pages/user-settings', {user});
+    })
+  }else{
+    res.redirect('/user/connection')
+  }
 })
 
 app.listen(port, ()=>{
