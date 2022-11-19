@@ -1,8 +1,7 @@
 userSettingsBtns = document.querySelectorAll('nav ul li img');
-
 userSettingsBtns.forEach(userSettingsBtn => {  
     userSettingsBtn.addEventListener('click', () => {
-        console.log(userSettingsBtns[0].classList.toggle('grow-anim'));
+        userSettingsBtns[0].classList.toggle('grow-anim');
     })
 });
 

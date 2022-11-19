@@ -20,14 +20,16 @@ pages:
 					other
 				-level
 				-time to earn
-			card vertical
+			card
+				cursus
+					advancement
+					list
 				titles
 				desc
 				level
 				time to earn
 		single
 			title
-			summary
 			lessons
 			allcomment
 			create comment

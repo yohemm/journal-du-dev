@@ -16,7 +16,13 @@
         <li><a href="/forum">Forum</a></li>
         <li><a href="/market">Marché</a></li>
         <li><a href="/projet">Projet</a></li>
-        <li><img src="../img/bg_settings_user.png" alt="background profile settings"><img src="../img/profile.svg" alt="profile settings"></li>
+        <li><img src="../img/bg_settings_user.png" alt="background profile settings"> 
+          <% if(avatar == undefined || avatar == '') { %> 
+            <img src="../img/avatars/default.svg" alt="profile settings" id="img-avatar">
+          <% } else { %>
+            <img src="../img/avatars/<%= avatar %> " alt="profile settings" id="img-avatar">
+          <% }; %> 
+        </li>
       </ul>
     </nav>
     <main>

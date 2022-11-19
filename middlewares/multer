@@ -1,0 +1,22 @@
+const multer = require("multer");
+
+const MIME_TYPE = {
+  "image/jpg": "jpg",
+  "image/jpeg": "jpg",
+  "image/gif": "gif",
+  "image/png": "png"
+}
+
+const storage = multer.diskStorage({
+  destination : (req, file, callback) => {
+     callback(null, 'public/img/avatars')
+  },
+  filename : (req, file, callback) => {
+    const name = req.session.idUser;
+    const extension = MIME_TYPE[file.mimetype];
+    callback(null, name + '.'+ extension);
+  }
+})
+
+console.log(storage);
+module.exports = multer({storage : storage});

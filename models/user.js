@@ -14,6 +14,7 @@ class User{
     return this.row.name;
   }
   get bio (){
+    console.log(this.row)
     return this.row.bio;
   }
   
@@ -28,13 +29,24 @@ class User{
   get email(){
     return this.row.email;
   }
+  
+  get avatar(){
+    return this.row.avatar;
+  }
 
-  static update(name, email, bio, id, callback){
+  static update(name, email, bio, avatar, id, callback){
     console.log(name, email, bio)
-    connection.query('UPDATE user SET name=?, email=?, bio=? Where id=?', [name, email, bio, id], (err, res) => {
-      if (err) throw err;
-      callback(res);
-    })
+    if(avatar == undefined || avatar ==''){
+      connection.query('UPDATE user SET name=?, email=?, bio=? Where id=?', [name, email, bio, id], (err, res) => {
+        if (err) throw err;
+        callback(res);
+      })
+    }else{
+      connection.query('UPDATE user SET name=?, email=?, bio=?, avatar=? Where id=?', [name, email, bio, avatar, id], (err, res) => {
+        if (err) throw err;
+        callback(res);
+      })
+    }
   }
 
   static create(name, password, email, callback){

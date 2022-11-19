@@ -1,7 +1,7 @@
 <%- include('../partials/header') %> 
       <div id="content">
         <h2>Les parametres utilisateurs</h2>
-        <form action="" method="post" class="form-anim">
+        <form action="" method="post" class="form-anim" enctype="multipart/form-data">
             <fieldset>
                 <Legend>Mettre a jours vis informations</Legend>
                 <div class="form-groupe">
@@ -18,7 +18,7 @@
             </div>
             <div>
                 <Label>Votre photo de profile</Label>
-                <input type="file" name="profileImg" id="profile-img" accept="image/png, image/gif, image/jpeg" />
+                <input type="file" name="avatar" id="profile-img" accept="image/png, image/gif, image/jpeg" />
             </div>
             <div class="form-groupe">
                 <input type="submit" value="Modifier">

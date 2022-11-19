@@ -8,6 +8,10 @@ const Commentary = require('./models/commentary');
 const User = require('./models/user');
 const Lesson = require('./models/lesson');
 const port = 3000;
+const path = require('node:path');
+const { cp } = require('node:fs');
+const upload = require('./middlewares/multer');
+
 
 app.set('trust proxy', 1);
 app.set('view engine', 'ejs');
@@ -28,8 +32,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 // app.use(require('./middlewares/flash'));
 
-app.post('/user', (req, res) => {
-  console.log(req.body)
+app.post('/user', upload.single("avatar"), (req, res) => {
+  console.log(req)
   if(req.body.pseudo == undefined || req.body.pseudo == ''){
     console.log("error :Name")
     
@@ -38,7 +42,7 @@ app.post('/user', (req, res) => {
       console.log("error :email")
       
     }else{
-      User.update(req.body.pseudo, req.body.email, req.body.bio, req.session.idUser, () =>{
+      User.update(req.body.pseudo, req.body.email, req.body.bio, req.file.filename, req.session.idUser, () =>{
         console.log("Modification reussit")
         res.redirect("/user")
       })
@@ -135,13 +139,31 @@ app.post('/user/connection', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.render('pages/index');
+  avatar ='';
+  if(req.session.idUser !== undefined && req.session.idUser !== ''){
+  User.findId(req.session.idUser, (user) => {
+    console.log(user)
+    avatar = user.avatar;
+    res.render('pages/index', {avatar: avatar});
+  })
+  }else {
+
+    res.render('pages/index', {avatar: avatar});
+  }
 })
 
 app.get('/cours', (req, res) => {
   if(req.session.idUser){
     Commentary.commentInLesson(3, (commentaries)=>{
-      res.render('pages/single-lesson', {commentaries : commentaries});
+      avatar ='';
+      if(req.session.idUser !== undefined && req.session.idUser !== ''){
+        User.findId(req.session.idUser, (user) => {
+          avatar = user.avatar;
+          res.render('pages/single-lesson', {avatar:avatar, commentaries : commentaries});
+        })
+      }else {
+          res.render('pages/single-lesson', {avatar:avatar, commentaries : commentaries});
+      }
     })
   }else{
     res.redirect('/user/connection');
@@ -153,7 +175,15 @@ app.get('/cours/:id', (req, res) => {
   Lesson.find(req.params.id, (lesson) =>{
     if(req.session.idUser){
       Commentary.commentInLesson(req.params.id ,(commentaries)=>{
-        res.render('pages/single-lesson', {commentaries : commentaries, lesson : lesson});
+        avatar ='';
+        if(req.session.idUser !== undefined && req.session.idUser !== ''){
+          User.findId(req.session.idUser, (user) => {
+            avatar = user.avatar;
+            res.render('pages/single-lesson', {avatar: avatar, commentaries : commentaries, lesson : lesson});
+          })
+        }else {
+          res.render('pages/single-lesson', {avatar: avatar, commentaries : commentaries, lesson : lesson});
+        }
       })
     }else{
       res.redirect('/user/connection');
@@ -164,11 +194,29 @@ app.get('/cours/:id', (req, res) => {
 })
 
 app.get('/user/inscription', (req, res) => {
-  res.render('pages/inscription');
+  avatar ='';
+  if(req.session.idUser !== undefined && req.session.idUser !== ''){
+  User.findId(req.session.idUser, (user) => {
+    avatar = user.avatar;
+    res.render('pages/inscription', {avatar:avatar});
+  })
+  }else {
+
+    res.render('pages/inscription', {avatar:avatar});
+  }
 })
 
 app.get('/user/connection', (req, res) => {
-  res.render('pages/connection');
+  avatar ='';
+  if(req.session.idUser !== undefined && req.session.idUser !== ''){
+  User.findId(req.session.idUser, (user) => {
+    avatar = user.avatar;
+    res.render('pages/connection', {avatar: avatar});
+  })
+  }else {
+
+    res.render('pages/connection', {avatar: avatar});
+  }
 })
 
 app.get('/logout', (req, res) => {
@@ -181,23 +229,65 @@ app.get('/logout', (req, res) => {
 })
 
 app.get('/forum', (req, res) => {
-  res.render('pages/en-traveaux');
+  avatar ='';
+  if(req.session.idUser !== undefined && req.session.idUser !== ''){
+  User.findId(req.session.idUser, (user) => {
+    avatar = user.avatar;
+    res.render('pages/en-traveaux', {avatar: avatar});
+  })
+  }else {
+
+    res.render('pages/en-traveaux', {avatar: avatar});
+  }
 })
+
 app.get('/projet', (req, res) => {
-  res.render('pages/en-traveaux');
+  avatar ='';
+  if(req.session.idUser !== undefined && req.session.idUser !== ''){
+  User.findId(req.session.idUser, (user) => {
+    avatar = user.avatar;
+    res.render('pages/en-traveaux', {avatar: avatar});
+  })
+  }else {
+
+    res.render('pages/en-traveaux', {avatar: avatar});
+  }
 })
+
 app.get('/market', (req, res) => {
-  res.render('pages/en-traveaux');
+  avatar ='';
+  if(req.session.idUser !== undefined && req.session.idUser !== ''){
+  User.findId(req.session.idUser, (user) => {
+    avatar = user.avatar;
+    res.render('pages/en-traveaux', {avatar: avatar});
+  })
+  }else {
+
+    res.render('pages/en-traveaux', {avatar: avatar});
+  }
 })
+
 app.get('/user', (req, res) => {
   if(req.session.idUser){
     User.findId(req.session.idUser, (user) => {
-      res.render('pages/user-settings', {user});
+      
+  avatar ='';
+  if(req.session.idUser !== undefined && req.session.idUser !== ''){
+  User.findId(req.session.idUser, (user) => {
+    avatar = user.avatar;
+    res.render('pages/user-settings', {avatar:avatar ,user});
+  })
+  }else {
+
+    res.render('pages/user-settings', {avatar:avatar ,user});
+  }
     })
   }else{
     res.redirect('/user/connection')
   }
 })
+
+
 
 app.listen(port, ()=>{
   console.log(`App listennig on port ${port}`);
