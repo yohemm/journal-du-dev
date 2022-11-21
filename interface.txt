@@ -26,7 +26,12 @@ pages:
 					list
 				titles
 				desc
-				level
+				difficulty
+					debutant
+					apprenti
+					amateur
+					confirmé
+					expert
 				time to earn
 		single
 			title

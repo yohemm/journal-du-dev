@@ -1,0 +1,19 @@
+<%- include('../partials/header') %> 
+      <div id="content">
+            <button>Cours/Formation</button>
+            <div id="lessons-container">
+                  <% lessons.forEach(lesson => {
+                        if(lesson !== undefined){
+                              console.log(lessons.cursus)
+                        %> 
+                  <div class="card-lesson">
+                        <h2><%= lesson.title %> </h2>
+                        <p class="lesson-desc"><%= lesson.description %> </p>
+                        <p class="cursus"><%= lesson.cursus.titre %> </p>
+                        <p class="level"><%= lesson.difficulty %> </p>
+                        <p class="time"><%= lesson.time %>min<img src="../img/time.ico" alt="icon de temps"></p>
+                  </div>
+                  <% };}); %> 
+            </div>
+      </div>
+<%- include('../partials/footer') %>

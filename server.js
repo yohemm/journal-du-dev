@@ -11,6 +11,7 @@ const port = 3000;
 const path = require('node:path');
 const { cp } = require('node:fs');
 const upload = require('./middlewares/multer');
+const lesson = require('./models/lesson');
 
 
 app.set('trust proxy', 1);
@@ -152,27 +153,25 @@ app.get('/', (req, res) => {
   }
 })
 
-app.get('/cours', (req, res) => {
-  if(req.session.idUser){
-    Commentary.commentInLesson(3, (commentaries)=>{
-      avatar ='';
-      if(req.session.idUser !== undefined && req.session.idUser !== ''){
-        User.findId(req.session.idUser, (user) => {
-          avatar = user.avatar;
-          res.render('pages/single-lesson', {avatar:avatar, commentaries : commentaries});
-        })
-      }else {
-          res.render('pages/single-lesson', {avatar:avatar, commentaries : commentaries});
-      }
-    })
-  }else{
-    res.redirect('/user/connection');
-  }
+app.get('/cours', (req, res) => {      
+      let avatar ='';
+      let allLessons = [];
+      lesson.Cour.all((allLessons) => {
+        if(req.session.idUser !== undefined && req.session.idUser !== ''){
+          User.findId(req.session.idUser, (user) => {
+            avatar = user.avatar;
+            res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons});
+          })
+        }else {
+            console.log(allLessons[0].cursus)
+            res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons});
+        }
+      })
 })
 
 
 app.get('/cours/:id', (req, res) => {
-  Lesson.find(req.params.id, (lesson) =>{
+  lesson.Cour.find(req.params.id, (lesson) =>{
     if(req.session.idUser){
       Commentary.commentInLesson(req.params.id ,(commentaries)=>{
         avatar ='';
