@@ -3,17 +3,15 @@ const connection = require('../config/db');
 const User = require('./user');
 
 class Cour {
-  constructor (row) {
+  constructor (row, idCursus) {
     this.row = row;
-    console.log(this.setCursus())
-    this.cursus = this.setCursus();
   }
 
   get createAt() {
     return this.row.create_time;
   }
   get time(){
-    return this.row.timer;
+    return this.row.time;
   }
   get title() {
     return this.row.title;
@@ -33,22 +31,27 @@ class Cour {
   get author() {
     return this.row.author;
   }
-  get cursus() {
-    return this.cursus;
+  get formationId() {
+    return this.row.formation;
   }
-  setCursus(){
-    connection.query('SELECT c.formation FROM cour JOIN cursus c ON c.cour=cour.id WHERE cour.id=?', [this.row.id], (err, res) => {
-      console.log(this.row.id)
+  get formationTitre() {
+    return this.row.titre;
+  }
+
+  get id(){
+    return this.row.id;
+  }
+  cursus(){
+    connection.query('SELECT c.formation FROM cour JOIN cursus c ON c.cour=cour.id WHERE cour.id=?', [this.row.formation], (err, res) => {
       if(err) throw err;
     Formation.find(res[0].formation, (formation) => {
-      console.log(formation)
-      return formation
+      return formation;
     });
    })
   }
   
   static find(id, callback){
-    connection.query('SELECT * FROM cour WHERE id=? LIMIT 1', [id], (err, res) => {
+    connection.query('SELECT * FROM cour co LEFT JOIN cursus cu ON co.id=cu.cour LEFT JOIN formation f ON cu.formation=f.id WHERE co.id=? LIMIT 1', [id], (err, res) => {
       if (err) throw err;
       callback(new Cour(res[0]));
     })
@@ -57,18 +60,18 @@ class Cour {
   static allId(callback){
     connection.query('SELECT id FROM cour', (err, res) => {
       if (err) throw err;
-      console.log(res)
       callback(res);
     })
   }
   static all(callback){
-    connection.query('SELECT * FROM cour', (err, res) => {
+    connection.query('SELECT * FROM cour co LEFT JOIN cursus cu ON co.id=cu.cour LEFT JOIN formation f ON cu.formation=f.id', (err, res) => {
       if (err) throw err;
       let result = [];
+      console.log( result);
       for(const row of res){
-        console.log(row)
         result.push(new Cour(row))
       }
+      console.log( result);
       callback(result);
     })
   }
@@ -79,6 +82,7 @@ module.exports.Cour = Cour;
 class Formation{
   constructor(row){
     this.row = row;
+    console.log(this);
   }
 
   get createAt(){
@@ -98,7 +102,22 @@ class Formation{
   }
 
   get id(){
-    return this.row.difficulty;
+    return this.row.id;
+  }
+
+  get cursus(){
+    return this.cursus
+  }
+
+  cours(callback) {
+    connection.query('SELECT * FROM cour co JOIN cursus cu ON co.id=cu.cour WHERE cu.formation=?', [this.row.id], (err, res) => {
+      if (err) throw err;
+      let list = []
+      res.forEach(row => {
+        list.push(new Cour(row))        
+      });
+      callback(list)
+    })    
   }
 
   static find(id, callback){
@@ -109,9 +128,20 @@ class Formation{
   }
 
   static findIdFormationCour(idFormation, callback){
-    connection.query('SELECT id FROM formation f JOIN cursus ON f.id=c.formation', [idFormation], (err, res) => {
+    connection.query('SELECT id FROM formation f JOIN cursus ON f.id=c.formation DISTINCT', [idFormation], (err, res) => {
       if (err) throw err;
       callback(res);
+    })
+  }
+
+  static all(callback){
+    connection.query('SELECT * FROM formation f JOIN cursus c ON f.id=c.formation', (err, res) => {
+      if(err) throw err;
+      let result 
+      for(row of res){
+        result.push(row);
+      }
+      callback(row)
     })
   }
 }

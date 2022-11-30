@@ -14,7 +14,6 @@ class User{
     return this.row.name;
   }
   get bio (){
-    console.log(this.row)
     return this.row.bio;
   }
   
@@ -35,7 +34,6 @@ class User{
   }
 
   static update(name, email, bio, avatar, id, callback){
-    console.log(name, email, bio)
     if(avatar == undefined || avatar ==''){
       connection.query('UPDATE user SET name=?, email=?, bio=? Where id=?', [name, email, bio, id], (err, res) => {
         if (err) throw err;

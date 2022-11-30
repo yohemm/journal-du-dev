@@ -1,6 +1,20 @@
 <%- include('../partials/header') %>
   <div id="content">
-    <% if (typeof lesson !=='undefined' ){ %>
+    <% if (typeof lesson !=='undefined' ){ 
+      if (typeof cursus !== 'undefined'){
+      %>
+      <h2><%= lesson.formationTitre %></h2>
+      <div id="cursus">
+      <%
+      cursus.forEach(cour => {
+        %>
+        <a href="/cours/<%= cour.id %>" rel="<%= cour.title %>"></a>
+        <%
+      });%>
+      </div>
+
+      <%}%>
+
       <h3>
         <%= lesson.title %>
       </h3>
@@ -9,10 +23,9 @@
         <ol>
           <%= lesson.summary %>
         </ol>
-        <!-- titre sous forme 
-    <h4 id="nom_de_raccourcis" class="on-submary">Le nom de la section</h4>
-    -->
-        <%= lesson.content %>
+        <p>
+          <%= lesson.content %>
+          </p>
       </section>
       <% } %>
         <section id="lessons-commentary">
