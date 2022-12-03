@@ -3,10 +3,8 @@ const tareas = document.querySelectorAll('textarea');
 
 
 document.addEventListener('DOMContentLoaded', (e) => {
-  console.log('lmskfjqdpoimjqd<lfkjqls<!kdjfmlkqsjdmflkjqsmldkfjml');
   inputs.forEach(input => {
     if(input.value != ""){
-      console.log('malkjre')
       input.parentNode.classList.add('animation');
     }else if(input.value == ""){
       input.parentNode.classList.remove('animation');
@@ -14,7 +12,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
   })
   tareas.forEach(tarea => {
     if(tarea.value != ""){
-      console.log('malkjre')
       tarea.parentNode.classList.add('animation');
     }else if(tarea.value == ""){
       tarea.parentNode.classList.remove('animation');

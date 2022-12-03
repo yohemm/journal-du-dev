@@ -8,7 +8,7 @@
       <%
       cursus.forEach(cour => {
         %>
-        <a href="/cours/<%= cour.id %>" rel="<%= cour.title %>"></a>
+        <a href="/cours/<%= cour.id %>" ><span><%= cour.title %></span></a>
         <%
       });%>
       </div>

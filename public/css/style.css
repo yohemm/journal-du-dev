@@ -462,3 +462,36 @@ section#lessons-commentary section#form-comment div.form-btn {
 @keyframes grow-anim {
     100% {transform: scale(10);}
 }
+
+#cursus a span{
+    position: relative;
+    background: var(--primary);
+    margin: 0 30px;
+}
+#cursus a span::before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: -30px;
+    border-top: 30px solid var(--light);
+    border-right: 30px solid var(--primary);
+    width: 0;
+    z-index: 1;
+}
+#cursus a span::after{
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: -30px;
+    border-top: 30px solid var(--primary);
+    border-right: 30px solid var(--light);
+    width: 0;
+    z-index: 1;
+}
+#cursus a{
+    height: 30px;
+    background: var(--primary);
+}
+#cursus {
+    height: 30px;
+}
