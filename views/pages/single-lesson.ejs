@@ -1,67 +1,60 @@
 <%- include('../partials/header') %>
-  <div id="content">
-    <% if (typeof lesson !=='undefined' ){ 
-      if (typeof cursus !== 'undefined'){
-      %>
-      <h2><%= lesson.formationTitre %></h2>
-      <div id="cursus">
-      <%
-      cursus.forEach(cour => {
-        %>
-        <a href="/cours/<%= cour.id %>" ><span><%= cour.title %></span></a>
-        <%
-      });%>
+<div id="content">
+  <% if (typeof lesson !=='undefined' ){ if (typeof cursus !=='undefined' ){ %>
+  <h2><%= lesson.formationTitre %></h2>
+  <ul id="cursus">
+    <% cursus.forEach(cour=> { %>
+      <li>
+        <div><a href="/cours/<%= cour.id %>"> <%= cour.title %> </a></div>
+      </li>
+    <% });%>
+  </ul>
+
+  <%}%>
+
+  <h3><%= lesson.title %></h3>
+  <section id="lesson-content">
+    <h4>Sommmaire</h4>
+    <ol>
+      <%= lesson.summary %>
+    </ol>
+    <p><%= lesson.content %></p>
+  </section>
+  <% } %>
+  <section id="lessons-commentary">
+    <section id="all-comments">
+      <% for (commentary of commentaries){ %>
+      <div class="comment-container">
+        <p class="author"><%= commentary.author %></p>
+        <p class="created-at"><%= commentary.createdAt.fromNow(true) %></p>
+        <p class="comment"><%= commentary.content %></p>
       </div>
-
-      <%}%>
-
-      <h3>
-        <%= lesson.title %>
-      </h3>
-      <section id="lesson-content">
-        <h4>Sommmaire</h4>
-        <ol>
-          <%= lesson.summary %>
-        </ol>
-        <p>
-          <%= lesson.content %>
-          </p>
-      </section>
       <% } %>
-        <section id="lessons-commentary">
-          <section id="all-comments">
-            <% for (commentary of commentaries){ %>
-              <div class="comment-container">
-                <p class="author">
-                  <%= commentary.author %>
-                </p>
-                <p class="created-at">
-                  <%= commentary.createdAt.fromNow(true) %>
-                </p>
-                <p class="comment">
-                  <%= commentary.content %>
-                </p>
-              </div>
-              <% } %>
-          </section>
-          <section id="form-comment">
-            <form action="" method="post">
-              <fieldset>
-                <legend>Répondre au commentaire</legend>
-                <div>
-                  <label for="com">Votre commentaire : </label>
-                  <textarea name="comment" id="com" cols="150" rows="10" required></textarea>
-                </div>
-                <div>
-                  <input type="checkbox" name="condition" id="conditions" required>
-                  <label for="conditions">Acccepter d'envoi de commentaire</label>
-                </div>
-                <div class="form-btn">
-                  <input type="submit" value="Commenter">
-                </div>
-              </fieldset>
-            </form>
-          </section>
-        </section>
-  </div>
-  <%- include('../partials/footer') %>
+    </section>
+    <section id="form-comment">
+      <form action="" method="post">
+        <fieldset>
+          <legend>Répondre au commentaire</legend>
+          <div>
+            <label for="com">Votre commentaire : </label>
+            <textarea
+              name="comment"
+              id="com"
+              cols="150"
+              rows="10"
+              required
+            ></textarea>
+          </div>
+          <div>
+            <input type="checkbox" name="condition" id="conditions" required />
+            <label for="conditions">Acccepter d'envoi de commentaire</label>
+          </div>
+          <div class="form-btn">
+            <input type="submit" value="Commenter" />
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </section>
+</div>
+<%- include('../partials/footer') %>
