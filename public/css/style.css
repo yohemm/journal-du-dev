@@ -92,7 +92,7 @@ nav{
     backdrop-filter: blur(10px);
     background-color: var(--dark-less-opacity);
     margin-top: 5vh;
-    z-index: 2;
+    z-index: 15;
     box-shadow: 0 0 20px ;
     position: fixed;
     width: 100%;
@@ -472,10 +472,6 @@ section#lessons-commentary section#form-comment div.form-btn {
     height: 30px;
     padding-left: 10px;
 }
-#cursus li{
-    width: 100%;
-    height: 30px;
-}
 #cursus div::before{
     content: '';
     position: absolute;
@@ -496,11 +492,120 @@ section#lessons-commentary section#form-comment div.form-btn {
     width: 0;
     z-index: 1;
 }
+#cursus li{
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
 #cursus a{
     color: black;
     text-align: center;
     width: 100%;
+    position: absolute;
+    top: 0;right: 0;bottom: 0;left: 0;
+    z-index: 2;
 }
 #cursus {
     height: 30px;
+}
+
+
+/* ? Lessons-container*/
+#lessons-container, #cursus-container{
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    grid-auto-flow: dense;
+    z-index: 2;
+}
+#lessons-container .card-lesson, #cursus-container .card-cursus{
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+}
+#lessons-container .card-lesson::after, #cursus-container .card-cursus::after, #lessons-container .card-lesson::before, #cursus-container .card-cursus::before,
+#lessons-container .card-lesson div, #cursus-container .card-cursus div{
+    background: linear-gradient(225deg, var(--gray) 0%, var(--light));
+    border: 6px var(--primary) solid;
+    border-radius: 5px;
+    
+}
+#lessons-container .card-lesson div, #cursus-container .card-cursus div{
+    z-index: 2;
+    position: absolute;
+    top: 0;bottom: 0;right: 0;left: 0;
+    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.51);
+}
+#lessons-container .card-lesson::after, #cursus-container .card-cursus::after, #lessons-container .card-lesson::before, #cursus-container .card-cursus::before{
+    content: "";
+    position: absolute;
+    top: 0;left: 0;bottom: 0;right: 0;
+    z-index: 0;
+    transition: transform 0.2s ease-out;
+}
+#lessons-container .card-lesson::after, #cursus-container .card-cursus::after{
+
+    transform: rotateZ(3deg);
+}
+#lessons-container .card-lesson:hover::before, #cursus-container .card-cursus:hover::before{
+
+    transform: rotateZ(-6deg);
+}
+#lessons-container .card-lesson:hover::after, #cursus-container .card-cursus:hover::after{
+    
+    transform: rotateZ(6deg);
+}
+#lessons-container .card-lesson::before, #cursus-container .card-cursus::before{
+    transform: rotateZ(-3deg);
+    
+}
+#lessons-container .card-lesson > *, #cursus-container .card-cursus > *{
+    color: var(--dark);
+}
+
+#lessons-container .card-lesson .cursus{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+#lessons-container .card-lesson .cursus a{
+    color: var(--secondary);
+}
+#lessons-container .card-lesson .level{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+#lessons-container .card-lesson .time{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#cursus-container .card-cursus h2, #lessons-container .card-lesson h2{
+    word-wrap: break-word;
+    padding: 0;
+    margin: 0;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+    color: var(--primary);
+}
+#cursus-container .card-cursus .cursus-desc, #lessons-container .card-lesson .lesson-desc{
+    padding: 0;
+    margin: 0 15px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    
+    
+}
+#cursus-container .card-cursus .etapes{
+    color: var(--secondary);
+    position: absolute;
+    padding: 0;
+    margin: 0 15px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    bottom: 0;
+    right: 0;   
 }

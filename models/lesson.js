@@ -108,6 +108,13 @@ class Formation{
   get cursus(){
     return this.cursus
   }
+  get nbCours(){
+    return this.row.nb_cours;
+  }
+  get fristCour(){
+    console.log(this.row.cour)
+    return this.row.cour;
+  }
 
   cours(callback) {
     connection.query('SELECT * FROM cour co JOIN cursus cu ON co.id=cu.cour WHERE cu.formation=?', [this.row.id], (err, res) => {
@@ -121,27 +128,28 @@ class Formation{
   }
 
   static find(id, callback){
-    connection.query('SELECT * FROM formation WHERE id=? LIMIT 1', [id], (err, res) => {
+    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=0 AND f.id=? LIMIT 1;', [id], (err, res) => {
       if (err) throw err;
       callback(new Formation(res[0]));
-    })
+    });
   }
 
   static findIdFormationCour(idFormation, callback){
-    connection.query('SELECT id FROM formation f JOIN cursus ON f.id=c.formation DISTINCT', [idFormation], (err, res) => {
+    connection.query('SELECT DISTINCT c.id FROM formation f JOIN cursus c ON f.id=c.formation WHERE f.id=? ORDER BY c.ordre ASC;', [idFormation], (err, res) => {
       if (err) throw err;
       callback(res);
     })
   }
 
   static all(callback){
-    connection.query('SELECT * FROM formation f JOIN cursus c ON f.id=c.formation', (err, res) => {
+    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=0 ;', (err, res) => {
       if(err) throw err;
-      let result 
-      for(row of res){
-        result.push(row);
+      let result = [];
+      for(const row of res){
+        console.log(row)
+        result.push(new Formation(row));
       }
-      callback(row)
+      callback(result)
     })
   }
 }

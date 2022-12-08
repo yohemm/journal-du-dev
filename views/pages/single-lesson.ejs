@@ -3,7 +3,7 @@
   <% if (typeof lesson !=='undefined' ){ if (typeof cursus !=='undefined' ){ %>
   <h2><%= lesson.formationTitre %></h2>
   <ul id="cursus">
-    <% cursus.forEach(cour=> { %>
+    <% cursus.forEach(cour => { %>
       <li>
         <div><a href="/cours/<%= cour.id %>"> <%= cour.title %> </a></div>
       </li>

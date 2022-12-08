@@ -33,7 +33,6 @@ app.use(express.urlencoded({extended : true}));
 // app.use(require('./middlewares/flash'));
 
 app.post('/user', upload.single("avatar"), (req, res) => {
-  console.log(req)
   if(req.body.pseudo == undefined || req.body.pseudo == ''){
     console.log("error :Name")
     
@@ -52,7 +51,6 @@ app.post('/user', upload.single("avatar"), (req, res) => {
 
 })
 app.post('/cours', (req, res) => {
-  console.log(req.body)
   if (req.body.condition == undefined || req.body.pseudo == ''){
     console.log('error: Name');
   }else if (req.body.comment == undefined || req.body.comment == ''){
@@ -142,7 +140,6 @@ app.get('/', (req, res) => {
   avatar ='';
   if(req.session.idUser !== undefined && req.session.idUser !== ''){
   User.findId(req.session.idUser, (user) => {
-    console.log(user)
     avatar = user.avatar;
     res.render('pages/index', {avatar: avatar});
   })
@@ -155,15 +152,18 @@ app.get('/', (req, res) => {
 app.get('/cours', (req, res) => {      
       let avatar ='';
       lesson.Cour.all((allLessons) => {
-        if(req.session.idUser !== undefined && req.session.idUser !== ''){
-          User.findId(req.session.idUser, (user) => {
-            avatar = user.avatar;
-            res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons});
-          })
-        }else {
-            console.log(allLessons[0].formation)
-            res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons});
-        }
+        lesson.Formation.all((allFormation) => {
+          if(req.session.idUser !== undefined && req.session.idUser !== ''){
+            User.findId(req.session.idUser, (user) => {
+              avatar = user.avatar;
+              console.log(allFormation[0]+ "caca")
+              res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons, formations : allFormation});
+            })
+          }else {
+            console.log(allFormation[0].nb_cours)
+              res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons, formations : allFormation});
+          }
+        })
       })
 })
 
@@ -191,7 +191,6 @@ app.get('/cours/:id', (req, res) => {
           if (typeof cour.formationId !== 'undefined'){
             lesson.Formation.find(cour.formationId, (formation) => {
               allCourFormation = formation.cours();
-              console.log(allCourFormation )
               res.render('pages/single-lesson', {avatar: avatar, commentaries : commentaries, lesson : cour, cursus : allCourFormation});
             });
           }else{

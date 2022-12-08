@@ -2,17 +2,36 @@
       <div id="content">
             <button>Cours/Formation</button>
             <div id="lessons-container">
-                  <% lessons.forEach(lesson => {
-                        if(lesson !== undefined){
+                  <% 
+                  const difficulty = ["debutant", "apprenti", "ammateur", "expert"];
+                  lessons.forEach(lesson => {
+                        if(lesson){
                         %> 
                   <div class="card-lesson">
-                        <h2><%= lesson.title %> </h2>
-                        <p class="lesson-desc"><%= lesson.description %> </p>
-                        <p class="cursus"> <a href="/cours/<%= lesson.formationId %>"><%= lesson.formationTitre %></a></p>
-                        <p class="level"><%= lesson.difficulty %> </p>
-                        <p class="time"><%= lesson.time %>min<img src="../img/time.ico" alt="icon de temps"></p>
+                        <div>
+                              <h2><%= lesson.title %> </h2>
+                              <p class="lesson-desc"><%= lesson.description %> </p>
+                              <% if(lesson.formationId ){ %>
+      
+                                    <p class="cursus"> <a href="/cours/<%= lesson.formationId %>"><%= lesson.formationTitre %>(<%= %>/<%= %>)</a></p>
+                              <%}%>
+                              <p class="level"><%= difficulty[lesson.difficulty-1] %> </p>
+                              <p class="time"><%= lesson.time %>min</p>
+                              </div>
                   </div>
                   <% };}); %> 
+            </div>
+            <div id="cursus-container">
+                  <% for (const formation of formations) {;%>
+                  <a href="/cours/<%= formation.fristCour%>" class="card-cursus">
+                        <div>
+                              <h2> <%= formation.titre %></h2>
+                              <p class="cursus-desc"><%= formation.description%></p>
+                              <p class="etapes"><%= formation.nbCours%> étapes</p>
+                              
+                              </div>
+                  </a>
+                  <% } %>
             </div>
       </div>
 <%- include('../partials/footer') %>
