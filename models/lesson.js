@@ -6,41 +6,59 @@ class Cour {
   constructor (row, idCursus) {
     this.row = row;
   }
-
+  
+  get id(){
+    return this.row.id;
+  }
+  
   get createAt() {
     return this.row.create_time;
   }
-  get time(){
-    return this.row.time;
-  }
+  
   get title() {
     return this.row.title;
   }
+  
+  get time(){
+    return this.row.time;
+  }
+  
   get content() {
     return this.row.content;
   }
+  
   get summary() {
     return this.row.summary;
   }
+  
   get description() {
     return this.row.description;
   }
+  
   get difficulty() {
     return this.row.difficulty;
   }
+  
   get author() {
     return this.row.author;
   }
+  
+  get order() {
+    return this.row.ordre;
+  }
+  
   get formationId() {
     return this.row.formation;
   }
+  
   get formationTitre() {
     return this.row.titre;
   }
 
-  get id(){
-    return this.row.id;
+  get nbCoursFormation() {
+    return this.row.nb_cours;
   }
+
   cursus(){
     connection.query('SELECT c.formation FROM cour JOIN cursus c ON c.cour=cour.id WHERE cour.id=?', [this.row.formation], (err, res) => {
       if(err) throw err;
@@ -51,7 +69,7 @@ class Cour {
   }
   
   static find(id, callback){
-    connection.query('SELECT * FROM cour co LEFT JOIN cursus cu ON co.id=cu.cour LEFT JOIN formation f ON cu.formation=f.id WHERE co.id=? LIMIT 1', [id], (err, res) => {
+    connection.query('SELECT co.*, cu.ordre, nb.* FROM cour co LEFT JOIN cursus cu ON co.id=cu.cour LEFT JOIN (SELECT COUNT(cour) nb_cours, c.formation, f.titre FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=cu.formation WHERE co.id=? LIMIT 1;', [id], (err, res) => {
       if (err) throw err;
       callback(new Cour(res[0]));
     })
@@ -64,14 +82,12 @@ class Cour {
     })
   }
   static all(callback){
-    connection.query('SELECT * FROM cour co LEFT JOIN cursus cu ON co.id=cu.cour LEFT JOIN formation f ON cu.formation=f.id', (err, res) => {
+    connection.query('SELECT co.*, cu.ordre, nb.* FROM cour co LEFT JOIN cursus cu ON co.id=cu.cour LEFT JOIN (SELECT COUNT(cour) nb_cours, c.formation, f.titre FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=cu.formation;', (err, res) => {
       if (err) throw err;
       let result = [];
-      console.log( result);
       for(const row of res){
         result.push(new Cour(row))
       }
-      console.log( result);
       callback(result);
     })
   }
@@ -112,7 +128,6 @@ class Formation{
     return this.row.nb_cours;
   }
   get fristCour(){
-    console.log(this.row.cour)
     return this.row.cour;
   }
 
@@ -128,7 +143,7 @@ class Formation{
   }
 
   static find(id, callback){
-    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=0 AND f.id=? LIMIT 1;', [id], (err, res) => {
+    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=1 AND f.id=? LIMIT 1;', [id], (err, res) => {
       if (err) throw err;
       callback(new Formation(res[0]));
     });
@@ -142,7 +157,7 @@ class Formation{
   }
 
   static all(callback){
-    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=0 ;', (err, res) => {
+    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=1 ;', (err, res) => {
       if(err) throw err;
       let result = [];
       for(const row of res){

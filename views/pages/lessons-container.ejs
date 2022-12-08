@@ -13,7 +13,7 @@
                               <p class="lesson-desc"><%= lesson.description %> </p>
                               <% if(lesson.formationId ){ %>
       
-                                    <p class="cursus"> <a href="/cours/<%= lesson.formationId %>"><%= lesson.formationTitre %>(<%= %>/<%= %>)</a></p>
+                                    <p class="cursus"> <a href="/cours/<%= lesson.formationId %>"><%= lesson.formationTitre %>(<%= lesson.order %>/<%= lesson.nbCoursFormation %>)</a></p>
                               <%}%>
                               <p class="level"><%= difficulty[lesson.difficulty-1] %> </p>
                               <p class="time"><%= lesson.time %>min</p>

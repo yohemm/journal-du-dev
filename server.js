@@ -160,7 +160,6 @@ app.get('/cours', (req, res) => {
               res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons, formations : allFormation});
             })
           }else {
-            console.log(allFormation[0].nb_cours)
               res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons, formations : allFormation});
           }
         })

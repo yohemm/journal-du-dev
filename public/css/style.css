@@ -472,6 +472,19 @@ section#lessons-commentary section#form-comment div.form-btn {
     height: 30px;
     padding-left: 10px;
 }
+#cursus .past{
+    background: var(--secondary);
+}
+#cursus .current {
+    background: var(--gray);
+}
+#cursus div{
+    position: relative;
+    background: var(--primary);
+    height: 30px;
+    padding-left: 10px;
+}
+
 #cursus div::before{
     content: '';
     position: absolute;
@@ -482,6 +495,13 @@ section#lessons-commentary section#form-comment div.form-btn {
     width: 0;
     z-index: 1;
 }
+#cursus .past::before{
+    border-right: 10px solid var(--secondary);
+}
+#cursus .current::before{
+    border-right: 10px solid var(--gray);
+}
+
 #cursus div::after{
     content: '';
     position: absolute;
@@ -492,6 +512,13 @@ section#lessons-commentary section#form-comment div.form-btn {
     width: 0;
     z-index: 1;
 }
+#cursus .past::after{
+    border-left: 10px solid var(--secondary);
+}
+#cursus .current::after{
+    border-left: 10px solid var(--gray);
+}
+
 #cursus li{
     width: 100%;
     height: 30px;

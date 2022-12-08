@@ -5,7 +5,7 @@
   <ul id="cursus">
     <% cursus.forEach(cour => { %>
       <li>
-        <div><a href="/cours/<%= cour.id %>"> <%= cour.title %> </a></div>
+        <div class="<% if (cour.id < lesson.id){%><%= "past"%> <%} else if( cour.id === lesson.id) {%><%= "current"%> <%} %>" ><a href="/cours/<%= cour.id %>"> <%= cour.title %> </a></div>
       </li>
     <% });%>
   </ul>
