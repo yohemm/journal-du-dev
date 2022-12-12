@@ -1,6 +1,14 @@
 <%- include('../partials/header') %> 
       <div id="content">
-            <button>Cours/Formation</button>
+            <form action="#" id="container-lessons-filter">
+                  <select name="language" id="prog-lang">
+                        <option value="1">CSS</option>
+                        <option value="2">HTML</option>
+                        <option value="3">javaScript</option>
+                  </select>
+                  <input type="checkbox" name="cours-lessons" id="cours-lessons">
+                  <label for="cours-lessons"><span class="cour-input">Cours</span>/<span class="formation-input">formation</span></label>
+            </form>
             <div id="lessons-container">
                   <% 
                   const difficulty = ["debutant", "apprenti", "ammateur", "expert"];
