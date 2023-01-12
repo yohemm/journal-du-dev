@@ -3,8 +3,6 @@ A Website with aim to be accessible the code around francophone community.
 
 ## Getting Started
 
-### Prerequisites
-- python
 ### Installation
 
 1. Clone the repository in the php server
