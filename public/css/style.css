@@ -34,6 +34,10 @@ body{
     font-size: 1.2rem;
 }
 
+.hide{
+    display: none !important;
+}
+
 nav ul{
     display: flex;
     justify-content: space-around;
@@ -538,6 +542,36 @@ section#lessons-commentary section#form-comment div.form-btn {
 
 
 /* ? Lessons-container*/
+form#container-lessons-filter{
+    display: flex;
+    padding-bottom: 15px;
+    
+}
+form#container-lessons-filter input[type="checkbox"]{
+    display: none;
+
+}
+form#container-lessons-filter label[for="cours-lessons"]{
+    background-color: var(--gray);
+    padding: 4px 0;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+form#container-lessons-filter label[for="cours-lessons"] span.cour-input{
+    background-color: var(--primary);
+}
+form#container-lessons-filter label[for="cours-lessons"] span{
+    padding: 4px;
+}
+form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-lessons"] span.cour-input{
+    background-color: var(--gray);
+}
+form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-lessons"] span.formation-input{
+    background-color: var(--primary);
+}
+
+
 #lessons-container, #cursus-container{
     display: grid;
     grid-gap: 40px;
