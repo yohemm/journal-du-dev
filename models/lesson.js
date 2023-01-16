@@ -128,7 +128,7 @@ class Formation{
   }
 
   static find(id, callback){
-    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=0 AND f.id=? LIMIT 1;', [id], (err, res) => {
+    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=1 AND f.id=? LIMIT 1;', [id], (err, res) => {
       if (err) throw err;
       callback(new Formation(res[0]));
     });
@@ -142,7 +142,7 @@ class Formation{
   }
 
   static all(callback){
-    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=0 ;', (err, res) => {
+    connection.query('SELECT f.*, nb_cours, c2.cour FROM formation f JOIN (SELECT COUNT(cour) nb_cours, c.formation FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=f.id JOIN cursus c2 ON c2.formation = f.id WHERE c2.ordre=1 ;', (err, res) => {
       if(err) throw err;
       let result = [];
       for(const row of res){

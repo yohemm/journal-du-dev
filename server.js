@@ -156,11 +156,9 @@ app.get('/cours', (req, res) => {
           if(req.session.idUser !== undefined && req.session.idUser !== ''){
             User.findId(req.session.idUser, (user) => {
               avatar = user.avatar;
-              console.log(allFormation[0]+ "caca")
               res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons, formations : allFormation});
             })
           }else {
-            console.log(allFormation[0].nb_cours)
               res.render('pages/lessons-container', {avatar:avatar, lessons : allLessons, formations : allFormation});
           }
         })
