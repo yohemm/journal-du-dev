@@ -132,7 +132,7 @@ class Formation{
   }
 
   cours(callback) {
-    connection.query('SELECT * FROM cour co JOIN cursus cu ON co.id=cu.cour WHERE cu.formation=?', [this.row.id], (err, res) => {
+    connection.query('SELECT co.*, cu.ordre, nb.* FROM cour co LEFT JOIN cursus cu ON co.id=cu.cour LEFT JOIN (SELECT COUNT(cour) nb_cours, c.formation, f.titre FROM cursus c JOIN formation f ON f.id=c.formation GROUP BY c.formation) nb ON nb.formation=cu.formation WHERE cu.formation=?;', [this.row.id], (err, res) => {
       if (err) throw err;
       let list = []
       res.forEach(row => {
