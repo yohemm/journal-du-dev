@@ -1,25 +1,25 @@
 <%- include('../partials/header') %>
 <div id="content">
-  <% if (typeof lesson !=='undefined' ){ if (typeof cursus !=='undefined' ){ %>
-  <h2><%= lesson.formationTitre %></h2>
+  <% if (typeof cour !=='undefined' ){ if (typeof cursus !=='undefined' ){ %>
+  <h2><%= cour.formationTitle %></h2>
   <ul id="cursus">
-    <%cursus.forEach(cour => { 
+    <%cursus.forEach(courOnCursus => { 
       %>
       <li>
-        <div class="<% if (cour.id < lesson.id){%><%= "past"%> <%} else if(cour.id === lesson.id) {%><%= "current"%> <%} %>" ><a href="/cours/<%= cour.id %>"> <%= cour.title %> </a></div>
+        <div class="<% if (courOnCursus.id < cour.id){%><%= "past"%> <%} else if(courOnCursus.id === cour.id) {%><%= "current"%> <%} %>" ><a href="/cours/<%= courOnCursus.id %>"> <%= courOnCursus.title %> </a></div>
       </li>
     <% });%>
   </ul>
 
   <%}%>
 
-  <h3><%= lesson.title %></h3>
+  <h3><%= cour.title %></h3>
   <section id="lesson-content">
     <h4>Sommmaire</h4>
     <ol>
-      <%= lesson.summary %>
+      <%= cour.summary %>
     </ol>
-    <p><%= lesson.content %></p>
+    <p><%= cour.content %></p>
   </section>
   <% } %>
   <section id="lessons-commentary">

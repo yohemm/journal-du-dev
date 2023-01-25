@@ -1,6 +1,8 @@
 const connection = require('../config/db');
 const moment = require('../config/moment')
 
+const comQuery = 'SELECT c.create_time, c.content, u.name author, cr.title cour, c.id_cour idCour, c.id_user idUser FROM comment c JOIN user u ON u.id=c.id_user JOIN cour cr ON c.id_cour=cr.id';
+
 class Commentary {
   constructor(row) {
     this.row = row;
@@ -15,7 +17,23 @@ class Commentary {
   }
 
   get author () {
-    return this.row.name
+    return this.row.author
+  }
+  get idUser () {
+    return this.row.author
+  }
+  get idCour () {
+    return this.row.idCour
+  }
+  get cour () {
+    return this.row.cour
+  }
+  
+  delete(callback){
+    connection.query("DELETE FROM comment c WHERE c.id=?;--", [this.row.id], (err, res) =>{
+      if(err) throw err;
+      callback();
+    })
   }
 
   static create(content, idUser, idLesson, callback) {
@@ -26,8 +44,15 @@ class Commentary {
   }
 
   static commentInLesson(idLesson, callback) {
-    connection.query('SELECT c.create_time, c.content, u.name  FROM comment c JOIN user u ON u.id=c.id_user WHERE c.id_cour=?',[idLesson], (err, res) => {
+    connection.query(comQuery+' WHERE c.id_cour=?',[idLesson], (err, res) => {
       if (err) throw err;
+      callback(res.map((row) => new Commentary(row)));
+    })
+  }
+
+  static all(callback){
+    connection.query(comQuery+" ORDER BY c.create_time DESC",(err, res) => {
+      if(err) throw err
       callback(res.map((row) => new Commentary(row)));
     })
   }

@@ -1,0 +1,31 @@
+<% if (typeof cour !=='undefined' ){%> 
+<div class="cour-update">
+    <form action="/update-cour/<%= cour.id %>" method="post">
+        <div class="fieldset">
+            <label for="author">Auteur :</label>
+            <input type="text" name="author" id="author" value="<%= cour.author %>">
+        </div>
+        <div class="fieldset">
+            <label for="title">Titre :</label>
+            <input type="text" name="title" id="title" value="<%= cour.title %>">
+        </div>
+        <div class="fieldset">
+            <label for="summary">Sommaire :</label>
+            <textarea name="summary" id="summary" cols="100" rows="10"><%= cour.summary %></textarea>
+        </div>
+        <div class="fieldset">
+            <label for="content">Contenue :</label>
+            <textarea name="content" id="content" cols="100" rows="10"><%= cour.content %></textarea>
+        </div>
+        <div class="fieldset">
+            <label for="desc">Description :</label>
+            <textarea name="desc" id="desc" cols="100" rows="10"><%= cour.description%></textarea>
+        </div>
+        <div class="fieldset">
+            <label for="time">Temps(minutes) :</label>
+            <input type="number" name="time" id="time" value="<%= cour.time%>">
+        </div>
+        <input type="submit" id="update-cour">
+    </form>
+</div>
+<% }else console.log("no cour") %> 

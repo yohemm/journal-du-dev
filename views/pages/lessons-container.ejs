@@ -11,29 +11,30 @@
             </form>
             <div id="lessons-container">
                   <% 
+                  if(cours){
                   const difficulty = ["debutant", "apprenti", "ammateur", "expert"];
-                  lessons.forEach(lesson => {
-                        if(lesson){
+                  cours.forEach(cour => {
+                        if(cour){
                         %> 
                   <div class="card-lesson">
                         <div>
-                              <h2><%= lesson.title %> </h2>
-                              <p class="lesson-desc"><%= lesson.description %> </p>
-                              <% if(lesson.formationId ){ %>
+                              <h2><%= cour.title %> </h2>
+                              <p class="lesson-desc"><%= cour.description %> </p>
+                              <% if(cour.formationId ){ %>
       
-                                    <p class="cursus"> <a href="/cours/<%= lesson.id %>"><%= lesson.formationTitre %>(<%= lesson.order %>/<%= lesson.nbCoursFormation %>)</a></p>
+                                    <p class="cursus"> <a href="/cours/<%= cour.id %>"><%= cour.formationTitle %>(<%= cour.order %>/<%= cour.nbCoursFormation %>)</a></p>
                               <%}%>
-                              <p class="level"><%= difficulty[lesson.difficulty-1] %> </p>
-                              <p class="time"><%= lesson.time %>min</p>
+                              <p class="level"><%= difficulty[cour.difficulty-1] %> </p>
+                              <p class="time"><%= cour.time %>min</p>
                               </div>
                   </div>
-                  <% };}); %> 
+                  <% };});} %> 
             </div>
             <div id="cursus-container">
                   <% for (const formation of formations) {;%>
                   <a href="/cours/<%= formation.fristCour%>" class="card-cursus">
                         <div>
-                              <h2> <%= formation.titre %></h2>
+                              <h2> <%= formation.title %></h2>
                               <p class="cursus-desc"><%= formation.description%></p>
                               <p class="etapes"><%= formation.nbCours%> étapes</p>
                               

@@ -1,0 +1,14 @@
+User += rankID
+
+Rank:
+0	1		2 		3
+rien	commentaire	addCours/form	panelAccess
+
+User = 1
+Formateur = 2
+pannelAccess = 4
+
+All acces = 7
+nothing acces = 0
+
+Ajouté une formation:

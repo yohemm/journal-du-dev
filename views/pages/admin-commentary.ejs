@@ -1,0 +1,13 @@
+<%- include('../partials/header') %> 
+<% console.log(commentaries) %> 
+<div class="content">
+    <% for(const com of commentaries){ %> 
+        <div class="commentary">
+            <h2><%= com.author %> Dans <%= com.cour %></h2>
+            <p><%= com.content %> </p>
+            <button>Supprimer</button>
+        </div>
+
+    <% } %> 
+</div>
+<%- include('../partials/footer') %> 

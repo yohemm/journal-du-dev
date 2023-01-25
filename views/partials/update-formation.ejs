@@ -1,0 +1,19 @@
+<% if (typeof formation !=='undefined' ){%> 
+    <div class="cour-update">
+        <form action="/update-formation/<%= formation.id %>" method="post">
+            <div class="fieldset">
+                <label for="title">Titre :</label>
+                <input type="text" name="title" id="title" value="<%= formation.title %>">
+            </div>
+            <div class="fieldset">
+                <label for="desc">Description :</label>
+                <textarea name="desc" id="desc" cols="100" rows="10"><%= formation.description%></textarea>
+            </div>
+            <div class="fieldset">
+                <label for="difficulty">Difficulté(1 à 5) :</label>
+                <input type="number" name="difficulty" id="difficulty" value="<%= formation.difficulty%>">
+            </div>
+            <input type="submit" id="update-formation">
+        </form>
+    </div>
+    <% }else console.log("no formation") %> 
