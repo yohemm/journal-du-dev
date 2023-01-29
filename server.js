@@ -41,16 +41,15 @@ function user(){
     if(req.body.pseudo == undefined || req.body.pseudo == ''){
       console.log("error :Name")
       
-    }else{
-      if(req.body.email == undefined || req.body.email == ''){
+    }else if(req.body.email == undefined || req.body.email == ''){
         console.log("error :email")
         
-      }else{
-        User.update(req.body.pseudo, req.body.email, req.body.bio, req.file.filename, req.session.idUser, () =>{
-          console.log("Modification reussit")
-          res.redirect("/user")
-        })
-      }
+    }else{
+      User.update(req.body.pseudo, req.body.email, req.body.bio, req.file.filename, req.session.idUser, () =>{
+        console.log("Modification reussit")
+        res.redirect("/user")
+      })
+      
     }
   })
   

@@ -11,11 +11,13 @@
   <body>
     <nav id="menu-nav">
       <ul id="nav-bar">
-        <li><a href="/">Acceuil</a></li>
-        <li><a href="/cours">Cours</a></li>
-        <li><a href="/forum">Forum</a></li>
-        <li><a href="/market">Marché</a></li>
-        <li><a href="/projet">Projet</a></li>
+        <div class="link">
+          <li><a href="/">Acceuil</a></li>
+          <li><a href="/cours">Cours</a></li>
+          <li><a href="/forum">Forum</a></li>
+          <li><a href="/market">Marché</a></li>
+          <li><a href="/projet">Projet</a></li>
+        </div>  
         <li><img src="../img/bg_settings_user.png" alt="background profile settings"> 
           <% if(avatar == undefined || avatar == '') { %> 
             <img src="../img/avatars/default.svg" alt="profile settings" id="img-avatar">
@@ -29,7 +31,7 @@
       <header>
         <h2>Le <span>J</span>ournal du <span>D</span>év</h2>
         <h3>
-          Fait pour les jeunes programmeurs en quête de nouveaux apprentissages
+          pour les jeunes programmeurs en quête de nouveaux horizons!
         </h3>
       </header>
     

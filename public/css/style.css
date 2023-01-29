@@ -1,14 +1,9 @@
 :root{
-    --primary-dark:rgb(172, 134, 46);
-    --primary:rgb(204, 159, 56);
-    --primary-light:rgb(230, 180, 64);
-    --secondary-dark: rgb(174, 100, 216) ;
-    --secondary: rgb(202 129 243) ;
-    --secondary-light: rgb(220, 159, 255) ;
-    --light: rgb(244, 244, 244) ;
-    --gray: rgb(129, 127, 116) ;
-    --dark: rgb(24, 24, 22) ;
-    --dark-less-opacity: rgba(24, 24, 22, 0.344) ;
+    --backgroung: #ECF0F1;
+    --main: #2C3E50;
+    --interactif: #16A085;
+    --important: #F39C12;
+    --green-gradiant: linear-gradient(45deg, var(--interactif) 20%, var(--main) 60%);
 }
 @font-face {
     font-family: "poppins";
@@ -25,6 +20,7 @@
     text-decoration: none;
     font-family: "poppins", sans-serif;
     box-sizing: border-box;
+    color: var(--main);
 }
 
 body{
@@ -33,14 +29,27 @@ body{
     background: rgb(227, 227, 227);
     font-size: 1.2rem;
 }
+strong{
+    color: var(--important);
+    background-clip: text;
+    background: linear-gradient(45deg, var(--important) 0% 60%, var(--interactif) 100%);
+    background: -webkit-linear-gradient(45deg, var(--important) 0% 60%, var(--interactif) 100%);
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
 
+}
 .hide{
     display: none !important;
 }
 
 nav ul{
+    display: inline-flex;
+    width: 100%;
+}
+nav ul .link{
     display: flex;
-    justify-content: space-around;
+    width: 80%;
 }
 textarea{
     resize: none;
@@ -48,16 +57,17 @@ textarea{
 li{
     list-style-type: none;
 }
+
 a{
-    color: var(--primary);
+    color: var(--interactif);
 }
 a:hover{
-    color: var(--primary-light) ;
+    color: var(--main) ;
     transition: all 0.1s ease-out;
 }
 h4 a{
     font-size: 1.4rem;
-    text-shadow: 0 0 2px var(--dark);
+    text-shadow: 0 0 2px var(--main);
 }
 nav ul li img:nth-last-child(1){
     position: absolute;
@@ -76,8 +86,9 @@ nav ul li img:nth-child(1){
     transition: all 0.4s ease-out;
     transform: translate(25px, -10%);
 }
-nav ul li:nth-last-child(1){
+nav ul > li:nth-last-child(1){
     position: relative;
+    width: 20%;
 }
 .grow-anim{
     animation: grow-anim 1s ease-in 0s 1;
@@ -88,13 +99,16 @@ nav ul li{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid var(--dark);
+    border: 3px solid var(--main);
     transition: all 0.2s;
-    color: var(--primary);
+    color: var(--important);
+    background: linear-gradient(to left, transparent 50%, var(--important) 60% 90%, transparent);
+    background-size: 200%;
+    background-position: 100%;
 }
 nav{
     backdrop-filter: blur(10px);
-    background-color: var(--dark-less-opacity);
+    background: var(--green-gradiant);
     margin-top: 5vh;
     z-index: 15;
     box-shadow: 0 0 20px ;
@@ -102,16 +116,16 @@ nav{
     width: 100%;
 }
 main header  span{
-    color: var(--primary);
-    text-shadow: 0 0 3px var(--dark);
+    color: var(--important);
+    text-shadow: 0 0 3px var(--main);
 }
 
 nav ul li:hover{
-    background: var(--primary);
+    background-position: 0%;
 }
 
 nav ul li:hover > a{
-    color: var(--dark);
+    color: var(--main);
 }
 nav ul li a{
     font-size: 1.5rem;
@@ -124,16 +138,16 @@ nav ul li a{
 }
 
 main{
-    margin: 0 20vh;
+    margin: 0 5vw;
     padding: 15px 40px;
     min-height: 100vh;
     box-shadow: 0 0 15px 4px;
-    background: var(--light);
+    background: var(--backgroung);
 }
 
 header{
     margin-bottom: 20px;
-    border-bottom: 10px dashed var(--primary);
+    border-bottom: 10px dashed var(--important);
     margin-top: 10vh;
 }
 header h2{
@@ -176,7 +190,7 @@ section{
 
 .presentation-box{
     margin: 10px;
-    border-top: solid 1px var(--light);
+    border-top: solid 1px var(--backgroung);
 }
 
 .presentation-box a {
@@ -184,17 +198,20 @@ section{
 }
 
 #other-presentation, #content-cards{
-    border-bottom: 4px double var(--primary);
-    box-shadow: 0px 6px 8px -5px var(--primary);
+    border-bottom: 4px double var(--important);
+    box-shadow: 0px 6px 8px -5px var(--important);
 }
 
 footer{
-    background: var(--gray);
+    background: var(--green-gradiant);
     padding: 30px 4vw;
     box-shadow: 0px -3px 17px 0px;
     text-align: center;
 }
-
+footer p {
+    
+    color: var(--backgroung);
+}
 .lesson-card{
     min-width: 300px;
     width: 300px;
@@ -213,54 +230,8 @@ footer{
     padding: 30px;
     margin-bottom: 40px;
 }
-.face-card{
-    top: 0px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 16px;
-    box-shadow: 8px 5px 15px 0 var(--dark);
-}
 .one-card-container:hover > .lesson-card{
     transform: rotateY(180deg);
-}
-.front-card h3{
-
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    text-align: center;
-}
-.back-card{
-    transform: rotateY(180deg);
-    background: var(--dark);
-}
-.back-card h4{
-    margin: 0;
-    padding-left: 2vw;
-    background-image: linear-gradient(to bottom left, var(--dark) 10%, var(--gray) 115%);
-    /* background-image: linear-gradient(to bottom left, var(--primary) 10%, var(--secondary) 115%); */
-    border-radius: 0 0 75% 0;
-}
-.back-card h4::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-image: linear-gradient(to bottom left, var(--gray) 10%, var(--dark) 115%);
-    border-radius: 0 0 50% 0;
-}
-.back-card p{
-    color: var(--light);
-}
-.front-card{
-    position: relative;
 }
 #structure-front{
     background: url(./assets/structure_html.webp) center/cover;
@@ -268,7 +239,7 @@ footer{
 
 #html-front{
     background: url(./assets/html.PNG);
-    color: var(--light);
+    color: var(--backgroung);
 }
 .lesson-content li{
     list-style-type: space-counter;
@@ -288,16 +259,21 @@ div.lesson-content h2,div.lesson-content h3,div.lesson-content h4,div.lesson-con
     line-height: 5rem;
 }
 code{
-    background-color: var(--gray);
-    border: 2px solid var(--dark);
-    border-radius: 4px;
+    background-color: var(--main);
+    border: 2px solid var(--important);
+    color: var(--backgroung);
+    padding: 1rem;
+    border-radius: 1rem;
     white-space: nowrap;
     letter-spacing: 0.2rem;
+    line-height: 3.2rem;
 }
 pre{
-    background-color: var(--gray);
-    border: 2px solid var(--dark);
-    border-radius: 4px;
+    background-color: var(--main);
+    border: 2px solid var(--important);
+    color: var(--backgroung);
+    padding: 1rem;
+    border-radius: 1rem;
     letter-spacing: 0.2rem;
 
 }
@@ -308,16 +284,16 @@ pre{
 }
 
 #topic-content #topic-explication {
-    border: 4px double var(--primary);
+    border: 4px double var(--important);
     border-radius: 5px;
     margin-bottom: 3vh;
     
 }
 
 #topic-content .topic-answer{
-    border: 2px solid var(--gray);
+    border: 2px solid var(--main);
     margin-bottom: 2vh;
-    background: var(--light);
+    background: var(--backgroung);
 }
 
 #topic-content .topic-answer,#topic-content #topic-explication{
@@ -330,14 +306,14 @@ pre{
 }
 
 .form-anim h2 strong{
-    color: var(--primary);
+    color: var(--important);
 }
 .form-anim h2{
-    color: var(--gray);
-    text-shadow: -2px 2px 0 var(--dark),
-                    2px -2px 0 var(--dark),
-                    -2px -2px 0 var(--dark),
-                    2px 2px 0 var(--dark);
+    color: var(--main);
+    text-shadow: -2px 2px 0 var(--main),
+                    2px -2px 0 var(--main),
+                    -2px -2px 0 var(--main),
+                    2px 2px 0 var(--main);
     line-height: 2.2rem;
 }
 
@@ -346,7 +322,7 @@ pre{
     top: 50%;
     left: 0px;
     transform: translateY(-50%);
-    color: var(--gray);
+    color: var(--main);
     transition: 0.4s ease-out;
     font-size: 2rem;
 }
@@ -358,8 +334,8 @@ pre{
     border: none;
     outline: none;
     background: none;
-    border-bottom: 3px solid var(--gray);
-    color: var(--gray);
+    border-bottom: 3px solid var(--main);
+    color: var(--main);
     font-size: 2rem;
     transition: 0.4s ease-out;
 }
@@ -377,18 +353,18 @@ pre{
     display: block;
     width: auto;
     padding: 15px 60px;
-    border: 3px solid var(--secondary);
+    border: 3px solid var(--interactif);
     border-radius: 999px;
-    background-image: linear-gradient(to right, transparent 50%, var(--secondary) 50%, var(--secondary-dark));
+    background-image: linear-gradient(to right, transparent 50%, var(--interactif) 50%, var(--main));
     background-size: 200%;
     font-size: 2rem;
     cursor: pointer;
 }
 
 .form-anim .form-groupe input[type="submit"]:hover, section#lessons-commentary section#form-comment div input[type="submit"]:hover {
-    color: var(--primary-dark);
+    color: var(--backgroung);
     background-position: 100%;
-    border: 3px solid var(--light);
+    border: 3px solid var(--backgroung);
 }
 
 .form-anim .link-form a {
@@ -397,7 +373,7 @@ pre{
     border-bottom: 2px solid  transparent;
 }
 .form-anim .link-form a:hover{
-    border-bottom-color: var(--primary) ;
+    border-bottom-color: var(--important) ;
 }
 .form-anim fieldset {
     padding-top: 2rem;
@@ -408,12 +384,12 @@ pre{
 .form-anim .form-groupe.animation label{
     top: 0px;
     transform: translateY(-100%);
-    color: var(--primary);
+    color: var(--important);
     font-size: 2rem;
 }
-.form-anim .form-groupe:focus-within input,
-.form-anim .form-groupe.animation input{
-    border-color: var(--primary);
+.form-anim .form-groupe:focus-within input :not([type="submit"]),
+.form-anim .form-groupe.animation input :not([type="submit"]){
+    border-color: var(--important);
 }
 
 /* section des commentaire de cours */
@@ -421,13 +397,13 @@ pre{
 section#lessons-commentary {
 }
 section#lessons-commentary section#all-comments{
-    border: var(--dark) 1px solid;
+    border: var(--main) 1px solid;
     padding: 10px;
     border-radius: 10px;
     
 }
 section#lessons-commentary section#all-comments .comment-container{
-    border: var(--dark) 1px solid;
+    border: var(--main) 1px solid;
     margin: 1vh 0;
     padding: 2vh 1vw;
     border-radius: 10px;
@@ -472,21 +448,16 @@ section#lessons-commentary section#form-comment div.form-btn {
 }
 #cursus div{
     position: relative;
-    background: var(--primary);
-    height: 30px;
+    background: var(--important);
+    min-height: 4.1rem  ;
     padding-left: 10px;
 }
 #cursus .past{
-    background: var(--secondary);
+    background: var(--interactif);
 }
 #cursus .current {
-    background: var(--gray);
-}
-#cursus div{
-    position: relative;
-    background: var(--primary);
-    height: 30px;
-    padding-left: 10px;
+    background: var(--main);
+    color: var(--backgroung);
 }
 
 #cursus div::before{
@@ -494,16 +465,16 @@ section#lessons-commentary section#form-comment div.form-btn {
     position: absolute;
     top: 0px;
     left: 0px;
-    border-top: 30px solid var(--light);
-    border-right: 10px solid var(--primary);
+    border-top: calc(4.1rem + 1px) solid var(--backgroung);
+    border-right: 10px solid var(--important);
     width: 0;
     z-index: 1;
 }
 #cursus .past::before{
-    border-right: 10px solid var(--secondary);
+    border-right: 10px solid var(--interactif);
 }
 #cursus .current::before{
-    border-right: 10px solid var(--gray);
+    border-right: 10px solid var(--main);
 }
 
 #cursus div::after{
@@ -511,35 +482,35 @@ section#lessons-commentary section#form-comment div.form-btn {
     position: absolute;
     top: 0px;
     right: 0px;
-    border-bottom: 30px solid var(--light);
-    border-left: 10px solid var(--primary);
+    border-bottom: calc(4.1rem + 1px) solid var(--backgroung);
+    border-left: 10px solid var(--important);
     width: 0;
     z-index: 1;
 }
 #cursus .past::after{
-    border-left: 10px solid var(--secondary);
+    border-left: 10px solid var(--interactif);
 }
 #cursus .current::after{
-    border-left: 10px solid var(--gray);
+    border-left: 10px solid var(--main);
 }
 
 #cursus li{
     width: 100%;
-    height: 30px;
     position: relative;
+
 }
 #cursus a{
-    color: black;
+    padding: 0 10px;
+    color: var(--main);
     text-align: center;
     width: 100%;
     position: absolute;
     top: 0;right: 0;bottom: 0;left: 0;
     z-index: 2;
 }
-#cursus {
-    height: 30px;
+#cursus .current a{
+    color: var(--backgroung);
 }
-
 
 /* ? Lessons-container*/
 form#container-lessons-filter{
@@ -552,23 +523,24 @@ form#container-lessons-filter input[type="checkbox"]{
 
 }
 form#container-lessons-filter label[for="cours-lessons"]{
-    background-color: var(--gray);
+    background-color: var(--main);
     padding: 4px 0;
     border: 1px solid black;
     border-radius: 4px;
     cursor: pointer;
 }
 form#container-lessons-filter label[for="cours-lessons"] span.cour-input{
-    background-color: var(--primary);
+    background-color: var(--important);
 }
 form#container-lessons-filter label[for="cours-lessons"] span{
     padding: 4px;
+    color: var(--backgroung);
 }
 form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-lessons"] span.cour-input{
-    background-color: var(--gray);
+    background-color: var(--main);
 }
 form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-lessons"] span.formation-input{
-    background-color: var(--primary);
+    background-color: var(--important);
 }
 
 
@@ -584,14 +556,31 @@ form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-
     width: 100%;
     min-height: 300px;
 }
+#lessons-container .card-lesson p, #cursus-container .card-cursus p{
+    color: var(--backgroung);
+}
 #lessons-container .card-lesson::after, #cursus-container .card-cursus::after, #lessons-container .card-lesson::before, #cursus-container .card-cursus::before,
-#lessons-container .card-lesson div, #cursus-container .card-cursus div{
-    background: linear-gradient(225deg, var(--gray) 0%, var(--light));
-    border: 6px var(--primary) solid;
+#lessons-container .card-lesson .card-content, #cursus-container .card-cursus .card-content{
+    background:  linear-gradient(135deg, var(--interactif) 30%, transparent 55%),linear-gradient(225deg, var(--backgroung) 0% 2%, var(--main) 10%);
+    border: 6px var(--important) solid;
     border-radius: 5px;
     
 }
-#lessons-container .card-lesson div, #cursus-container .card-cursus div{
+.card-content > div{
+    height: calc(100% - 4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-content .bottom-card > *{
+    font-size: 1.4rem;
+}
+.card-content .bottom-card{
+    display: inline-flex;
+    justify-content: space-evenly;
+    
+}
+#lessons-container .card-lesson .card-content, #cursus-container .card-cursus .card-content{
     z-index: 2;
     position: absolute;
     top: 0;bottom: 0;right: 0;left: 0;
@@ -621,52 +610,34 @@ form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-
     
 }
 #lessons-container .card-lesson > *, #cursus-container .card-cursus > *{
-    color: var(--dark);
-}
-
-#lessons-container .card-lesson .cursus{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+    color: var(--main);
 }
 #lessons-container .card-lesson .cursus a{
-    color: var(--secondary);
-}
-#lessons-container .card-lesson .level{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-#lessons-container .card-lesson .time{
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    color: var(--interactif);
 }
 #cursus-container .card-cursus h2, #lessons-container .card-lesson h2{
     word-wrap: break-word;
     padding: 0;
     margin: 0;
-    font-size: 2rem;
-    line-height: 2.5rem;
+    height: 4rem;
+    overflow: hidden;
+    font-size: 1.8rem;
+    line-height: 2rem;
     text-align: center;
-    color: var(--primary);
+    color: var(--important);
+    border-bottom: 4px solid var(--interactif);
 }
 #cursus-container .card-cursus .cursus-desc, #lessons-container .card-lesson .lesson-desc{
     padding: 0;
     margin: 0 15px;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 80%;
     
     
 }
 #cursus-container .card-cursus .etapes{
-    color: var(--secondary);
-    position: absolute;
-    padding: 0;
-    margin: 0 15px;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    bottom: 0;
-    right: 0;   
+    color: var(--interactif);
 }
