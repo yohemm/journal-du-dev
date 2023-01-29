@@ -1,33 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <title>Le Journale du Dév</title>
-  </head>
-  <body>
-    <nav id="menu-nav">
-      <ul id="nav-bar">
-        <div class="link">
-          <li><a href="/">Acceuil</a></li>
-          <li><a href="/cours">Cours</a></li>
-          <li><a href="/forum">Forum</a></li>
-          <li><a href="/market">Marché</a></li>
-          <li><a href="/projet">Projet</a></li>
-        </div>  
-        <li><img src="../img/bg_settings_user.png" alt="background profile settings"> 
-          <% if(avatar == undefined || avatar == '') { %> 
-            <img src="../img/avatars/default.svg" alt="profile settings" id="img-avatar">
-          <% } else { %>
-            <img src="../img/avatars/<%= avatar %> " alt="profile settings" id="img-avatar">
-          <% }; %> 
-        </li>
-      </ul>
-    </nav>
-    <main>
+
       <header>
         <h2>Le <span>J</span>ournal du <span>D</span>év</h2>
         <h3>

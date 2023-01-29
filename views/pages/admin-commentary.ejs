@@ -1,13 +1,35 @@
-<%- include('../partials/header') %> 
-<% console.log(commentaries) %> 
-<div class="content">
-    <% for(const com of commentaries){ %> 
-        <div class="commentary">
-            <h2><%= com.author %> Dans <%= com.cour %></h2>
-            <p><%= com.content %> </p>
-            <button>Supprimer</button>
-        </div>
+<!DOCTYPE html>
+<html lang="fr">
 
-    <% } %> 
-</div>
-<%- include('../partials/footer') %> 
+<head>
+    <title>Admin | Journal du Dév</title>
+    <%- include('../partials/head') %>
+        <meta name="description" content="">
+        <meta name="keywords"
+            content="le journal du dév,programmation,informatique,développement,apprendre,communauté,cours,forums">
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+        <main>
+            <%- include('../partials/header') %>
+                <div id="content">
+                    <% for(const com of commentaries){ %>
+                        <div class="commentary">
+                            <h2>
+                                <%= com.author %> Dans <%= com.cour %>
+                            </h2>
+                            <p>
+                                <%= com.content %>
+                            </p>
+                            <button>Supprimer</button>
+                        </div>
+
+                        <% } %>
+
+                </div>
+        </main>
+        <%- include('../partials/footer') %>
+</body>
+
+</html>

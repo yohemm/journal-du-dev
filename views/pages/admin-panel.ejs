@@ -1,7 +1,26 @@
-<%- include('../partials/header') %> 
-<div class="content">
-    <a href="/admin-lesson">Lesson</a>
-    <a href="/admin-user">Utilisateur</a>
-    <a href="/admin-commentary">Commentaire</a>
-</div>
-<%- include('../partials/footer') %> 
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Admin | Journal du Dév</title>
+    <%- include('../partials/head') %>
+        <meta name="description" content="">
+        <meta name="keywords"
+            content="le journal du dév,programmation,informatique,développement,apprendre,communauté,cours,forums">
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+        <main>
+            <%- include('../partials/header') %>
+                <div id="content">
+                    <a href="/admin-lesson">Lesson</a>
+                    <a href="/admin-user">Utilisateur</a>
+                    <a href="/admin-commentary">Commentaire</a>
+
+                </div>
+        </main>
+        <%- include('../partials/footer') %>
+</body>
+
+</html>

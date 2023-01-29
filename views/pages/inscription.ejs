@@ -1,30 +1,51 @@
-<%- include('../partials/header') %> 
-<div id="content">
-  <form action="" method="post" id="connection" class="form-anim">
-    <fieldset>
-      <legend><h2><strong>Inscrivez</strong>-Vous</h2></legend>
+<!DOCTYPE html>
+<html lang="fr">
 
-      <div class="form-groupe">
-        <label for="user">Votre Nom d'utilisateur/adressse email</label><input type="text" name="name" id="user" required>
-      </div>
-      <div class="form-groupe">
-        <label for="email">Votre email</label> <input type="email" name="email" id="email" required>
-    </div>
-    <div class="form-groupe">
-      <label for="pass">Votre mot de passe</label> <input type="password" name="password" id="pass"
-       required>
-    </div>
-    <div class="form-groupe">
-      <label for="pass">Confirmation de votre mot de passe</label> <input type="password" name="confirmpassword" id="confirm-pass"
-       required>
-    </div>
-    <div class="form-groupe">
-      <input type="submit" value="Inscription">
-    </div>
-    <div class="link-form">
-      <a href="/user/connection">Connection</a>
-    </div>
-  </fieldset>
-  </form>
-</div>
-<%- include('../partials/footer') %> 
+<head>
+  <title>Inscription | Journal du Dév</title>
+  <%- include('../partials/head') %>
+    <meta name="description" content="Inscrivez-vous sur notre site HTML5 pour accéder à tous nos services en ligne et bénéficier de toutes les fonctionnalités. Créez facilement un compte en renseignant vos informations personnelles et commencez à explorer notre site aujourd'hui.">
+    <meta name="keywords"
+      content="le journal du dév,programmation,informatique,développement,apprendre,communauté,cours,forums,inscription">
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+    <main>
+      <%- include('../partials/header') %>
+        <div id="content">
+          <form action="" method="post" id="connection" class="form-anim">
+            <fieldset>
+              <legend>
+                <h2><strong>Inscrivez</strong>-Vous</h2>
+              </legend>
+
+              <div class="form-groupe">
+                <label for="user">Votre Nom d'utilisateur/adressse email</label><input type="text" name="name" id="user"
+                  required>
+              </div>
+              <div class="form-groupe">
+                <label for="email">Votre email</label> <input type="email" name="email" id="email" required>
+              </div>
+              <div class="form-groupe">
+                <label for="pass">Votre mot de passe</label> <input type="password" name="password" id="pass" required>
+              </div>
+              <div class="form-groupe">
+                <label for="pass">Confirmation de votre mot de passe</label> <input type="password"
+                  name="confirmpassword" id="confirm-pass" required>
+              </div>
+              <div class="form-groupe">
+                <input type="submit" value="Inscription">
+              </div>
+              <div class="link-form">
+                <a href="/user/connection">Connection</a>
+              </div>
+            </fieldset>
+          </form>
+
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

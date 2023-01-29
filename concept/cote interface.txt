@@ -1,0 +1,6 @@
+entre de ligne 16
+border 8px
+paragraphe:
+32px
+section:
+64px

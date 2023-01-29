@@ -1,75 +1,91 @@
-<%- include('../partials/header') %>
-  <% const difficulty=['facile','simple', 'moyen' , 'dur' , 'complexe' ] %>
-    <div id="content">
-      <form action="#" id="container-lessons-filter">
-        <select name="language" id="prog-lang">
-          <option value="1">CSS</option>
-          <option value="2">HTML</option>
-          <option value="3">javaScript</option>
-        </select>
-        <input type="checkbox" name="cours-lessons" id="cours-lessons" />
-        <label for="cours-lessons"><span class="cour-input">Cours</span>/<span
-            class="formation-input">formation</span></label>
-      </form>
-      <div id="lessons-container">
-        <% if(cours){ cours.forEach(cour=> { if(cour){ %>
-          <div class="card-lesson" 
-          onclick="window.location='/cours/<%= cour.id %>'"
-          style="cursor: pointer;"
-          tabindex="1">
-            <div class="card-content">
-              <h2>
-                <%= cour.title %>
-              </h2>
-              <div>
-                <p class="lesson-desc">
-                  <%= cour.description %>
-                </p>
-                <% if(cour.formationId ){ %>
+<!DOCTYPE html>
+<html lang="fr">
 
-                  <div class="bottom-card">
-                    <% for (const formation of formations) {
-                      if (formation.id == cour.formationId){%> 
-                        <p class="cursus">
-                          
-                          <a href="/cours/<%= formation.fristCour %>">
-                            <%= cour.formationTitle %>(<%= cour.order %>/<%= cour.nbCoursFormation %>)
-                          </a>
-                        </p>
-                    <% }} %>
-                      <p class="time">
-                        <%= cour.time %>min
+<head>
+  <title>Les Cours | Journal du Dév</title>
+  <%- include('../partials/head') %>
+    <meta name="description" content="Découvrez notre sélection de cours d'informatique et de programmation sur notre site Le journal du Dév. Apprenez les compétences les plus demandées sur le marché, de la programmation en Java à la conception de sites web, et développez vos connaissances avec nos cours en ligne de qualité."">
+    <meta name="keywords"
+      content="le journal du dév,programmation,informatique,développement,apprendre,communauté,cours,forums">
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+    <main>
+      <%- include('../partials/header') %>
+        <div id="content">
+          <% const difficulty=['facile','simple', 'moyen' , 'dur' , 'complexe' ] %>
+            <form action="#" id="container-lessons-filter">
+              <select name="language" id="prog-lang">
+                <option value="1">CSS</option>
+                <option value="2">HTML</option>
+                <option value="3">javaScript</option>
+              </select>
+              <input type="checkbox" name="cours-lessons" id="cours-lessons" />
+              <label for="cours-lessons"><span class="cour-input">Cours</span>/<span
+                  class="formation-input">formation</span></label>
+            </form>
+            <div id="lessons-container">
+              <% if(cours){ cours.forEach(cour=> { if(cour){ %>
+                <div class="card-lesson" onclick="window.location='/cours/<%= cour.id %>'" style="cursor: pointer;"
+                  tabindex="1">
+                  <div class="card-content">
+                    <h2>
+                      <%= cour.title %>
+                    </h2>
+                    <div>
+                      <p class="lesson-desc">
+                        <%= cour.description %>
                       </p>
+                      <% if(cour.formationId ){ %>
+
+                        <div class="bottom-card">
+                          <% for (const formation of formations) { if (formation.id==cour.formationId){%>
+                            <p class="cursus">
+
+                              <a href="/cours/<%= formation.fristCour %>">
+                                <%= cour.formationTitle %>(<%= cour.order %>/<%= cour.nbCoursFormation %>)
+                              </a>
+                            </p>
+                            <% }} %>
+                              <p class="time">
+                                <%= cour.time %>min
+                              </p>
+                        </div>
+                        <%}%>
+                    </div>
                   </div>
-                  <%}%>
-              </div>
-            </div>
-          </div>
-          <% };});} %>
-      </div>
-      <div id="cursus-container">
-        <% for (const formation of formations) {;%>
-          <a href="/cours/<%= formation.fristCour%>" class="card-cursus">
-            <div class="card-content">
-              <h2>
-                <%= formation.title %>
-              </h2>
-              <div>
-                <p class="cursus-desc">
-                  <%= formation.description%>
-                </p>
-                <div class="bottom-card">
-                  <p class="level">
-                    <%= difficulty[formation.difficulty-1] %>
-                  </p>
-                  <p class="etapes">
-                    <%= formation.nbCours%> étapes
-                  </p>
                 </div>
-              </div>
+                <% };});} %>
             </div>
-          </a>
-          <% } %>
-      </div>
-    </div>
+            <div id="cursus-container">
+              <% for (const formation of formations) {;%>
+                <a href="/cours/<%= formation.fristCour%>" class="card-cursus">
+                  <div class="card-content">
+                    <h2>
+                      <%= formation.title %>
+                    </h2>
+                    <div>
+                      <p class="cursus-desc">
+                        <%= formation.description%>
+                      </p>
+                      <div class="bottom-card">
+                        <p class="level">
+                          <%= difficulty[formation.difficulty-1] %>
+                        </p>
+                        <p class="etapes">
+                          <%= formation.nbCours%> étapes
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <% } %>
+            </div>
+
+        </div>
+    </main>
     <%- include('../partials/footer') %>
+</body>
+
+</html>

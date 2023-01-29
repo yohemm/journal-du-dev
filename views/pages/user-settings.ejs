@@ -1,32 +1,51 @@
-<%- include('../partials/header') %> 
-      <div id="content">
-        <h2>Les parametres utilisateurs</h2>
-        <form action="" method="post" class="form-anim" enctype="multipart/form-data">
-            <fieldset>
-                <Legend>Mettre a jours vis informations</Legend>
-                <div class="form-groupe">
-                    <label for="pseudo">Votre pseudo</label>
-                    <input type="text" name="pseudo" id="pseudo" value="<%= user.name %>">
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Paramétre utilisateur | Journal du Dév</title>
+    <%- include('../partials/head') %>
+        <meta name="description" content="Accédez à vos paramètres utilisateur sur notre site HTML5 pour personnaliser votre expérience en ligne. Modifiez vos informations de profil, gérez vos notifications et ajustez vos préférences en toute simplicité.">
+        <meta name="keywords"
+            content="le journal du dév,programmation,informatique,développement,apprendre,communauté,cours,forums,parametre settings,user,utilisateur">
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+        <main>
+            <%- include('../partials/header') %>
+                <div id="content">
+                    <h2>Les parametres utilisateurs</h2>
+                    <form action="" method="post" class="form-anim" enctype="multipart/form-data">
+                        <fieldset>
+                            <Legend>Mettre a jours vis informations</Legend>
+                            <div class="form-groupe">
+                                <label for="pseudo">Votre pseudo</label>
+                                <input type="text" name="pseudo" id="pseudo" value="<%= user.name %>">
+                            </div>
+                            <div class="form-groupe">
+                                <label for="pseudo">Votre pseudo</label>
+                                <input type="email" name="email" id="pseudo" value="<%= user.email %> ">
+                            </div>
+                            <div class="form-groupe">
+                                <Label>Votre Bio</Label>
+                                <textarea name="bio" id="bio" cols="30" rows="10"><%= user.bio %></textarea>
+                            </div>
+                            <div>
+                                <Label>Votre photo de profile</Label>
+                                <input type="file" name="avatar" id="profile-img"
+                                    accept="image/png, image/gif, image/jpeg" />
+                            </div>
+                            <div class="form-groupe">
+                                <input type="submit" value="Modifier">
+                            </div>
+                            <div class="link-form">
+                                <a href="/logout">Déconnetion</a>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
-                <div class="form-groupe">
-                    <label for="pseudo">Votre pseudo</label>
-                <input type="email" name="email" id="pseudo" value="<%= user.email %> ">
-                </div>
-                <div class="form-groupe">
-                <Label>Votre Bio</Label>
-                <textarea name="bio" id="bio" cols="30" rows="10"><%= user.bio %></textarea>
-            </div>
-            <div>
-                <Label>Votre photo de profile</Label>
-                <input type="file" name="avatar" id="profile-img" accept="image/png, image/gif, image/jpeg" />
-            </div>
-            <div class="form-groupe">
-                <input type="submit" value="Modifier">
-            </div>
-            <div class="link-form">
-              <a href="/logout">Déconnetion</a>
-            </div>
-            </fieldset>
-        </form>
-      </div>
-<%- include('../partials/footer') %>
+        </main>
+        <%- include('../partials/footer') %>
+</body>
+
+</html>

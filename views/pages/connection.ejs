@@ -1,24 +1,46 @@
-<%- include('../partials/header') %> 
-<div id="content">
-  <form action="" method="post" id="connection" class="form-anim">
-    <fieldset>
-      <legend><h2><strong>Connectez</strong>-Vous</h2></legend>
-    <div class="form-groupe">
-      <label for="user">Votre Nom d'utilisateur/adressse email</label><input type="text" name="userid" id="user" required>
-    </div>
-    <div class="form-groupe"><label for="pass">Votre mot de passe</label> <input type="password" name="password" id="pass"
-      required>
-    </div>
-    <div class="form-groupe">
-    <input type="submit" value="connexion">
-  </div>
-    <div class="link-form">
-      <a href="#">Mot de passe perdu ?</a>
-    </div>
-    <div class="link-form">
-      <a href="/user/inscription">Inscription</a>
-    </div>
-  </fieldset>
-  </form>
-</div>
-<%- include('../partials/footer') %> 
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <title>Connection | Journal du Dév</title>
+  <%- include('../partials/head') %>
+    <meta name="description" content="Connectez-vous à votre compte sur notre site HTML5 pour accéder à vos informations personnelles et à vos services en ligne. Entrez en sécurité vos identifiants pour accéder à votre espace membre et profiter de toutes les fonctionnalités de notre site.">
+    <meta name="keywords"
+      content="le journal du dév,programmation,informatique,développement,apprendre,communauté,cours,forums,login,connection">
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+    <main>
+      <%- include('../partials/header') %>
+        <div id="content">
+          <form action="" method="post" id="connection" class="form-anim">
+            <fieldset>
+              <legend>
+                <h2><strong>Connectez</strong>-Vous</h2>
+              </legend>
+              <div class="form-groupe">
+                <label for="user">Votre Nom d'utilisateur/adressse email</label><input type="text" name="userid"
+                  id="user" required>
+              </div>
+              <div class="form-groupe"><label for="pass">Votre mot de passe</label> <input type="password"
+                  name="password" id="pass" required>
+              </div>
+              <div class="form-groupe">
+                <input type="submit" value="connexion">
+              </div>
+              <div class="link-form">
+                <a href="#">Mot de passe perdu ?</a>
+              </div>
+              <div class="link-form">
+                <a href="/user/inscription">Inscription</a>
+              </div>
+            </fieldset>
+          </form>
+
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

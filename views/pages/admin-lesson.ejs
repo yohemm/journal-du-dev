@@ -1,41 +1,68 @@
-<%- include('../partials/header') %> 
-<div class="content">
-    <div class="cour-creation">
-        <h3>Nouveau Cours :</h3>
-        <%- include('../partials/new-cour') %>
-    </div>
-    <% if(cours){%>
-        <div class="cour-container">
-            <h3>Listes des cours :</h3>
-            <% for(const cour of cours){%>
-                <a class="single-cour" href="/admin-cour/<%= cour.id %>">
-                    <h4><%= cour.title %> </h4>
-                    <p><%= cour.summary %> </p>
-                    <button class="remove-cour">Suppression</button>
-                </a>
-            <%} %> 
-            
-        </div>
-        <%} %> 
-    <div class="formation-creation">
-        <h3>Nouvelle formation :</h3>
-        <%- include('../partials/new-formation') %>
-    </div>
-    <% if(formations){%>
-        <div class="formation-container">
-            <h3>Listes des formations :</h3>
-            <% for(const formation of formations){%>
-                <a class="single-cour" href="/admin-formation/<%= formation.id %>">
-                    <h4><%= formation.title %> </h4>
-                    <p><%= formation.summary %> </p>
-                    <button class="remove-formation">Suppression</button>
-                </a>
-            <%} %> 
-            
-        </div>
-        <%} %> 
+<!DOCTYPE html>
+<html lang="fr">
 
-    </div>
-    
-</div>
-<%- include('../partials/footer') %> 
+<head>
+    <title>Admin | Journal du Dévx</title>
+    <%- include('../partials/head') %>
+        <meta name="description" content="">
+        <meta name="keywords"
+            content="le journal du dév,programmation,informatique,développement,apprendre,communauté,cours,forums">
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+        <main>
+            <%- include('../partials/header') %>
+                <div id="content">
+                    <div class="cour-creation">
+                        <h3>Nouveau Cours :</h3>
+                        <%- include('../partials/new-cour') %>
+                    </div>
+                    <% if(cours){%>
+                        <div class="cour-container">
+                            <h3>Listes des cours :</h3>
+                            <% for(const cour of cours){%>
+                                <a class="single-cour" href="/admin-cour/<%= cour.id %>">
+                                    <h4>
+                                        <%= cour.title %>
+                                    </h4>
+                                    <p>
+                                        <%= cour.summary %>
+                                    </p>
+                                    <button class="remove-cour">Suppression</button>
+                                </a>
+                                <%} %>
+
+                        </div>
+                        <%} %>
+                            <div class="formation-creation">
+                                <h3>Nouvelle formation :</h3>
+                                <%- include('../partials/new-formation') %>
+                            </div>
+                            <% if(formations){%>
+                                <div class="formation-container">
+                                    <h3>Listes des formations :</h3>
+                                    <% for(const formation of formations){%>
+                                        <a class="single-cour" href="/admin-formation/<%= formation.id %>">
+                                            <h4>
+                                                <%= formation.title %>
+                                            </h4>
+                                            <p>
+                                                <%= formation.summary %>
+                                            </p>
+                                            <button class="remove-formation">Suppression</button>
+                                        </a>
+                                        <%} %>
+
+                                </div>
+                                <%} %>
+
+                </div>
+
+
+                </div>
+        </main>
+        <%- include('../partials/footer') %>
+</body>
+
+</html>

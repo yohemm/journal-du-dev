@@ -1,0 +1,18 @@
+<nav id="menu-nav">
+  <ul id="nav-bar">
+    <div class="link">
+      <li><a href="/">Acceuil</a></li>
+      <li><a href="/cours">Cours</a></li>
+      <li><a href="/forum">Forum</a></li>
+      <li><a href="/market">Marché</a></li>
+      <li><a href="/projet">Projet</a></li>
+    </div>  
+    <li><img src="../img/bg_settings_user.png" alt="background profile settings" width="400" height="400"> 
+      <% if(avatar == undefined || avatar == '') { %> 
+        <img src="../img/avatars/default.svg" alt="profile settings" id="img-avatar" width="50" height="50">
+      <% } else { %>
+        <img src="../img/avatars/<%= avatar %> " alt="profile settings" id="img-avatar">
+      <% }; %> 
+    </li>
+  </ul>
+</nav>

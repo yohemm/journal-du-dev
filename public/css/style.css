@@ -4,6 +4,10 @@
     --interactif: #16A085;
     --important: #F39C12;
     --green-gradiant: linear-gradient(45deg, var(--interactif) 20%, var(--main) 60%);
+    --space-paragraph: 16px;
+    --space-section: calc(var(--space-paragraph) * 2);
+    --space-line: calc(var(--space-paragraph) / 2);
+    --space-border: calc(var(--space-line) / 2);
 }
 @font-face {
     font-family: "poppins";
@@ -29,33 +33,50 @@ body{
     background: rgb(227, 227, 227);
     font-size: 1.2rem;
 }
-strong{
-    color: var(--important);
-    background-clip: text;
-    background: linear-gradient(45deg, var(--important) 0% 60%, var(--interactif) 100%);
-    background: -webkit-linear-gradient(45deg, var(--important) 0% 60%, var(--interactif) 100%);
-    -webkit-background-clip: text;
-    text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-
-}
-.hide{
-    display: none !important;
-}
-
-nav ul{
-    display: inline-flex;
-    width: 100%;
-}
-nav ul .link{
-    display: flex;
-    width: 80%;
-}
 textarea{
     resize: none;
 }
 li{
     list-style-type: none;
+}
+
+main{
+    margin: 0 5vw;
+    padding: var(--space-section) 40px;
+    padding-top: calc(var(--space-section) * 3);
+    min-height: 100vh;
+    box-shadow: 0 0 15px 4px;
+    background: var(--backgroung);
+}
+header{
+    margin-bottom: 20px;
+    border-bottom: 10px dashed var(--important);
+    margin-top: var(--space-section);
+}
+h2{
+    font-size: 2.2rem;
+    letter-spacing: 4px;
+}
+h3{
+    font-size:  2rem;
+    letter-spacing: 3px;
+    
+}
+h4{
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+}
+h5{
+    font-size: 1.4rem ;
+    letter-spacing: 1px;
+}
+
+h4 a{
+    font-size: 1.4rem;
+    text-shadow: 0 0 2px var(--main);
+}
+section{
+    padding: 3vh 0;
 }
 
 a{
@@ -65,9 +86,95 @@ a:hover{
     color: var(--main) ;
     transition: all 0.1s ease-out;
 }
-h4 a{
-    font-size: 1.4rem;
-    text-shadow: 0 0 2px var(--main);
+#content p{
+    padding-top: 1rem;
+}
+a.btn {
+    display: inline-block;
+    position: relative;
+    left: 40%;
+    min-width: 10vw;
+    margin-top: var(--space-line);
+    margin-bottom: var(--space-paragraph);
+    text-align: center;
+    background: linear-gradient(45deg, var(--backgroung) 50%, var(--main) 50%, var(--interactif) 75% 100%);
+    background-repeat: no-repeat;
+    background-size: 200%;
+    color: var(--interactif);
+    border-radius: 5px;
+    border: var(--space-border) solid var(--interactif);
+    transition: all 0.2s ease-in;
+    padding: var(--space-line);
+    text-decoration: underline solid var(--space-border);
+}
+a.btn:hover {
+    text-decoration: underline solid calc(var(--space-border) / 2);
+    text-align: center;
+    background-position: 100%;
+    color: var(--backgroung);
+    border-radius: 5px;
+    border: var(--space-border) solid var(--backgroung);
+}
+strong{
+    color: var(--important);
+    background-clip: text;
+    background: linear-gradient(45deg, var(--important) 0% 60%, var(--interactif) 100%);
+    background: -webkit-linear-gradient(45deg, var(--important) 0% 60%, var(--interactif) 100%);
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+
+.hide{
+    display: none !important;
+}
+
+nav{
+    background: var(--green-gradiant);
+    margin-top: var(--space-section);
+    z-index: 15;
+    box-shadow: 0 0 20px ;
+    position: fixed;
+    width: 100%;
+}
+nav ul{
+    display: inline-flex;
+    width: 100%;
+}
+nav ul .link{
+    display: flex;
+    width: 80%;
+}
+nav ul li{
+    height: calc(var(--space-section) * 2);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: var(--space-border) solid var(--main);border-top: var(--space-border) solid var(--main);border-bottom: var(--space-border) solid var(--main);
+    transition: all 0.2s;
+    color: var(--important);
+    background: linear-gradient(to left, transparent 50%, var(--important) 60% 90%, transparent);
+    background-size: 200%;
+    background-position: 100%;
+}
+nav ul li:hover{
+    background-position: 0%;
+}
+
+nav ul li:hover > a{
+    color: var(--main);
+}
+nav ul li a{
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: inherit;
+    line-height: 60px;
 }
 nav ul li img:nth-last-child(1){
     position: absolute;
@@ -93,101 +200,26 @@ nav ul > li:nth-last-child(1){
 .grow-anim{
     animation: grow-anim 1s ease-in 0s 1;
 }
-nav ul li{
-    height: 60px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid var(--main);
-    transition: all 0.2s;
-    color: var(--important);
-    background: linear-gradient(to left, transparent 50%, var(--important) 60% 90%, transparent);
-    background-size: 200%;
-    background-position: 100%;
-}
-nav{
-    backdrop-filter: blur(10px);
-    background: var(--green-gradiant);
-    margin-top: 5vh;
-    z-index: 15;
-    box-shadow: 0 0 20px ;
-    position: fixed;
-    width: 100%;
-}
 main header  span{
     color: var(--important);
     text-shadow: 0 0 3px var(--main);
 }
 
-nav ul li:hover{
-    background-position: 0%;
-}
-
-nav ul li:hover > a{
-    color: var(--main);
-}
-nav ul li a{
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    color: inherit;
-    line-height: 60px;
-}
-
-main{
-    margin: 0 5vw;
-    padding: 15px 40px;
-    min-height: 100vh;
-    box-shadow: 0 0 15px 4px;
-    background: var(--backgroung);
-}
-
-header{
-    margin-bottom: 20px;
-    border-bottom: 10px dashed var(--important);
-    margin-top: 10vh;
-}
 header h2{
-    padding-left: 13vw;
     font-size: 2.2rem;
-    letter-spacing: 4px;
-    line-height: 140px;
+    letter-spacing: var(--space-border);
+    padding: var(--space-paragraph) 0;
+    padding-left: var(--space-section);;
+    
 }
 header h3{
-    padding-left: 5vw;
     font-size:  1.5rem;
+    padding: var(--space-paragraph) 0;
+    padding-left: var(--space-paragraph);
 }
 header h4{
     margin-left: 5vw;
 }
-h2{
-    font-size: 2.2rem;
-    letter-spacing: 4px;
-    line-height: 140px;;
-}
-h3{
-    font-size:  2rem;
-    letter-spacing: 3px;
-
-}
-h4{
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-    line-height: 60px;
-}
-h5{
-    font-size: 1.4rem ;
-    line-height: 40px;
-    letter-spacing: 1px;
-}
-
-section{
-    padding: 3vh 0;
-}
-
 .presentation-box{
     margin: 10px;
     border-top: solid 1px var(--backgroung);
@@ -197,19 +229,13 @@ section{
     margin-left: 2vw;
 }
 
-#other-presentation, #content-cards{
-    border-bottom: 4px double var(--important);
-    box-shadow: 0px 6px 8px -5px var(--important);
-}
-
 footer{
     background: var(--green-gradiant);
-    padding: 30px 4vw;
+    padding: var(--space-section) 0;
     box-shadow: 0px -3px 17px 0px;
     text-align: center;
 }
 footer p {
-    
     color: var(--backgroung);
 }
 .lesson-card{
@@ -545,8 +571,9 @@ form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-
 
 
 #lessons-container, #cursus-container{
+    margin: var(--space-paragraph);
     display: grid;
-    grid-gap: 40px;
+    grid-gap: var(--space-section);
     grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
     grid-auto-flow: dense;
     z-index: 2;
@@ -564,6 +591,7 @@ form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-
     background:  linear-gradient(135deg, var(--interactif) 30%, transparent 55%),linear-gradient(225deg, var(--backgroung) 0% 2%, var(--main) 10%);
     border: 6px var(--important) solid;
     border-radius: 5px;
+    padding: var(--space-line);
     
 }
 .card-content > div{
