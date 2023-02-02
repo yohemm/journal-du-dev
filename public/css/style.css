@@ -9,14 +9,15 @@
     --space-line: calc(var(--space-paragraph) / 2);
     --space-border: calc(var(--space-line) / 2);
 }
-@font-face {
-    font-family: "poppins";
-    src: url(./assets/Poppins.ttf);
-}
 
+input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--backgroung);
+}
 /* *{
     outline: 1px red solid;
-} */
+}  */
 
 *, ::after, ::before{
     margin: 0;
@@ -33,8 +34,76 @@ body{
     background: rgb(227, 227, 227);
     font-size: 1.2rem;
 }
+fieldset{
+    border-radius: var(--space-line);
+    border-color: var(--interactif);
+}
+legend{
+    padding: 0 var(--space-line);
+}
+textarea:focus-visible, input:focus-visible{
+    border-color: var(--main) !important;
+    outline: none;
+}
 textarea{
+    transition: border-color 0.2s ease;
     resize: none;
+    min-height: calc(var(--space-section) * 4);
+    background-color: var(--backgroung);
+}
+textarea.v-resize{
+    resize: vertical;
+}
+
+input[type="checkbox"]+label{
+    cursor: pointer;
+    padding: auto;
+    width: 100%;
+    padding-left: var(--space-paragraph);
+}
+input[type="checkbox"]{
+    cursor: pointer;
+    margin: auto 0;
+    display: grid;
+    place-content: center;
+    width: calc(1rem + var(--space-border));
+    height: calc(1rem + var(--space-border));
+    border: var(--space-border) solid var(--interactif);
+    border-radius: var(--space-border);
+}
+input[type="checkbox"]::before{
+    content: "";
+    width: 0.65rem;
+    height: 0.65rem;
+    transform: scale(0);
+    transition: 0.2s transform ease-in-out;
+    box-shadow: inset 1rem 1rem var(--important);
+}
+input[type="checkbox"]:checked::before{
+    transform: scale(1);
+}
+input[type="file"]+label:hover{
+    border-color: var(--important);
+}
+input[type="file"]+label{
+    position: static !important;
+    transform: translate(0) !important;
+    text-align: center;
+    width: 100%;
+    left: 0px !important;
+    margin-top: var(--space-paragraph);
+    cursor: pointer;
+    padding: var(--space-paragraph) var(--space-line);
+    border: var(--space-border) var(--interactif) solid;
+    border-radius:  var(--space-border);
+}
+input[type="file"]+label::before{
+    display: inline-block;
+    content: url(../img/upload-solid.svg);
+    width: 1.4rem;
+}
+input[type="file"]{
+    display: none;
 }
 li{
     list-style-type: none;
@@ -60,7 +129,6 @@ h2{
 h3{
     font-size:  2rem;
     letter-spacing: 3px;
-    
 }
 h4{
     font-size: 1.6rem;
@@ -78,16 +146,58 @@ h4 a{
 section{
     padding: 3vh 0;
 }
-
 a{
+    transition: color 0.2s ease-in;
     color: var(--interactif);
+    text-decoration: solid underline 2px;
+    
 }
 a:hover{
-    color: var(--main) ;
-    transition: all 0.1s ease-out;
+    color: var(--important) ;
+}
+a.link{
+    text-decoration: none;
+    color: var(--interactif);
+    border-bottom: 1px solid  transparent;
+    position: relative;
+}
+a.link:hover{
+    color: var(--important);
+    border-bottom-color: var(--important) ;
+    transition: border 0.1s ease-out;
+}
+a.link::before{
+    content: '';
+    position: absolute;
+    background-color: var(--interactif);
+    left: 0;
+    bottom: -1px;
+    height: 2px;
+    width: 100%;
+    transform: scale(1);
+    transform-origin: right;
+    transition: transform 0.3s ease-in;
+    border-radius: var(--space-border);
+    
+}
+a.link:hover::before{
+    transform: scale(0);
+    transform-origin: left;
+    
+}
+a.link.reverse:hover{
+    transition: none;
+    border-bottom: none;
+}
+a.link.reverse:hover::before{
+    transform: scale(1);
+}
+a.link.reverse::before{
+    transform: scale(0);
+    background-color: var(--important);
 }
 #content p{
-    padding-top: 1rem;
+    padding-top: var(--space-paragraph);
 }
 a.btn {
     display: inline-block;
@@ -101,19 +211,21 @@ a.btn {
     background-repeat: no-repeat;
     background-size: 200%;
     color: var(--interactif);
-    border-radius: 5px;
+    border-radius: var(--space-border);
     border: var(--space-border) solid var(--interactif);
     transition: all 0.2s ease-in;
     padding: var(--space-line);
     text-decoration: underline solid var(--space-border);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 a.btn:hover {
     text-decoration: underline solid calc(var(--space-border) / 2);
     text-align: center;
     background-position: 100%;
     color: var(--backgroung);
-    border-radius: 5px;
-    border: var(--space-border) solid var(--backgroung);
+    border-radius: var(--space-border);
+    border: var(--space-border) solid var(--main);
+    
 }
 strong{
     color: var(--important);
@@ -123,7 +235,9 @@ strong{
     -webkit-background-clip: text;
     text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
-    
+    -webkit-text-stroke: 1px var(--main);
+    font-weight: 600;
+    filter: brightness(0.8);    
 }
 
 
@@ -132,14 +246,15 @@ strong{
 }
 
 nav{
-    background: var(--green-gradiant);
-    margin-top: var(--space-section);
+    padding-top: var(--space-section);
     z-index: 15;
     box-shadow: 0 0 20px ;
     position: fixed;
     width: 100%;
+    backdrop-filter: blur(2px);
 }
 nav ul{
+    background: var(--green-gradiant);
     display: inline-flex;
     width: 100%;
 }
@@ -166,8 +281,15 @@ nav ul li:hover{
 
 nav ul li:hover > a{
     color: var(--main);
+    -webkit-text-stroke: 1px transparent;
+}
+
+nav ul li a::before{
+    background-color: var(--main);
 }
 nav ul li a{
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
     font-size: 1.5rem;
     letter-spacing: 3px;
     width: 100%;
@@ -175,6 +297,8 @@ nav ul li a{
     text-align: center;
     color: inherit;
     line-height: 60px;
+    font-weight: 600;
+    -webkit-text-stroke: 1px var(--main);
 }
 nav ul li img:nth-last-child(1){
     position: absolute;
@@ -248,25 +372,10 @@ footer p {
     cursor: pointer;
     position: relative;
 }
-#content-cards{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    row-gap: 30px;
-    padding: 30px;
-    margin-bottom: 40px;
-}
 .one-card-container:hover > .lesson-card{
     transform: rotateY(180deg);
 }
-#structure-front{
-    background: url(./assets/structure_html.webp) center/cover;
-}
 
-#html-front{
-    background: url(./assets/html.PNG);
-    color: var(--backgroung);
-}
 .lesson-content li{
     list-style-type: space-counter;
 }
@@ -284,23 +393,23 @@ div.lesson-content li{
 div.lesson-content h2,div.lesson-content h3,div.lesson-content h4,div.lesson-content h5{
     line-height: 5rem;
 }
+pre, code{
+    padding: var(--space-line);
+    border-radius: var(--space-line);
+    letter-spacing: 0.2rem;
+    
+}
 code{
     background-color: var(--main);
-    border: 2px solid var(--important);
+    border:var(--space-border) solid var(--important);
     color: var(--backgroung);
-    padding: 1rem;
-    border-radius: 1rem;
     white-space: nowrap;
-    letter-spacing: 0.2rem;
     line-height: 3.2rem;
 }
 pre{
     background-color: var(--main);
-    border: 2px solid var(--important);
+    border: var(--space-border) solid var(--important);
     color: var(--backgroung);
-    padding: 1rem;
-    border-radius: 1rem;
-    letter-spacing: 0.2rem;
 
 }
 
@@ -308,78 +417,59 @@ pre{
 #topic-content h3{
     text-align: center;
 }
-
-#topic-content #topic-explication {
-    border: 4px double var(--important);
-    border-radius: 5px;
-    margin-bottom: 3vh;
-    
-}
-
-#topic-content .topic-answer{
-    border: 2px solid var(--main);
-    margin-bottom: 2vh;
-    background: var(--backgroung);
-}
-
-#topic-content .topic-answer,#topic-content #topic-explication{
-    padding: 1vh 4vw;
-}
-
-#comment-topic{
-    text-align: center;
-    
-}
-
-.form-anim h2 strong{
+.form-anim h2 span{
     color: var(--important);
 }
 .form-anim h2{
     color: var(--main);
-    text-shadow: -2px 2px 0 var(--main),
-                    2px -2px 0 var(--main),
-                    -2px -2px 0 var(--main),
-                    2px 2px 0 var(--main);
     line-height: 2.2rem;
 }
 
 .form-anim .form-groupe label{
     position: absolute;
     top: 50%;
-    left: 0px;
+    left: var(--space-line);
     transform: translateY(-50%);
     color: var(--main);
     transition: 0.4s ease-out;
     font-size: 2rem;
 }
 
-.form-anim .form-groupe input{
+.form-anim .form-groupe input:not([type="file"]){
     display: block;
     width: 100%;
-    padding: 10px 0px;
+    padding: var(--space-line) 0px;
     border: none;
     outline: none;
     background: none;
-    border-bottom: 3px solid var(--main);
+    border-bottom: var(--space-border) solid var(--interactif);
     color: var(--main);
     font-size: 2rem;
     transition: 0.4s ease-out;
 }
-.form-groupe:nth-last-child(2) {
+.form-anim .form-groupe textarea{
+    width: 100%;
+    border: var(--interactif) var(--space-border) solid;
+    border-radius: var(--space-line);
+    padding: var(--space-line);
+}
+.form-groupe.sub {
     margin-bottom: 2vh;
     justify-content: center;
 }
 
-.form-anim .form-groupe{
+.form-anim .form-groupe:not(:has(input[type="file"])){ 
+    margin-top: calc(2rem +  var(--space-line));
     position: relative;
+}
+.form-anim .form-groupe{
     display: flex;
-    margin-bottom: 40px;
 }
 .form-anim .form-groupe input[type="submit"], section#lessons-commentary section#form-comment div input[type="submit"] {
     display: block;
     width: auto;
-    padding: 15px 60px;
-    border: 3px solid var(--interactif);
+    padding: var(--space-paragraph) calc(var(--space-section) * 2);
+    border: var(--space-border) solid var(--interactif);
     border-radius: 999px;
     background-image: linear-gradient(to right, transparent 50%, var(--interactif) 50%, var(--main));
     background-size: 200%;
@@ -390,31 +480,26 @@ pre{
 .form-anim .form-groupe input[type="submit"]:hover, section#lessons-commentary section#form-comment div input[type="submit"]:hover {
     color: var(--backgroung);
     background-position: 100%;
-    border: 3px solid var(--backgroung);
+    border: var(--space-border) solid var(--backgroung);
 }
-
+.form-anim .link-form {
+    padding-bottom: var(--space-line);
+}
 .form-anim .link-form a {
-    margin-left: 2vw;
+    margin-left: var(--space-paragraph);
     font-size: 1.5rem;
-    border-bottom: 2px solid  transparent;
 }
-.form-anim .link-form a:hover{
-    border-bottom-color: var(--important) ;
-}
-.form-anim fieldset {
-    padding-top: 2rem;
-}
-
 /* animation */
 .form-anim .form-groupe:focus-within label,
 .form-anim .form-groupe.animation label{
-    top: 0px;
-    transform: translateY(-100%);
+    top: -1rem;
     color: var(--important);
     font-size: 2rem;
 }
-.form-anim .form-groupe:focus-within input :not([type="submit"]),
-.form-anim .form-groupe.animation input :not([type="submit"]){
+.form-anim .form-groupe:focus-within input:not([type="submit"]):not([type="checkbox"]),
+.form-anim .form-groupe.animation input:not([type="submit"]):not([type="checkbox"]),
+.form-anim .form-groupe:focus-within textarea,
+.form-anim .form-groupe.animation textarea{
     border-color: var(--important);
 }
 
@@ -423,24 +508,26 @@ pre{
 section#lessons-commentary {
 }
 section#lessons-commentary section#all-comments{
-    border: var(--main) 1px solid;
-    padding: 10px;
-    border-radius: 10px;
+    border: var(--main) var(--space-border) solid;
+    padding: var(--space-paragraph);
+    border-radius: var(--space-line);
     
 }
 section#lessons-commentary section#all-comments .comment-container{
     border: var(--main) 1px solid;
-    margin: 1vh 0;
-    padding: 2vh 1vw;
-    border-radius: 10px;
+    margin: var(--space-paragraph) 0;
+    padding: var(--space-line) var(--space-paragraph);
+    border-radius: var(--space-border);
 }
 section#lessons-commentary section#all-comments .comment-container{
     width: 100%;
 }
+section#lessons-commentary section#all-comments .comment-container p {
+    padding-top: 0;
+}
 section#lessons-commentary section#all-comments .comment-container .author{
-    width: 80%;
     font-size: 1.4rem;
-    margin-left: 1vw;
+    margin-left: var(--space-line);
     font-weight: 600;
 }
 section#lessons-commentary section#all-comments .comment-container .created-at{
@@ -452,7 +539,7 @@ section#lessons-commentary section#all-comments .comment-container .comment{
 }
 section#lessons-commentary section#form-comment div{
     display:flex;
-    margin: 3vh 2vw;    
+    margin-left: var(--space-paragraph); margin-right: var(--space-paragraph);margin-bottom: var(--space-paragraph);
 }
 section#lessons-commentary section#form-comment{
 }
@@ -460,11 +547,6 @@ section#lessons-commentary section#form-comment{
 section#lessons-commentary section#form-comment div input[type="submit"] {
     transition: 0.4s ease-out;
 }
-section#lessons-commentary section#form-comment div.form-btn {
-    display: flex;
-    justify-content: center;
-}
-
 @keyframes grow-anim {
     100% {transform: scale(10);}
 }
@@ -475,8 +557,8 @@ section#lessons-commentary section#form-comment div.form-btn {
 #cursus div{
     position: relative;
     background: var(--important);
-    min-height: 4.1rem  ;
-    padding-left: 10px;
+    min-height: 4.1rem;
+    padding-left: var(--space-line);
 }
 #cursus .past{
     background: var(--interactif);
@@ -492,15 +574,15 @@ section#lessons-commentary section#form-comment div.form-btn {
     top: 0px;
     left: 0px;
     border-top: calc(4.1rem + 1px) solid var(--backgroung);
-    border-right: 10px solid var(--important);
+    border-right: var(--space-line) solid var(--important);
     width: 0;
     z-index: 1;
 }
 #cursus .past::before{
-    border-right: 10px solid var(--interactif);
+    border-right: var(--space-line) solid var(--interactif);
 }
 #cursus .current::before{
-    border-right: 10px solid var(--main);
+    border-right: var(--space-line) solid var(--main);
 }
 
 #cursus div::after{
@@ -509,15 +591,15 @@ section#lessons-commentary section#form-comment div.form-btn {
     top: 0px;
     right: 0px;
     border-bottom: calc(4.1rem + 1px) solid var(--backgroung);
-    border-left: 10px solid var(--important);
+    border-left: var(--space-line) solid var(--important);
     width: 0;
     z-index: 1;
 }
 #cursus .past::after{
-    border-left: 10px solid var(--interactif);
+    border-left: var(--space-line) solid var(--interactif);
 }
 #cursus .current::after{
-    border-left: 10px solid var(--main);
+    border-left: var(--space-line) solid var(--main);
 }
 
 #cursus li{
@@ -526,7 +608,8 @@ section#lessons-commentary section#form-comment div.form-btn {
 
 }
 #cursus a{
-    padding: 0 10px;
+    padding: 0 var(--space-line);
+    text-decoration: none;
     color: var(--main);
     text-align: center;
     width: 100%;
@@ -541,7 +624,7 @@ section#lessons-commentary section#form-comment div.form-btn {
 /* ? Lessons-container*/
 form#container-lessons-filter{
     display: flex;
-    padding-bottom: 15px;
+    padding-bottom: var(--space-paragraph);
     
 }
 form#container-lessons-filter input[type="checkbox"]{
@@ -549,17 +632,18 @@ form#container-lessons-filter input[type="checkbox"]{
 
 }
 form#container-lessons-filter label[for="cours-lessons"]{
+    width: auto;
     background-color: var(--main);
-    padding: 4px 0;
+    padding: var(--space-border) 0;
     border: 1px solid black;
-    border-radius: 4px;
+    border-radius: var(--space-border);
     cursor: pointer;
 }
 form#container-lessons-filter label[for="cours-lessons"] span.cour-input{
     background-color: var(--important);
 }
 form#container-lessons-filter label[for="cours-lessons"] span{
-    padding: 4px;
+    padding: var(--space-border);
     color: var(--backgroung);
 }
 form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-lessons"] span.cour-input{
@@ -588,9 +672,10 @@ form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-
 }
 #lessons-container .card-lesson::after, #cursus-container .card-cursus::after, #lessons-container .card-lesson::before, #cursus-container .card-cursus::before,
 #lessons-container .card-lesson .card-content, #cursus-container .card-cursus .card-content{
+    
     background:  linear-gradient(135deg, var(--interactif) 30%, transparent 55%),linear-gradient(225deg, var(--backgroung) 0% 2%, var(--main) 10%);
-    border: 6px var(--important) solid;
-    border-radius: 5px;
+    border: var(--space-border) var(--important) solid;
+    border-radius: var(--space-border);
     padding: var(--space-line);
     
 }
@@ -612,7 +697,7 @@ form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-
     z-index: 2;
     position: absolute;
     top: 0;bottom: 0;right: 0;left: 0;
-    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.51);
+    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.51), rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 #lessons-container .card-lesson::after, #cursus-container .card-cursus::after, #lessons-container .card-lesson::before, #cursus-container .card-cursus::before{
     content: "";
@@ -653,11 +738,11 @@ form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-
     line-height: 2rem;
     text-align: center;
     color: var(--important);
-    border-bottom: 4px solid var(--interactif);
+    border-bottom: var(--space-border) solid var(--interactif);
 }
 #cursus-container .card-cursus .cursus-desc, #lessons-container .card-lesson .lesson-desc{
     padding: 0;
-    margin: 0 15px;
+    margin: 0 var(--space-paragraph);
     font-size: 1.3rem;
     line-height: 1.4rem;
     overflow-y: scroll;

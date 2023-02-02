@@ -1,17 +1,22 @@
-<div class="cour-creation">
+<div class="form-anim">
     <form action="create-formation" method="post">
-        <div class="fieldset">
-            <label for="title">Titre :</label>
-            <input type="text" name="title" id="title">
-        </div>
-        <div class="fieldset">
-            <label for="desc">Description :</label>
+        <fieldset>
+            <legend>creation de formation</legend>
+            <div class="form-groupe">
+                <label for="title">Titre :</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="form-groupe">
+                <label for="desc">Description :</label>
             <textarea name="desc" id="desc" cols="100" rows="10"></textarea>
         </div>
-        <div class="fieldset">
+        <div class="form-groupe">
             <label for="time">Difficulté :</label>
             <input type="number" name="difficulty" id="difficulty">
         </div>
-        <input type="submit" id="new-fomation">
+        <div class="form-groupe sub">
+            <input type="submit" id="new-fomation">
+        </div>
+        </fieldset>
     </form>
 </div>

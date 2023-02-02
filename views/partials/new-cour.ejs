@@ -1,27 +1,33 @@
-<form action="create-cour" method="post">
-    <div class="fieldset">
-        <label for="author">Auteur :</label>
-        <input type="text" name="author" id="author">
-    </div>
-    <div class="fieldset">
-        <label for="title">Titre :</label>
-        <input type="text" name="title" id="title">
-    </div>
-    <div class="fieldset">
-        <label for="summary">Sommaire :</label>
-        <textarea name="summary" id="summary" cols="100" rows="10"></textarea>
-    </div>
-    <div class="fieldset">
-        <label for="content">Contenue :</label>
-        <textarea name="content" id="content" cols="100" rows="10"></textarea>
-    </div>
-    <div class="fieldset">
-        <label for="desc">Description :</label>
-        <textarea name="desc" id="desc" cols="100" rows="10"></textarea>
-    </div>
-    <div class="fieldset">
-        <label for="time">Temps(minutes) :</label>
-        <input type="number" name="time" id="time">
-    </div>
-    <input type="submit" id="new-cour">
+<form action="create-cour" method="post" class="form-anim">
+    
+    <fieldset>
+            <legend>creation de cour</legend>
+        <div class="form-groupe">
+            <label for="author">Auteur :</label>
+            <input type="text" name="author" id="author">
+        </div>
+        <div class="form-groupe">
+            <label for="title">Titre :</label>
+            <input type="text" name="title" id="title">
+        </div>
+        <div class="form-groupe">
+            <label for="summary">Sommaire :</label>
+            <textarea name="summary" id="summary" cols="100" rows="10"></textarea>
+        </div>
+        <div class="form-groupe">
+            <label for="content">Contenue :</label>
+            <textarea name="content" id="content" cols="100" rows="10"></textarea>
+        </div>
+        <div class="form-groupe">
+            <label for="desc">Description :</label>
+            <textarea name="desc" id="desc" cols="100" rows="10"></textarea>
+        </div>
+        <div class="form-groupe">
+            <label for="time">Temps(minutes) :</label>
+            <input type="number" name="time" id="time">
+        </div>
+        <div class="form-groupe sub">
+            <input type="submit" id="new-cour">
+        </div>
+    </fieldset>
 </form>

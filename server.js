@@ -367,7 +367,7 @@ function admin(){
   app.get("/admin-cour/:id", (req, res)=>{
     lesson.Cour.find(req.params.id, (cour)=>{
       verifAcces(req, res, 4, ()=>{
-        res.render("partials/update-cour", {cour:cour})
+        res.render("pages/admin-cour", {cour:cour})
       })
     })
   })
@@ -375,7 +375,7 @@ function admin(){
   app.get("/admin-formation/:id", (req, res)=>{
     lesson.Formation.find(req.params.id, (formation)=>{
       verifAcces(req, res, 4, ()=>{
-        res.render("partials/update-formation", {formation:formation})
+        res.render("pages/admin-formation", {formation:formation})
       })
     })
   })

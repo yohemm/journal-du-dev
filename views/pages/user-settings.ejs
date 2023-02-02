@@ -30,16 +30,16 @@
                                 <Label>Votre Bio</Label>
                                 <textarea name="bio" id="bio" cols="30" rows="10"><%= user.bio %></textarea>
                             </div>
-                            <div>
-                                <Label>Votre photo de profile</Label>
+                            <div class="form-groupe">
                                 <input type="file" name="avatar" id="profile-img"
                                     accept="image/png, image/gif, image/jpeg" />
+                                <Label for="profile-img">Votre photo de profile</Label>
                             </div>
-                            <div class="form-groupe">
+                            <div class="form-groupe sub">
                                 <input type="submit" value="Modifier">
                             </div>
                             <div class="link-form">
-                                <a href="/logout">Déconnetion</a>
+                                <a href="/logout" class="link">Déconnetion</a>
                             </div>
                         </fieldset>
                     </form>
