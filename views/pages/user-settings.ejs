@@ -4,14 +4,20 @@
 <head>
     <title>Paramétre utilisateur | Journal du Dév</title>
     <%- include('../partials/head') %>
+    <style>
+        .transition-bg{
+            transition: background-color 0.2s ease-in;
+        }
+    </style>
+    
         <meta name="description" content="Accédez à vos paramètres utilisateur sur notre site HTML5 pour personnaliser votre expérience en ligne. Modifiez vos informations de profil, gérez vos notifications et ajustez vos préférences en toute simplicité.">
         <meta name="keywords"
             content="le journal du dév,programmation,informatique,développement,apprendre,communauté,cours,forums,parametre settings,user,utilisateur">
 </head>
 
-<body>
+<body class="green">
     <%- include('../partials/nav') %>
-        <main>
+        <main class="green">
             <%- include('../partials/header') %>
                 <div id="content">
                     <h2>Les parametres utilisateurs</h2>
@@ -46,6 +52,7 @@
                 </div>
         </main>
         <%- include('../partials/footer') %>
+        <script src="../js/user-settings.js"></script>
 </body>
 
 </html>

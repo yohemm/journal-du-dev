@@ -27,7 +27,6 @@ input[type="checkbox"]{
     box-sizing: border-box;
     color: var(--main);
 }
-
 body{
     overflow: hidden;
     overflow-y: scroll;
@@ -761,4 +760,7 @@ form#container-lessons-filter input[type="checkbox"]:checked ~ label[for="cours-
 }
 #cursus-container .card-cursus .etapes{
     color: var(--interactif);
+}
+.green{
+    background-color: var(--interactif);
 }

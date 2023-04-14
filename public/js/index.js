@@ -1,5 +1,6 @@
-listeEl = document.querySelector('nav ul > li')
-userSettingsBtn = listeEl.querySelector('img');
+const elementList = document.querySelectorAll('body, main');
+const listeEl = document.querySelector('nav ul > li')
+const userSettingsBtn = listeEl.querySelector('img');
 listeEl.addEventListener('click', () => {
     listeEl.classList.toggle('grow-anim');
 })
@@ -8,6 +9,8 @@ userSettingsBtn.addEventListener('click', () => {
 })
 
 listeEl.addEventListener('animationend', () => {
-    console.log('harra')
+    elementList.forEach((element)=>{
+        element.classList.add('green')
+    })
     document.location.href = '/user';
 })
