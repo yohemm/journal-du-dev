@@ -1,0 +1,28 @@
+Le Journal du Dev, pour les informaticiens de tous niveaux niveau qui souhaite approfondir/découvrir de nouvelles connaissances. Notre objectif est de créer une communauté francophone au tour de l'informatique via une plate-forme autonome qui permet à n'importe quelle développeur de trouver les informations qu'il souhaite.
+
+Le site permet pour volonté future de permettre à tous ses visiteurs de trouver d'apprendre l'informatique dans plein de domaine distinct grace aux formations et leçons en ligne, de résoudre/comprendre ses erreurs, aider à des programmeurs en besoin ou bien juste discuter avec d'autre développeurs via les différents Forums,ou bien rejoindre/fonder des projets open source pour concrétiser ses connaissances à l'aide de la page consacrée au projet.
+
+Bien que le JdD soit un projet web complet, il n'est pour l'instant qu'un site web indépendant en cours de développement créer par une personne lors de son temps libre, par conséquent les mises à jour où les ajouts de grosse fonctionnalité ne peuvent donc pas etre constant.
+
+Le site web n'était actuellement pas rentable et le fait que la mentalité du projet ne correspond pas avec idée de modèle économique t'elles que la location de places pour des pubs au sein du site ou bien des ressources exclusif à des membres "premium".Nous essayons de trouver un modèle de dont récompensé via des cosmiques à l'intérieur de site web, afin de permettre de faire participer les visiteurs qui le souhaitent/peuvent tout en remerciant via des décorations qui permettent de vous mettre en avant au sein du site.
+
+Il existe de type de cursus d'apprentissage différent au sein du site, les formations et les leçons. Si vous souhaitez trouver des informations précises, les leçons sont le format parfait, ce sont juste une page web, qui servent de ressource et qui parlent en général d'un sujet précis.Mais si au contraire vous souhaitez apprendre, approfondir, ou réviser tout un domaine de l'informatique je ne peux que vous conseiller les formations, qui ne sont qu'une suite ordonnée de leçons, mais qui permet justement d'apprendre les choses dans l'ordre et de ne pas sauté d'étapes crutials.
+
+Il se peut que les ressources que vous chercher ne soit actuellement indisponible, dans ce cas la je vous conseille de demander des informations au sein des forums.
+
+
+
+
+Bienvenue dans la communauté du Journal du Dev !
+
+Chez nous, vous entrez dans un univers dédié à l'informatique où vous pouvez grandir, apprendre et vous épanouir en tant que développeur. Que vous soyez un novice curieux ou un expert passionné, vous trouverez ici une communauté dynamique prête à vous accueillir.
+
+Formations en ligne : Explorez nos formations en ligne conçues pour vous aider à développer vos compétences informatiques. Que vous souhaitiez vous spécialiser dans un domaine précis ou élargir vos connaissances générales, nos cours interactifs et ludiques sont adaptés à tous les niveaux. Apprenez à votre rythme et progressez à travers des leçons structurées qui vous guideront pas à pas vers la maîtrise de sujets passionnants.
+
+Forums interactifs : Échangez avec d'autres passionnés d'informatique grâce à nos forums interactifs. Partagez vos expériences, posez des questions, et obtenez des réponses de la part de notre communauté bienveillante. Les forums du Journal du Dev sont un lieu d'échange où vous pourrez vous connecter avec des personnes partageant les mêmes intérêts, collaborer sur des projets et trouver des solutions aux défis auxquels vous êtes confrontés.
+
+Projets open source : Faites partie de l'action en vous impliquant dans nos projets open source. Contribuez à des initiatives collaboratives, travaillez aux côtés de développeurs talentueux et ajoutez de la valeur à la communauté. Les projets open source du Journal du Dev offrent une opportunité unique de mettre en pratique vos compétences, d'apprendre des autres et de faire une réelle différence dans le monde de l'informatique.
+
+À Propos de Nous : Le Journal du Dev est une plateforme autonome en constante évolution. Notre objectif est de créer une communauté francophone autour de l'informatique, où chaque développeur peut trouver les informations et le soutien dont il a besoin. Nous nous engageons à fournir des ressources de qualité, des formations enrichissantes et un espace d'échange convivial. Rejoignez-nous pour faire partie de cette aventure et apportez votre contribution à l'évolution de notre communauté.
+
+Au Journal du Dev, nous croyons en la puissance de la collaboration, de l'apprentissage continu et du partage des connaissances. Nous sommes impatients de vous accueillir dans notre communauté et de vous accompagner dans votre parcours informatique. Préparez-vous à vous immerger dans un environnement stimulant où votre passion pour le développement sera nourrie et votre potentiel exploité au maximum. Rejoignez-nous dès aujourd'hui et faites partie de la communauté du Journal du Dev !

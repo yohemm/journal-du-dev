@@ -1,0 +1,47 @@
+strat:
+3 types listes lessons -> 3 sommaires -> chaque page
+
+tu un expert dans l'apprentissage, l'enseignement et  dans l'informatique en général, plus précisement dans le domaine ..., Je souhaite que tu m'aide a résoudre un probleme crutial pour moi. Répond "ok" si c'est bon pour toi.
+
+Mon probleme est le suivant: Je dois réaliser une liste de chose a apprend pour pouvoir réaliser un formation par la suite concernant le domaine du ... . Les formations sont stocker sur un site web au format text.
+Voici quelle que information sur les lessons, ceux sont des lessons qui parcours tout les niveaux progressivement, dans chaques lesson un domain précis du domain aborder.
+Voici quelque information a propos des formations. ce sont des formations gratuites en libre access qui permette d'apprend tout sur un dommaine quel que sois le niveau, du plus basic, aux principes les plus expérimentés. Une formation comporte une suite ordonné de lessons. 
+Voici quelle que information concernant le site web, c'est un site qui souhaite créer un communauté autour de l'informatique francophone avec des cours, des forums,... . Le site a pour but de rendre l'informatique accesssible a tous tout en étant ludique et original.
+Peut tu me proposer une liste de chose a apprend intéressant, complete qui comporte tout les choses a aprandrendre dans une formation. Dans ta reflexion, prend en compte les informations concernant les lessons, la formation et le site web.
+
+
+
+
+
+tu un expert dans l'apprentissage, l'enseignement et  dans l'informatique en général, plus précisement dans le domaine ..., Je souhaite que tu m'aide a résoudre un probleme crutial pour moi. Répond "ok" si c'est bon pour toi.
+
+Mon probleme est le suivant: Je dois réaliser un sommaire d'une suites de lessons pour une formation concernant le domaine du ... . Les formations sont stocker sur un site web au format text.
+Voici la liste des composants:
+- Variables : déclaration, types de données (nombre, chaîne de caractères, booléen), affectation, portée.
+- Opérateurs : arithmétiques, logiques, de comparaison.
+- Structures de contrôle : conditionnelles (if/else), boucles (for, while), instructions de saut (break, continue).
+- Fonctions : déclaration, paramètres, valeur de retour, portée des variables.
+- Tableaux (Array) : création, manipulation (ajout, suppression d'éléments), itération.
+- Objets : création, propriétés, méthodes, accès aux propriétés.
+- Fonctions fléchées : utilisation, différences avec les fonctions traditionnelles.
+- Manipulation de chaînes de caractères : concaténation, extraction de sous-chaînes, méthodes utiles.
+- Manipulation des dates : création, formatage, manipulation (ajout de jours, de mois, etc.).
+- Gestion des erreurs : blocs try/catch, gestion des exceptions.
+- Modules et import/export : découpage du code en modules réutilisables.
+- Promesses : gestion des opérations asynchrones, chaînage, résolution/rejet.
+- Manipulation des tableaux (Array) avancée : méthodes forEach, map, filter, reduce.
+- Programmation orientée objet : classes, héritage, encapsulation, polymorphisme.
+- Manipulation des objets avancée : méthodes utiles (Object.keys, Object.values), destructuration.
+- Asynchronicité avancée : utilisation de l'async/await pour simplifier la gestion des promesses.
+- Manipulation du localStorage : stockage de données dans le navigateur.
+Voici quelle que information sur les lessons, les lessons sont comme une page d'une formation, elle permet d'ograniser celle ci. chaques lesson permet d'apprend un ou plusieur composant, en fonction de la difficulté des composant et des affinité etre celle-ci.
+Voici quelque information a propos des formations. ce sont des formations gratuites en libre access. chaque formation d'apprend tout sur un dommaine allant des fondamentaux aux concepts plus avancés en abordant tous les composant lister. Une formation comporte une suite ordonné de lessons.
+Voici quelle que information concernant le site web, c'est un site qui souhaite créer un communauté autour de l'informatique francophone avec des cours, des forums,... . Le site a pour but de rendre l'informatique accesssible a tous tout en étant ludique et original.
+Peut tu me proposer 3 formation intéressant avec des lessons qui regrouppe differament les composants tout en gardant tout les composants aborder. Dans ta reflexion, prend en compte les informations concernant  la liste des composants, les lessons, la formation et le site web.
+
+quelle sont toutes les ressources a faire aprendre sur un cours de ..., ces ressources doivent etre de tout niveau que se sois les ressource les plus accessibles, ou les ressoures les plus technique. n'hésita pas a etre créatif et propose moi une plusieur liste, n'hésite pas a etre détailler
+
+Super maintenant trie cette liste pour grouper/trier les ressource par categorie, fais moi plusieur solution avec leur nom de categorie et les ressources qu'il contient. un ressource doit etre seulement dans une catégrorie. donne moi plussieur solutions possible.
+
+rédige moi un sommaire de cours comportant toutes les catégories de ressource pour que l'apprentissage sois progressif, intuitif et original
+

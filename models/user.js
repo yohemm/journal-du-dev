@@ -6,18 +6,18 @@ class User{
     this.row = row;
   }
   
-  set name(name){
-    if(name){
-      connection.query("UPDATE user SET name=? WHERE email=?;--", [name,this.row.email], (err, res)=>{
+  set pseudo(pseudo){
+    if(pseudo){
+      connection.query("UPDATE Users SET pseudo=? WHERE email=?;--", [pseudo,this.row.email], (err, res)=>{
         if(err) throw err;
-        this.row.name = name
+        this.row.pseudo = pseudo
         return true;
       })
     }
   }
   set email(email){
     if(email){
-      connection.query("UPDATE user SET email=? WHERE id=?;--", [email,this.row.id], (err, res)=>{
+      connection.query("UPDATE Users SET email=? WHERE id=?;--", [email,this.row.id], (err, res)=>{
         if(err) throw err
         this.row.email = email
         return true;
@@ -26,16 +26,16 @@ class User{
   }
   set bio(bio){
     if(bio){
-      connection.query("UPDATE user SET bio=? WHERE id=?;--", [bio,this.row.id], (err, res)=>{
+      connection.query("UPDATE Users SET bio=? WHERE id=?;--", [bio,this.row.id], (err, res)=>{
           this.row.bio = bio;
           return true;
         })
     }
   }
-  set avatar(avatar){
-    if(avatar){
-      connection.query("UPDATE user SET avatar=? WHERE id=?;--", [avatar,this.row.id], (err, res)=>{
-          this.row.avatar = avatar;
+  set profilePicture(profilePicture){
+    if(profilePicture){
+      connection.query("UPDATE Users SET profilePicture=? WHERE id=?;--", [profilePicture,this.row.id], (err, res)=>{
+          this.row.profilePicture = profilePicture;
           return true;
         })
     }
@@ -43,17 +43,17 @@ class User{
   }
   set password(password){
     if(password){
-      connection.query("UPDATE user SET password=? WHERE id=?;--", [hash.sha256(password).digest('hex'),this.row.id], (err, res)=>{
+      connection.query("UPDATE Users SET password=? WHERE id=?;--", [hash.sha256(password).digest('hex'),this.row.id], (err, res)=>{
           this.row.password = password;
           return true;
         })
     }
     return false;
   }
-  set access(access){
-    if(access){
-      connection.query("UPDATE user SET access=? WHERE id=?;--", [access, this.row.id], (err, res)=>{
-          this.row.access = access;
+  set pass(pass){
+    if(pass){
+      connection.query("UPDATE Users SET pass=? WHERE id=?;--", [pass, this.row.id], (err, res)=>{
+          this.row.pass = pass;
           return true;
         })
       }
@@ -63,8 +63,8 @@ class User{
     return this.row.id;
   }
   
-  get name (){
-    return this.row.name;
+  get pseudo (){
+    return this.row.pseudo;
   }
   get bio (){
     return this.row.bio;
@@ -82,64 +82,64 @@ class User{
     return this.row.email;
   }
   
-  get avatar(){
-    return this.row.avatar;
+  get profilePicture(){
+    return this.row.profilePicture;
   }
-  get access(){
-    return this.row.access;
+  get pass(){
+    return this.row.pass;
   }
 
   delete(callback){
-    connection.query("DELETE FROM user u WHERE u.id=?;--", [this.row.id], (err, res) =>{
+    connection.query("DELETE FROM Users u WHERE u.id=?;--", [this.row.id], (err, res) =>{
       if(err) throw err;
       callback();
     })
   }
 
-  static update(name, email, bio, avatar, id, callback){
-    if(avatar == undefined || avatar ==''){
-      connection.query('UPDATE user SET name=?, email=?, bio=? Where id=?', [name, email, bio, id], (err, res) => {
+  static update(pseudo, email, bio, profilePicture, id, callback){
+    if(profilePicture == undefined || profilePicture ==''){
+      connection.query('UPDATE Users SET pseudo=?, email=?, bio=? Where id=?', [pseudo, email, bio, id], (err, res) => {
         if (err) throw err;
         callback(res);
       })
     }else{
-      connection.query('UPDATE user SET name=?, email=?, bio=?, avatar=? Where id=?', [name, email, bio, avatar, id], (err, res) => {
+      connection.query('UPDATE Users SET pseudo=?, email=?, bio=?, profilePicture=? Where id=?', [pseudo, email, bio, profilePicture, id], (err, res) => {
         if (err) throw err;
         callback(res);
       })
     }
   }
 
-  static create(name, password, email, callback){
-    connection.query('INSERT INTO user(create_time, name, password, email) VALUES(?,?,?,?)', [new Date(), name, hash.sha256().update(password).digest('hex'), email], (err, res) => {
+  static create(pseudo, password, email, callback){
+    connection.query('INSERT INTO Users(create_time, pseudo, password, email) VALUES(?,?,?,?)', [new Date(), pseudo, hash.sha256().update(password).digest('hex'), email], (err, res) => {
       if (err) throw err;
       callback(res);
     });
   }
 
   static findEmail(email, callback){
-    connection.query('SELECT * FROM user WHERE email=? LIMIT 1', [email], (err, res) => {
+    connection.query('SELECT * FROM Users WHERE email=? LIMIT 1', [email], (err, res) => {
       if (err) throw err;
       callback(new User(res[0]));
     })
   }
 
-  static findName(name, callback){
-    connection.query('SELECT * FROM user WHERE name=? LIMIT 1', [name], (err, res) => {
+  static findName(pseudo, callback){
+    connection.query('SELECT * FROM Users WHERE pseudo=? LIMIT 1', [pseudo], (err, res) => {
       if (err) throw err;
       callback(new User(res[0]));
     })
   }
 
   static findId(id, callback){
-    connection.query('SELECT * FROM user WHERE id=? LIMIT 1', [id], (err, res) => {
+    connection.query('SELECT * FROM Users WHERE id=? LIMIT 1', [id], (err, res) => {
       if (err) throw err;
       callback(new User(res[0]));
     })
   }
 
   static all(callback){
-    connection.query("SELECT * FROM user", (err, res) => {
+    connection.query("SELECT * FROM Users", (err, res) => {
       if(err) throw err;
       let result = [];
       for(const row of res){
